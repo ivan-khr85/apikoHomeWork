@@ -1,0 +1,46 @@
+.display {
+	display: inline-block;
+	/* margin: 20px; */
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.display :nth-child(2){
+	margin-left: auto;
+  margin-right: 45px;
+}
+
+.user {
+	box-sizing: border-box;
+	background-color: rgb(140, 140, 140);
+	width: 80%;
+	margin: auto;
+	margin-top: 10px;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: inset 0 0 7px 0.5px  rgb(255, 255, 255);
+}
+
+.userInfo > h3 {
+	margin: auto;
+	margin-top: 30px;
+	margin-bottom: 5px;
+	text-align: center;
+	font-size: 1.3em;
+}
+.user > a {
+
+	display: block;
+	margin-right: 10px;
+	text-align: right;
+	margin-top: 15px;
+	color: #000;
+	text-decoration: none;
+}
+
+.user > a:hover {
+	cursor: pointer;
+	color: #fff;
+}
+
+

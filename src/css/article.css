@@ -1,0 +1,48 @@
+.post {
+	margin: auto ;
+	margin-top: 15px;
+	padding: 10px;
+	width: 70%;
+
+	background-color: rgb(102, 171, 179);
+
+	border-bottom-left-radius: 7px; 
+	
+}
+
+
+.postTitle {
+	margin-top: 25px;
+	margin-bottom: 0;
+}
+
+.postBody {
+	margin-top: 7px;
+}
+
+.userName {
+	font-size: 1.8em;
+	margin: 0;
+	display: inline-block;
+}
+.userName:hover {
+	cursor: pointer;
+	color: #fff;
+}
+
+
+
+.post:hover {
+	box-shadow: inset 0 0 7px 0.5px  rgb(255, 255, 255);
+}
+
+.comments {
+	text-align: center;
+	padding-top: 3px;
+	padding: 6px;
+}
+
+.comments:hover {
+	box-shadow: inset 0 0 7px 0.5px  rgb(255, 255, 255);
+	cursor: pointer;
+}
