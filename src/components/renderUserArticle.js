@@ -16,13 +16,10 @@ export default function renderUserArticle(userId) {
 	fetch(getURLjson(userId))
 		.then(response => response.json())
 		.then(json => {
+
 			removeElem(document.getElementsByClassName('post'));
 			removeElem(document.getElementsByClassName('comment'));
 			removeElem(document.getElementsByClassName('commentsTitle'));
-
-			return json;
-		})
-		.then(json => {
 
 			User(userId);
 
@@ -45,9 +42,7 @@ export default function renderUserArticle(userId) {
 					</div>
 				`);
 				root.appendChild(newPost);
+
 			});
 		});
-
-
-
 }

@@ -12,6 +12,7 @@ let posts = [];
 
 const renderAllArticles = () => {
 	window.history.pushState(null, '', 'articles');
+
 	Promise.all([
 		getJson('https://jsonplaceholder.typicode.com/posts'),
 		getJson('https://jsonplaceholder.typicode.com/users')
@@ -28,9 +29,6 @@ const renderAllArticles = () => {
 		});
 	});
 };
-
-
-
 
 document.getElementById('root').onclick = function (event) {
 	const target = event.target;
