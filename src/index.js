@@ -1,5 +1,7 @@
 
 import isDomElement from './isDomElement';
+import isObject from './isObject';
+import isString from './isString';
 
 const createElement = (tag, props, children) => {
 	let result = null;
@@ -30,21 +32,22 @@ const createElement = (tag, props, children) => {
 
 
 	//work with child value
-	if (children !== undefined && typeof children === 'string') {
+	if (children !== undefined && isString(children)) {
 		let textNode = document.createTextNode(`${children}`);
 		result.appendChild(textNode);
 	}
 
-	if (typeof children === 'object') {
+	if (isObject(children)) {
 		children.forEach((item) => {
 			if (isDomElement(item)) {
 				result.appendChild(item);
-			} else if (typeof item === 'string') {
+			} else if (isString(item)) {
 				let textNode = document.createTextNode(`${item}`);
 				result.appendChild(textNode);
 			}
 		});
 	}
+
 
 
 	return result;
