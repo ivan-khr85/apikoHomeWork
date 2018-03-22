@@ -1,2 +1,2 @@
 const isUndefined = value => value === undefined;
-export default isUndefined;
+export default isUndefined; 

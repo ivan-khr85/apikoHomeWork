@@ -1,2 +1,2 @@
 const isString = str => typeof str === 'string';
-export default isString;
+export default isString; 

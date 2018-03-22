@@ -31,7 +31,6 @@ const createElement = (tag, props, children) => {
 		}
 
 
-
 		//work with child elements
 		if (isString(children)) {
 			const textNode = document.createTextNode(`${children}`);
