@@ -2,15 +2,16 @@
 import isDomElement from './isDomElement';
 import isObject from './isObject';
 import isString from './isString';
+import isUndefined from './isUndefined';
 
 const createElement = (tag, props, children) => {
 	let result = null;
 
 
-	if (tag !== undefined) {
+	if (!isUndefined(tag)) {
 		result = document.createElement(`${tag}`);
 
-		if (props !== undefined && props !== null) {
+		if (!isUndefined(props) && props !== null) {
 			Object.keys(props).forEach((prop) => {
 
 				switch (typeof props[prop]) {
@@ -32,7 +33,7 @@ const createElement = (tag, props, children) => {
 
 
 	//work with child value
-	if (children !== undefined && isString(children)) {
+	if (isString(children)) {
 		let textNode = document.createTextNode(`${children}`);
 		result.appendChild(textNode);
 	}
