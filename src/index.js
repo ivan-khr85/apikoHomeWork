@@ -39,11 +39,13 @@ const createElement = (tag, props, children) => {
 		}
 
 		if (isObject(children)) {
-			children.forEach((item) => {
-				if (isDomElement(item)) {
-					result.appendChild(item);
-				} else if (isString(item)) {
-					const textNode = document.createTextNode(`${item}`);
+			children.forEach((childItem) => {
+
+				if (isDomElement(childItem)) {
+					result.appendChild(childItem);
+
+				} else if (isString(childItem)) {
+					const textNode = document.createTextNode(`${childItem}`);
 					result.appendChild(textNode);
 				}
 			});
