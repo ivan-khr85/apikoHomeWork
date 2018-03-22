@@ -1,4 +1,3 @@
-
 import isDomElement from './isDomElement';
 import isObject from './isObject';
 import isString from './isString';
@@ -7,51 +6,57 @@ import isUndefined from './isUndefined';
 const createElement = (tag, props, children) => {
 	let result = null;
 
+	try {
 
-	if (!isUndefined(tag)) {
-		result = document.createElement(`${tag}`);
+		if (isString(tag)) {
+			result = document.createElement(`${tag}`);
 
-		if (!isUndefined(props) && props !== null) {
-			Object.keys(props).forEach((prop) => {
+			if (!isUndefined(props) && props !== null) {
+				Object.keys(props).forEach((prop) => {
 
-				switch (typeof props[prop]) {
-					case 'string':
-						result[prop] = props[prop];
-						break;
-					case 'object':
-						Object.assign(result[prop], props[prop]);
-						break;
-					default:
-						break;
+					switch (typeof props[prop]) {
+						case 'string':
+							result[prop] = props[prop];
+							break;
+						case 'object':
+							Object.assign(result[prop], props[prop]);
+							break;
+						default:
+							break;
+					}
+				});
+			}
+		} else {
+			throw new SyntaxError('Value incorrect');
+		}
+
+
+
+		//work with child elements
+		if (isString(children)) {
+			const textNode = document.createTextNode(`${children}`);
+			result.appendChild(textNode);
+		}
+
+		if (isObject(children)) {
+			children.forEach((item) => {
+				if (isDomElement(item)) {
+					result.appendChild(item);
+				} else if (isString(item)) {
+					const textNode = document.createTextNode(`${item}`);
+					result.appendChild(textNode);
 				}
 			});
 		}
-	} else {
-		console.error('Don`t have value "tag"');
+		return result;
+
+
+
+
+	} catch (error) {
+		alert(error);
 	}
-
-
-
-	//work with child value
-	if (isString(children)) {
-		let textNode = document.createTextNode(`${children}`);
-		result.appendChild(textNode);
-	}
-
-	if (isObject(children)) {
-		children.forEach((item) => {
-			if (isDomElement(item)) {
-				result.appendChild(item);
-			} else if (isString(item)) {
-				let textNode = document.createTextNode(`${item}`);
-				result.appendChild(textNode);
-			}
-		});
-	}
-
-
-
-	return result;
+	return '<></>';
 };
 
 const render = (element, DomElem) => {
@@ -77,7 +82,7 @@ const app =
 		React.createElement('br'),
 
 		'This is just a text node',
-		React.createElement('div', { textContent: 'Text content' }),
+		React.createElement('div', { textContent: 'Text content' })
 	]);
 
 React.render(
