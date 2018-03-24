@@ -1,0 +1,9 @@
+.article {
+  width: 75%;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 1px dotted;
+  border-radius: 5px;
+  padding: 5px 10px 5px 20px;
+}
