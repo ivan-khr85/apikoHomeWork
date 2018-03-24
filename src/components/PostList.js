@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import PostListItem from './PostListItem';
-import MoreButton from './MoreButton';
-import '../style/postList.css'
+import React, { Component } from "react";
+import PostListItem from "./PostListItem";
+import MoreButton from "./MoreButton";
+import "../style/postList.css";
 
 
 export default class PostList extends Component {
@@ -10,7 +10,7 @@ export default class PostList extends Component {
 
     this.state = {
       countPost: 10,
-    }
+    };
     this.getMorePost = this.getMorePost.bind(this);
   }
 
@@ -18,7 +18,7 @@ export default class PostList extends Component {
   getMorePost() {
     this.setState({
       countPost: this.state.countPost + 10
-    })
+    });
   }
 
   render() {
@@ -35,7 +35,7 @@ export default class PostList extends Component {
           <div key={postItem.id} className="article">
             <PostListItem article={postItem} coutPost={this.state.coutPost} />
           </div>
-        )
+        );
       }
       return (
         <MoreButton clickMorePost={this.getMorePost} />
