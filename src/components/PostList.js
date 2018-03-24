@@ -26,13 +26,13 @@ export default class PostList extends Component {
     const { post } = this.props;
     const { countPost } = this.state;
 
-    const articles = post.map((postItem, index) => {
+    return post.map((postItem, index) => {
       if (index > countPost) return;
 
 
       if (index < countPost) {
         return (
-          <div key={postItem.id} className='article'>
+          <div key={postItem.id} className="article">
             <PostListItem article={postItem} coutPost={this.state.coutPost} />
           </div>
         )
@@ -40,8 +40,6 @@ export default class PostList extends Component {
       return (
         <MoreButton clickMorePost={this.getMorePost} />
       );
-
     });
-    return articles;
   }
 }

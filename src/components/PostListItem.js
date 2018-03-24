@@ -9,8 +9,8 @@ export default class PostListItem extends Component {
 
     return (
       <div>
-        <div className='articleTitle'>{article.title}</div>
-        <div className='articleBody'>{article.body}</div>
+        <div className="articleTitle">{article.title}</div>
+        <div className="articleBody">{article.body}</div>
       </div>
     )
   }
