@@ -1,0 +1,13 @@
+.btnComments {
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  text-align: center;
+  padding: 3px;
+  
+}
+.btnComments:hover {
+  cursor: pointer;
+  border: 1px solid;
+  padding: 2px;
+}

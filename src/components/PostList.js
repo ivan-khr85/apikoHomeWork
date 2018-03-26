@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PostListItem from "./PostListItem";
 import MoreButton from "./MoreButton";
-import "../style/postList.css";
 
 
 export default class PostList extends Component {
@@ -22,7 +21,6 @@ export default class PostList extends Component {
   }
 
   render() {
-
     const { post } = this.props;
     const { countPost } = this.state;
 
@@ -31,14 +29,17 @@ export default class PostList extends Component {
 
       if (index < countPost) {
         return (
-          <div key={postItem.id} className="article">
-            <PostListItem article={postItem} coutPost={this.state.coutPost} />
-          </div>
+          <PostListItem
+            article={postItem}
+            coutPost={this.state.coutPost}
+            key={postItem.id} />
         );
       }
 
       return (
-        <MoreButton clickMorePost={this.getMorePost} key={postItem.id + index} />
+        <MoreButton
+          clickMorePost={this.getMorePost}
+          key={postItem.id + index} />
       );
     });
   }

@@ -1,12 +1,13 @@
 
 .button {
-  margin: auto;
-  border: dotted 1px;
-  text-align: center;
-  margin-bottom: 20px;
-  width: 50%;
-  padding: 5px;
   font-size: 1.2em;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 20px;
+  padding: 5px;
+  width: 50%;
+
+  border: dotted 1px;
   border-radius: 10px;
 }
 .button:hover {
