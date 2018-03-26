@@ -1,11 +1,10 @@
-import React from 'react'
-import { render } from 'react-dom';
-import PostList from './components/PostList';
-import data from './data'
-
+import React from "react";
+import { render } from "react-dom";
+import PostList from "./components/PostList";
+import articles from "./articles";
 
 
 render(
-  <PostList post={data} />,
-  document.getElementById('root')
+  <PostList post={articles} />,
+  document.getElementById("root")
 );
