@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import '../style/moreButton.css'
 
 export default class MoreButton extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
