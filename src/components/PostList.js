@@ -29,7 +29,6 @@ export default class PostList extends Component {
     return post.map((postItem, index) => {
       if (index > countPost) return;
 
-
       if (index < countPost) {
         return (
           <div key={postItem.id} className="article">
@@ -37,8 +36,9 @@ export default class PostList extends Component {
           </div>
         );
       }
+
       return (
-        <MoreButton clickMorePost={this.getMorePost} />
+        <MoreButton clickMorePost={this.getMorePost} key={postItem.id + index} />
       );
     });
   }
