@@ -12,7 +12,6 @@ export default class BtnShowPostComments extends Component {
   constructor(props) {
     super(props);
     this.articleWithComments = this.articleWithComments.bind(this);
-    console.log(props);
 
   }
 
@@ -42,9 +41,6 @@ export default class BtnShowPostComments extends Component {
     );
   }
 }
-
-
-
 
 BtnShowPostComments.T = {
   postId: T.number.isRequired,
