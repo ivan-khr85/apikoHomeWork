@@ -32,7 +32,8 @@ export default class PostList extends Component {
         return (
           <PostListItem
             article={postItem}
-            key={postItem.id} />
+            key={postItem.id}
+            showKeyComments={true} />
         );
       }
 
