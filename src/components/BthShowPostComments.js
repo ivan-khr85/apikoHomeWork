@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import PostListItem from "./PostListItem";
 import PostComments from "./PostComment";
+import T from "prop-types";
 
 import "../style/btnShowComments.css";
 import "../style/postListItem.css";
@@ -13,9 +14,11 @@ export default class BtnShowPostComments extends Component {
     this.articleWithComments = this.articleWithComments.bind(this);
 
   }
+
   articleWithComments() {
     window.scrollTo(0, 0);
     const { article, postId } = this.props;
+
     render(
       [<PostListItem
         article={article}
@@ -38,3 +41,11 @@ export default class BtnShowPostComments extends Component {
     );
   }
 }
+
+
+
+
+BtnShowPostComments.T = {
+  postId: T.object.isRequired,
+  article: T.object.isRequired,
+};

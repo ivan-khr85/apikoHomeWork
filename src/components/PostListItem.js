@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../style/postListItem.css";
-import BtnShowPostComments from './BthShowPostComments';
-
+import BtnShowPostComments from "./BthShowPostComments";
+import T from "prop-types";
 
 export default class PostListItem extends Component {
 
@@ -24,10 +24,14 @@ export default class PostListItem extends Component {
         <hr />
         <div className="articleBody">{article.body}</div>
       </div>
-    )
+    );
   }
 }
 
 PostListItem.defaultProps = {
   showKeyComments: true,
+};
+
+PostListItem.T = {
+  article: T.object.isRequired,
 };

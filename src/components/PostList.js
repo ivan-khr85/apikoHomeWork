@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PostListItem from "./PostListItem";
 import MoreButton from "./MoreButton";
+import T from "prop-types";
 
 
 export default class PostList extends Component {
@@ -11,8 +12,8 @@ export default class PostList extends Component {
       countPost: 10,
     };
     this.getMorePost = this.getMorePost.bind(this);
-  }
 
+  }
 
   getMorePost() {
     this.setState({
@@ -31,7 +32,6 @@ export default class PostList extends Component {
         return (
           <PostListItem
             article={postItem}
-            coutPost={this.state.coutPost}
             key={postItem.id} />
         );
       }
@@ -44,3 +44,7 @@ export default class PostList extends Component {
     });
   }
 }
+
+PostList.T = {
+  post: T.object.isRequired,
+};
