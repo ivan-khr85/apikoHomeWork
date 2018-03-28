@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PostListItem from "./PostListItem";
 import MoreButton from "./MoreButton";
-import T from "prop-types";
+import { array } from "prop-types";
 
 
 export default class PostList extends Component {
@@ -46,6 +46,6 @@ export default class PostList extends Component {
   }
 }
 
-PostList.T = {
-  post: T.object.isRequired,
+PostList.propTypes = {
+  post: array.isRequired,
 };

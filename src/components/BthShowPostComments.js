@@ -1,48 +1,21 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
-import PostListItem from "./PostListItem";
-import PostComments from "./PostComment";
-import T from "prop-types";
+import { Link } from "react-router-dom";
 
 import "../style/btnShowComments.css";
 import "../style/postListItem.css";
 
 
 export default class BtnShowPostComments extends Component {
-  constructor(props) {
-    super(props);
-    this.articleWithComments = this.articleWithComments.bind(this);
-
-  }
-
-  articleWithComments() {
-    window.scrollTo(0, 0);
-    const { article, postId } = this.props;
-
-    render(
-      [<PostListItem
-        article={article}
-        showKeyComments={false}
-        key={Math.random()} />,
-      <PostComments
-        postId={postId}
-        key={Math.random() + Math.random} />],
-      document.getElementById("root")
-    );
-  }
 
   render() {
+    const path = `comments/${this.props.postId}`;
+
     return (
-      <div
-        className="btnComments"
-        onClick={this.articleWithComments}>
-        OPEN COMMENTS
-      </div>
+      < Link to={{ pathname: path }}>
+        <div className="btnComments">
+          OPEN COMMENTS
+        </ div>
+      </Link >
     );
   }
 }
-
-BtnShowPostComments.T = {
-  postId: T.number.isRequired,
-  article: T.object.isRequired,
-};

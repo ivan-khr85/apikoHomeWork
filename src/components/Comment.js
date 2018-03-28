@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import comments from "../data/comments";
-import T from "prop-types";
+import { number } from "prop-types";
 
 import "../style/postComments.css";
 
 
-export default class PostComment extends Component {
+export default class Comment extends Component {
 
   render() {
-
     const { postId: id } = this.props;
+
     return comments.map((comment) => {
       const { postId, email, name, body } = comment;
       if (postId !== id) return;
@@ -25,6 +25,6 @@ export default class PostComment extends Component {
   }
 }
 
-PostComment.T = {
-  postId: T.number.isRequired,
+Comment.T = {
+  postId: number.isRequired,
 };
