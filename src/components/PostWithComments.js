@@ -21,6 +21,7 @@ const PostWithComments = () => {
   } catch (err) {
     return <Err404 />;
   }
+
   articles.forEach((post) => {
     if (post.id === postId) {
       customArticle = post;
@@ -28,13 +29,10 @@ const PostWithComments = () => {
   });
 
   return (
-    [<PostListItem
-      article={customArticle}
-      showKeyComments={false}
-      key={Math.random()} />,
-    <Comment
-      postId={postId}
-      key={Math.random() + Math.random} />]
+    <React.Fragment>
+      <PostListItem article={customArticle} showKeyComments={false} />
+      <Comment postId={postId} />
+    </React.Fragment>
   );
 };
 

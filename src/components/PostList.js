@@ -7,7 +7,6 @@ import { array } from "prop-types";
 export default class PostList extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       countPost: 10,
     };
@@ -25,26 +24,23 @@ export default class PostList extends Component {
     const { post } = this.props;
     const { countPost } = this.state;
 
-    return post.map((postItem, index) => {
-      if (index > countPost) return;
+    return post
+      .filter(({ id }) => id < countPost + 1)
+      .map((postItem, index) => {
 
-      if (index < countPost) {
         return (
-          <PostListItem
-            article={postItem}
-            key={postItem.id}
-            showKeyComments={true} />
+          <React.Fragment key={postItem.id}>
+            <PostListItem
+              article={postItem}
+              key={postItem.id}
+              showKeyComments={true} />
+            {index === countPost - 1 && <MoreButton clickMorePost={this.getMorePost} key={postItem.id + index} />}
+          </React.Fragment>
         );
-      }
-
-      return (
-        <MoreButton
-          clickMorePost={this.getMorePost}
-          key={postItem.id + index} />
-      );
-    });
+      });
   }
 }
+
 
 PostList.propTypes = {
   post: array.isRequired,

@@ -2,13 +2,16 @@
 .button {
   font-size: 1.2em;
   text-align: center;
-  margin: auto;
   margin-bottom: 20px;
   padding: 5px;
   width: 50%;
-
   border: dotted 1px;
   border-radius: 10px;
+  margin:auto;
+  margin-bottom: 15px;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 .button:hover {
   cursor: pointer;
