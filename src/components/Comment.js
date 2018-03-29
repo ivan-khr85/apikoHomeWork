@@ -23,6 +23,6 @@ export default class Comment extends Component {
   }
 }
 
-Comment.T = {
+Comment.propTypes = {
   postId: number.isRequired,
 };
