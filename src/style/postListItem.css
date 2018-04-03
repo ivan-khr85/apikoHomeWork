@@ -1,0 +1,29 @@
+.article {
+  width: 75%;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 1px dotted;
+  border-radius: 5px;
+  padding: 5px 10px 5px 20px;
+  background-color: rgb(208, 208, 208);
+}
+.articleTitle {
+  margin-bottom: 15px;
+  font-size: 1.3em;
+
+}
+
+.articleBody {
+  text-align: justify;
+}
+
+.comments {
+  margin-top: 15px;
+  list-style: none;
+}
+.titleComm{
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 1.3em;
+}
