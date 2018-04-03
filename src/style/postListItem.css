@@ -3,13 +3,13 @@
   margin: auto;
   margin-top: 15px;
   margin-bottom: 15px;
-  border: 1px dotted;
-  border-radius: 5px;
   padding: 5px 10px 5px 20px;
-  background-color: rgb(208, 208, 208);
+  background-color: rgba(235, 235, 235, 0.152);
+  box-shadow: 0 2px 8px #5b5b5b;
+  
 }
 .articleTitle {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   font-size: 1.3em;
 
 }

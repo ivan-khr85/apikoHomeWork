@@ -1,21 +1,26 @@
 {
-  "name": "edit",
+  "name": "3_arircles-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "eslint-plugin-react": "^7.7.0",
-    "prototypes": "^2.3.3",
+    "prop-types": "^15.6.1",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
-    "redux": "^3.7.2"
+    "react.proptypes": "^2.0.0",
+    "recompose": "^0.26.0",
+    "redux": "3.7.2",
+    "styled-components": "^3.2.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "eslint-plugin-react": "^7.7.0"
   }
 }
