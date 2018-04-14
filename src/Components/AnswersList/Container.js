@@ -76,6 +76,7 @@ const enhance = compose(
     }
   }),
 
+
   branch(
     ({ isFetching }) => isFetching,
     renderComponent(AppLoader)

@@ -30,8 +30,7 @@ const SortByDropdown = styled.select`
 `;
 
 
-const QuestionPage = ({ question, author, setAnswerSorting }) => {
-
+const QuestionPage = ({ question, author, setAnswerSorting, sortBy }) => {
   return (
     <Wrapper>
       <Title>{question.title}</Title>
@@ -41,7 +40,7 @@ const QuestionPage = ({ question, author, setAnswerSorting }) => {
       <Description>{question.description}</Description>
 
       <SortByDropdown
-        // value={sortBy}
+        value={sortBy}
         onChange={setAnswerSorting}
       >
         <option value="createdAt">Time</option>

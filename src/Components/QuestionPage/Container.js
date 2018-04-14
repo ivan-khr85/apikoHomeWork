@@ -20,11 +20,14 @@ const mapDispatchToProps = (dispatch) => ({
   setAnswerSorting: ({ target: { value } }) =>
     dispatch(answerSortActions.setAnswerSort(value)),
 });
+const mapStateToProps = state => ({
+  sortBy: state.answerSort,
+});
 
 
 const enhance = compose(
   connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps,
   ),
   withStateHandlers({ question: {}, author: {}, isFetching: true }),
