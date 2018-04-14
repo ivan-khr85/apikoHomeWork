@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-
+import * as R from 'ramda';
 
 const Answers = styled.ul`
   display: flex;
@@ -90,19 +90,20 @@ const AnswerBottom = styled.span``;
 
 
 // sort answers by dropdown
-const sortWith = (sortBy, answers) => {
-  switch (sortBy) {
-    case 'createdAt':
-      return answers.sort(({ createAt: a }, { createAt: b }) => b - a);
-    case 'best':
-      return answers.sort(({ positive: a }, { positive: b }) => b - a);
-    case 'worst':
-      return answers.sort(({ negative: a }, { negative: b }) => b - a);
-    default:
-      return answers;
-  }
-};
 
+const sortByTime = R.compose(R.reverse(), R.sortBy(R.prop('createdAt')));
+const sortByBest = R.compose(R.reverse(), R.sortBy(R.prop('positive')));
+const sortByWorst = R.compose(R.reverse(), R.sortBy(R.prop('negative')));
+
+const sortWith = R.cond([
+  [R.equals('createdAt'), () => sortByTime],
+  [R.equals('best'), () => sortByBest],
+  [R.equals('worst'), () => sortByWorst],
+]);
+
+const prepareAnswers = (answers, sortBy) => R.compose(
+  sortWith(sortBy)
+)(answers);
 
 
 const getAuthor = (users, authorId) => users.find(user => user._id === authorId)
@@ -113,7 +114,7 @@ const AnswersList = ({ answers, votes, users, onVote, user, sortBy }) => {
 
   return (
     <Answers>
-      {sortWith(sortBy, answers)
+      {prepareAnswers(answers, sortBy)
         .map(answer => {
           const author = getAuthor(users, answer.createdById);
           return (
