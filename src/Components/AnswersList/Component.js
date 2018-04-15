@@ -87,10 +87,15 @@ const AnswerBottomWrapper = styled.div`
 
 const AnswerBottom = styled.span``;
 
-// sort answers by dropdown
-const sortByTime = R.compose(R.reverse(), R.sortBy(R.prop('createdAt')));
-const sortByBest = R.compose(R.reverse(), R.sortBy(R.prop('positive')));
-const sortByWorst = R.compose(R.reverse(), R.sortBy(R.prop('negative')));
+const getAuthor = (users, authorId) => users.find(user => user._id === authorId)
+  || { profile: { fullName: 'Anonymous' } };
+
+//sort by ...
+const reverseAndSortBy = sorter => R.compose(R.reverse(), R.sortBy(sorter));
+
+const sortByTime = reverseAndSortBy(R.prop('createdAt'));
+const sortByBest = reverseAndSortBy(R.prop('positive'));
+const sortByWorst = reverseAndSortBy(R.prop('negative'));
 
 const sortWith = R.cond([
   [R.equals('createdAt'), () => sortByTime],
@@ -103,12 +108,9 @@ const prepareAnswers = (answers, sortBy) => R.compose(
 )(answers);
 
 
-const getAuthor = (users, authorId) => users.find(user => user._id === authorId)
-  || { profile: { fullName: 'Anonymous' } };
-
 
 const AnswersList = ({ answers, votes, users, onVote, user, sortBy }) => {
-  
+
   return (
     <Answers>
       {prepareAnswers(answers, sortBy)
@@ -143,7 +145,7 @@ const AnswersList = ({ answers, votes, users, onVote, user, sortBy }) => {
         )}
     </Answers>
   );
-  
+
 };
 
 export default AnswersList;
