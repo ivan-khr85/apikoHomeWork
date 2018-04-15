@@ -6,6 +6,8 @@ import {
   branch,
   renderComponent
 } from 'recompose';
+import * as R from 'ramda';
+
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { db } from '../../utils';
@@ -15,7 +17,7 @@ import Component from './Component';
 
 const mapStateToProps = state => ({
   user: state.user,
-  sortBy: state.answerSort,
+  sortBy: state.answerSort
 
 });
 
@@ -51,21 +53,21 @@ const enhance = compose(
 
         const divideByAnswerId = (votes, answerId) => divideVotes(votesByAnswerId(votes, answerId));
 
-        const prepareAnswers = answers => {
-          const customAnswers = [];
+        // const prepareAnswers = ([...answers]) => (
+        //   answers
+        //     .map(answer => {
+        //       const { positive, negative } = divideByAnswerId(votes, answer._id);
+        //       return {
+        //         ...answer,
+        //         positive,
+        //         negative
+        //       };
+        //     })
+        // );
 
-          answers
-            .forEach((answer) => {
-              const { positive, negative } = divideByAnswerId(votes, answer._id);
-              customAnswers.push({
-                ...answer,
-                positive,
-                negative
-              });
-            })
-
-          return customAnswers;
-        }
+        const prepareAnswers = R.map(answer => ({
+          ...answer, ...divideByAnswerId(votes, answer._id)
+        }));
 
         this.setState({ answers: prepareAnswers(answers), votes, users, isFetching: false });
 

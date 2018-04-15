@@ -14,7 +14,6 @@ const Answers = styled.ul`
 const Answer = styled.li`
   display: flex;
   flex-direction: row;
-
   &:not(:last-child) {
     margin-bottom: 10px;
   }
@@ -88,9 +87,7 @@ const AnswerBottomWrapper = styled.div`
 
 const AnswerBottom = styled.span``;
 
-
 // sort answers by dropdown
-
 const sortByTime = R.compose(R.reverse(), R.sortBy(R.prop('createdAt')));
 const sortByBest = R.compose(R.reverse(), R.sortBy(R.prop('positive')));
 const sortByWorst = R.compose(R.reverse(), R.sortBy(R.prop('negative')));
@@ -111,7 +108,7 @@ const getAuthor = (users, authorId) => users.find(user => user._id === authorId)
 
 
 const AnswersList = ({ answers, votes, users, onVote, user, sortBy }) => {
-
+  
   return (
     <Answers>
       {prepareAnswers(answers, sortBy)
@@ -146,7 +143,7 @@ const AnswersList = ({ answers, votes, users, onVote, user, sortBy }) => {
         )}
     </Answers>
   );
-
+  
 };
 
 export default AnswersList;
