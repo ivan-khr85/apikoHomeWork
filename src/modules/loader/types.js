@@ -1,0 +1,7 @@
+const SET_LOADER = 'SET_LOADER';
+const CREATE_QUESTION = 'CREATE_QUESTION';
+
+export default {
+  SET_LOADER,
+  CREATE_QUESTION,
+};
