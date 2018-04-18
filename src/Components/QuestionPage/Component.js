@@ -30,28 +30,29 @@ const SortByDropdown = styled.select`
 `;
 
 
-const QuestionPage = ({ question, author, setAnswerSorting, sortBy }) => (
-  <Wrapper>
-    <Title>{question.title}</Title>
+const QuestionPage = ({ question, author, setAnswerSorting, sortBy }) => {
+  return (
+    <Wrapper>
+      <Title>{question.title}</Title>
 
-    <div>By: <strong>{author.profile.fullName}</strong></div>
+      <div>By: <strong>{author.profile.fullName}</strong></div>
 
-    <Description>{question.description}</Description>
+      <Description>{question.description}</Description>
 
-  <SortByDropdown
-    // value={sortBy}
-    onChange={setAnswerSorting}
-  >
-      <option value="createdAt">Time</option>
-      <option value="best">Best</option>
-      <option value="worst">Worst</option>
-  </SortByDropdown>
+      <SortByDropdown
+        value={sortBy}
+        onChange={setAnswerSorting}
+      >
+        <option value="createdAt">Time</option>
+        <option value="best">Best</option>
+        <option value="worst">Worst</option>
+      </SortByDropdown>
+      <AnswersList />
 
-    <AnswersList />
-
-    <NewAnswer />
-  </Wrapper>
-);
+      <NewAnswer />
+    </Wrapper>
+  );
+};
 
 
 export default QuestionPage;

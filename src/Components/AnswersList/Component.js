@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-
+import * as R from 'ramda';
 
 const Answers = styled.ul`
   display: flex;
@@ -14,7 +14,6 @@ const Answers = styled.ul`
 const Answer = styled.li`
   display: flex;
   flex-direction: row;
-
   &:not(:last-child) {
     margin-bottom: 10px;
   }
@@ -69,7 +68,6 @@ const Vote = styled.button`
   }
 `;
 
-
 const AnswerWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -87,59 +85,67 @@ const AnswerBottomWrapper = styled.div`
   justify-content: space-between;
 `;
 
-
 const AnswerBottom = styled.span``;
-
-
-const votesByAnswerId = (votes, answerId) => votes.filter(vote => vote.answerId === answerId)
-
-const divideVotes = votes => {
-  const positive = votes.filter(vote => vote.isPositive).length;
-  const negative = votes.length - positive;
-  return { positive, negative };
-};
-
-
-const divideByAnswerId = (votes, answerId) => divideVotes(votesByAnswerId(votes, answerId));
-
 
 const getAuthor = (users, authorId) => users.find(user => user._id === authorId)
   || { profile: { fullName: 'Anonymous' } };
 
-const AnswersList = ({ answers, votes, users, onVote, user }) => (
-  <Answers>
-    {answers.map(answer => {
-      const { positive, negative } = divideByAnswerId(votes, answer._id);
-      const author = getAuthor(users, answer.createdById);
-      return (
-        <Answer key={answer._id}>
-          <Votes>
-            <Vote up disabled={!user} onClick={() => onVote(answer._id, true)}>
-              <span>{positive}</span><span>▲</span>
-            </Vote>
-            <Vote disabled={!user} onClick={() => onVote(answer._id, false)}>
-              <span>{negative}</span><span>▼</span>
-            </Vote>
-          </Votes>
+//sort by ...
+const reverseAndSortBy = sorter => R.compose(R.reverse(), R.sortBy(sorter));
 
-          <AnswerWrapper>
-            <AnswerBody>{answer.title}</AnswerBody>
+const sortByTime = reverseAndSortBy(R.prop('createdAt'));
+const sortByBest = reverseAndSortBy(R.prop('positive'));
+const sortByWorst = reverseAndSortBy(R.prop('negative'));
 
-            <AnswerBottomWrapper>
-              <AnswerBottom>
-                By: <strong>{author.profile.fullName}</strong>
-              </AnswerBottom>
+const sortWith = R.cond([
+  [R.equals('createdAt'), () => sortByTime],
+  [R.equals('best'), () => sortByBest],
+  [R.equals('worst'), () => sortByWorst],
+]);
 
-              <AnswerBottom>
-                {answer.createdAt.toLocaleDateString()}
-              </AnswerBottom>
-            </AnswerBottomWrapper>
-          </AnswerWrapper>
-        </Answer>
-      )}
-    )}
-  </Answers>
-);
+const prepareAnswers = (answers, sortBy) => R.compose(
+  sortWith(sortBy)
+)(answers);
 
+
+
+const AnswersList = ({ answers, votes, users, onVote, user, sortBy }) => {
+
+  return (
+    <Answers>
+      {prepareAnswers(answers, sortBy)
+        .map(answer => {
+          const author = getAuthor(users, answer.createdById);
+          return (
+            <Answer key={answer._id}>
+              <Votes>
+                <Vote up disabled={!user} onClick={() => onVote(answer._id, true)}>
+                  <span>{answer.positive}</span><span>▲</span>
+                </Vote>
+                <Vote disabled={!user} onClick={() => onVote(answer._id, false)}>
+                  <span>{answer.negative}</span><span>▼</span>
+                </Vote>
+              </Votes>
+              <AnswerWrapper>
+                <AnswerBody>{answer.title}</AnswerBody>
+
+                <AnswerBottomWrapper>
+                  <AnswerBottom>
+                    By: <strong>{author.profile.fullName}</strong>
+                  </AnswerBottom>
+
+                  <AnswerBottom>
+                    {answer.createdAt.toLocaleDateString()}
+                  </AnswerBottom>
+                </AnswerBottomWrapper>
+              </AnswerWrapper>
+            </Answer>
+          );
+        }
+        )}
+    </Answers>
+  );
+
+};
 
 export default AnswersList;

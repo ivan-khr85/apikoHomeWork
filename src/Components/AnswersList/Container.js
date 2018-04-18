@@ -1,4 +1,13 @@
-import { compose, withStateHandlers, withHandlers, lifecycle, branch, renderComponent } from 'recompose';
+import {
+  compose,
+  withStateHandlers,
+  withHandlers,
+  lifecycle,
+  branch,
+  renderComponent
+} from 'recompose';
+import * as R from 'ramda';
+
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { db } from '../../utils';
@@ -8,11 +17,15 @@ import Component from './Component';
 
 const mapStateToProps = state => ({
   user: state.user,
+  sortBy: state.answerSort
+
 });
 
 const enhance = compose(
   connect(mapStateToProps),
-  withStateHandlers({ answers: [], users: [], votes: [], isFetching: true }),
+  withStateHandlers(
+    ({ answers: [], users: [], votes: [], isFetching: true }),
+  ),
 
   withRouter,
 
@@ -30,13 +43,41 @@ const enhance = compose(
 
         const users = await db.users.find();
 
-        this.setState({ answers, votes, users, isFetching: false });
+        const votesByAnswerId = (votes, answerId) => votes.filter(vote => vote.answerId === answerId);
+
+        const divideVotes = votes => {
+          const positive = votes.filter(vote => vote.isPositive).length;
+          const negative = votes.length - positive;
+          return { positive, negative };
+        };
+
+        const divideByAnswerId = (votes, answerId) => divideVotes(votesByAnswerId(votes, answerId));
+
+        // const prepareAnswers = ([...answers]) => (
+        //   answers
+        //     .map(answer => {
+        //       const { positive, negative } = divideByAnswerId(votes, answer._id);
+        //       return {
+        //         ...answer,
+        //         positive,
+        //         negative
+        //       };
+        //     })
+        // );
+
+        const prepareAnswers = R.map(answer => ({
+          ...answer, ...divideByAnswerId(votes, answer._id)
+        }));
+
+        this.setState({ answers: prepareAnswers(answers), votes, users, isFetching: false });
+
       });
     },
     componentWillUnmount() {
       clearInterval(this.interval);
     }
   }),
+
 
   branch(
     ({ isFetching }) => isFetching,
