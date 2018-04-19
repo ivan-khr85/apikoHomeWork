@@ -45,6 +45,7 @@ const enhance = compose(
         if (question) {
           author = await db.users.findOne(question.createdById);
         }
+        (!author) ? author = { profile: { fullName: 'no-name' } } : false;
 
         this.setState({ question, author, isFetching: false });
       },
