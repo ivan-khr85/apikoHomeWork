@@ -1,0 +1,3 @@
+Temperature is now in kyiv: 20℃  
+Temperature is now in Ivano-Frankivsk: 22℃  
+Temperature is now in Ternopil: 19℃  
