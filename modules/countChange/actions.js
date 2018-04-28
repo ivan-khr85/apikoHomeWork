@@ -1,16 +1,5 @@
-import { countChangeTypes } from './';
+import { createAction } from 'redux-actions';
+import { COUNT_UP, COUNT_DOWN } from '../types';
 
-const countUp = value => ({
-  type: countChangeTypes.COUNT_UP,
-  value
-});
-
-const countDown = value => ({
-  type: countChangeTypes.COUNT_DOWN,
-  value
-});
-
-export default {
-  countUp,
-  countDown,
-};
+export const countUp = createAction(COUNT_UP);
+export const countDown = createAction(COUNT_DOWN);

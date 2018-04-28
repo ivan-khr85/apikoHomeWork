@@ -1,7 +1,6 @@
-import countChange from './reducers';
+import countChangeValue from './reducers';
+import * as countChangeActions from './actions';
 
 
-export { default as countChangeActions } from './actions';
-export { default as countChangeTypes } from './types';
-
-export default countChange;
+export { countChangeActions };
+export default countChangeValue;

@@ -1,14 +1,10 @@
-import { countChangeTypes } from './';
+import { handleActions } from 'redux-actions';
+import { COUNT_UP, COUNT_DOWN } from '../types';
 
-const defaultState = 0;
 
-export default (state = defaultState, action) => {
-  switch (action.type) {
-    case countChangeTypes.COUNT_UP:
-      return state + 1;
-    case countChangeTypes.COUNT_DOWN:
-      return state - 1;
-    default:
-      return state;
-  }
-};
+const initState = 0;
+
+export default handleActions({
+  [COUNT_UP]: state => state + 1,
+  [COUNT_DOWN]: state => state - 1,
+}, initState);
