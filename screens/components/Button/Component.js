@@ -5,8 +5,9 @@ import {
   Text,
   View,
   StyleSheet,
+  TouchableOpacity,
 } from 'react-native';
-import { white, buttonColor } from '../../colorsScheme';
+import { white } from '../../colorsScheme';
 
 const styles = StyleSheet.create({
   view: {
@@ -22,22 +23,32 @@ const styles = StyleSheet.create({
   },
 });
 
-const Button = ({ handler, text }) => (
+const Button = ({
+  handler,
+  text,
+  onPressIn,
+  onPressOut,
+}) => (
   <View style={styles.view}>
-    <TouchableNativeFeedback
+    <TouchableOpacity
       style={styles.button}
       onPress={handler}
+      delayLongPress={800}
+      onPressIn={onPressIn || null}
+      onPressOut={onPressOut || null}
     >
       <View>
         <Text style={styles.text}>{text}</Text>
       </View>
-    </TouchableNativeFeedback>
+    </TouchableOpacity>
   </View>
 );
 
 Button.propTypes = {
   handler: func.isRequired,
   text: string.isRequired,
+  onPressIn: func,
+  onPressOut: func,
 };
 
 export default Button;

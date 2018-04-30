@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import countChangeValue from './countChange';
+import countValue from './countChange';
 
 
 export default combineReducers({
-  countChangeValue,
+  countValue,
 });

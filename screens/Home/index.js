@@ -4,7 +4,7 @@ import Home from './Component';
 import { countChangeActions } from '../../modules/countChange';
 
 const mapStateToProps = state => ({
-  countValue: state.countChangeValue,
+  countValue: state.countValue,
 });
 
 const mapDispatchToProps = dispatch => ({

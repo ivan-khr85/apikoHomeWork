@@ -1,6 +1,6 @@
-import countChangeValue from './reducers';
+import countValue from './reducers';
 import * as countChangeActions from './actions';
 
 
 export { countChangeActions };
-export default countChangeValue;
+export default countValue;
