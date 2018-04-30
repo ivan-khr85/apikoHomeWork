@@ -1,7 +1,6 @@
 import React from 'react';
 import { func, string } from 'prop-types';
 import {
-  TouchableNativeFeedback,
   Text,
   View,
   StyleSheet,
