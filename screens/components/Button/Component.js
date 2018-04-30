@@ -6,7 +6,7 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
-import { white } from '../../colorsScheme';
+import { white, buttonColor } from '../../colorsScheme';
 
 const styles = StyleSheet.create({
   view: {
@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: 'center',
+    
   },
 });
 
@@ -27,7 +28,9 @@ const Button = ({ handler, text }) => (
       style={styles.button}
       onPress={handler}
     >
-      <Text style={styles.text}>{text}</Text>
+      <View>
+        <Text style={styles.text}>{text}</Text>
+      </View>
     </TouchableNativeFeedback>
   </View>
 );
