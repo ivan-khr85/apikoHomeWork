@@ -6,7 +6,7 @@ const enhancer = compose(
   withState('timerId', 'setTimerId', null),
   withHandlers({
     onPressIn: props => () => {
-      props.setTimerId(setInterval(props.handler, 150));
+      props.setTimerId(setInterval(props.handler, 190));
     },
     onPressOut: props => () => {
       clearInterval(props.timerId);

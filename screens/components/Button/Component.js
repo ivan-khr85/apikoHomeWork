@@ -32,7 +32,6 @@ const Button = ({
     <TouchableOpacity
       style={styles.button}
       onPress={handler}
-      delayLongPress={800}
       onPressIn={onPressIn || null}
       onPressOut={onPressOut || null}
     >
