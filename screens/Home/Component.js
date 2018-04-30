@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { number, func } from 'prop-types';
 import Button from '../components/Button';
-import { black, blue } from '../colorsScheme';
+import { blue } from '../colorsScheme';
 
 
 const styles = StyleSheet.create({
@@ -12,8 +12,6 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: 'center',
-    borderColor: black,
-    borderWidth: 0.5,
     width: 100,
     height: 50,
     backgroundColor: blue,
