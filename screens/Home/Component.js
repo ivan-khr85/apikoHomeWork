@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { number, func } from 'prop-types';
-import Button from '../components/Button';
+import Button from '../../components/Button';
 import s from './styles';
 
 const Home = ({

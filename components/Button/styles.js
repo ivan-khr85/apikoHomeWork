@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { buttunColor } from '../../../styles/colorsScheme';
+import { buttunColor } from '../../styles/colorsScheme';
 
 const styles = StyleSheet.create({
   view: {
