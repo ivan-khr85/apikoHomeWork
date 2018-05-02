@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
-import { white } from '../../colorsScheme';
+import { buttunColor } from '../../../styles/colorsScheme';
 
 const styles = StyleSheet.create({
   view: {
-    backgroundColor: white,
+    backgroundColor: buttunColor,
   },
   text: {
     fontSize: 36,

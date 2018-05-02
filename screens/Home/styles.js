@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { blue } from '../colorsScheme';
+import { blue } from '../../styles/colorsScheme';
 
 const styles = StyleSheet.create({
   count: {
