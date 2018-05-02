@@ -3,24 +3,9 @@ import { func, string } from 'prop-types';
 import {
   Text,
   View,
-  StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import { white } from '../../colorsScheme';
-
-const styles = StyleSheet.create({
-  view: {
-    backgroundColor: white,
-  },
-  text: {
-    fontSize: 36,
-    textAlign: 'center',
-  },
-  button: {
-    alignItems: 'center',
-    
-  },
-});
+import s from './styles';
 
 const Button = ({
   handler,
@@ -28,15 +13,15 @@ const Button = ({
   onPressIn,
   onPressOut,
 }) => (
-  <View style={styles.view}>
+  <View style={s.view}>
     <TouchableOpacity
-      style={styles.button}
+      style={s.button}
       onPress={handler}
       onPressIn={onPressIn || null}
       onPressOut={onPressOut || null}
     >
       <View>
-        <Text style={styles.text}>{text}</Text>
+        <Text style={s.text}>{text}</Text>
       </View>
     </TouchableOpacity>
   </View>

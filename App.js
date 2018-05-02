@@ -1,22 +1,13 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { Provider } from 'react-redux';
 import Home from './screens/Home';
 import store from './modules/store';
-import { gray } from './screens/colorsScheme';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: gray,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+import s from './styles/main';
 
 const App = () => (
   <Provider store={store}>
-    <View style={styles.container}>
+    <View style={s.container}>
       <Home />
     </View>
   </Provider>

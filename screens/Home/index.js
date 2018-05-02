@@ -1,15 +1,19 @@
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import Home from './Component';
-import { countChangeActions } from '../../modules/countChange';
+import { countActions, countSelectors } from '../../modules/count';
+
+// const mapStateToProps = state => ({
+//   countValue: state.countValue,
+// });
 
 const mapStateToProps = state => ({
-  countValue: state.countValue,
+  countValue: countSelectors.getCountValue(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  countUp: () => dispatch(countChangeActions.countUp()),
-  countDown: () => dispatch(countChangeActions.countDown()),
+  countUp: () => dispatch(countActions.countUp()),
+  countDown: () => dispatch(countActions.countDown()),
 });
 
 const enhancer = compose(

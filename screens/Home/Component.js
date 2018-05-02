@@ -1,32 +1,17 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View } from 'react-native';
 import { number, func } from 'prop-types';
 import Button from '../components/Button';
-import { blue } from '../colorsScheme';
-
-
-const styles = StyleSheet.create({
-  count: {
-    flexDirection: 'column',
-    alignContent: 'center',
-  },
-  text: {
-    textAlign: 'center',
-    width: 100,
-    height: 50,
-    backgroundColor: blue,
-    fontSize: 36,
-  },
-});
+import s from './styles';
 
 const Home = ({
   countValue,
   countUp,
   countDown,
 }) => (
-  <View style={styles.count}>
+  <View style={s.count}>
     <Button handler={countUp} text="+" />
-    <Text style={styles.text}>{countValue}</Text>
+    <Text style={s.text}>{countValue}</Text>
     <Button handler={countDown} text="-" />
   </View>
 );
