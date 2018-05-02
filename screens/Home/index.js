@@ -3,10 +3,6 @@ import { connect } from 'react-redux';
 import Home from './Component';
 import { countActions, countSelectors } from '../../modules/count';
 
-// const mapStateToProps = state => ({
-//   countValue: state.countValue,
-// });
-
 const mapStateToProps = state => ({
   countValue: countSelectors.getCountValue(state),
 });
