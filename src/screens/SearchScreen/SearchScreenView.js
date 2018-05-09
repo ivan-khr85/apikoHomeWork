@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import DrawerButton from '../../components/DrawerButton';
+import { DrawerButton } from '../../components';
 import s from '../../styles';
 
 const SearchScreen = () => (

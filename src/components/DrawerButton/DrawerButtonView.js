@@ -3,6 +3,7 @@ import { Feather } from '@expo/vector-icons';
 import * as T from 'prop-types';
 import Touchable from '../Touchable';
 import { colorsScheme } from '../../styles';
+import s from './style';
 
 
 const noop = {};
@@ -19,6 +20,7 @@ const DrawerButtonView = ({
       name="menu"
       color={colorsScheme.mainColor}
       size={35}
+      style={s.icon}
     />
   </Touchable>
 );

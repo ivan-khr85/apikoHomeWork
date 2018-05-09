@@ -1,6 +1,6 @@
 import React from 'react';
 import { WebView } from 'react-native';
-import DrawerButton from '../../components/DrawerButton';
+import { DrawerButton } from '../../components';
 
 const TermsScreen = () => (
   <WebView

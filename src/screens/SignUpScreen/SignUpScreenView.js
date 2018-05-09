@@ -3,7 +3,7 @@ import * as T from 'prop-types';
 import { View, Text } from 'react-native';
 import s from '../../styles';
 import Touchable from '../../components/Touchable';
-import DrawerButton from '../../components/DrawerButton';
+import { DrawerButton } from '../../components';
 
 
 const SignUpScreen = ({
