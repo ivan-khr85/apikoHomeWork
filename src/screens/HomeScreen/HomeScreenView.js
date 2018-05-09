@@ -1,9 +1,9 @@
 import React from 'react';
 import * as T from 'prop-types';
-import { Feather } from '@expo/vector-icons';
 import { View, Text } from 'react-native';
-import s, { colorsScheme } from '../../styles';
+import s from '../../styles';
 import Touchable from '../../components/Touchable';
+import DrawerButtonView from '../../components/DrawerButton/DrawerButtonView';
 
 const HomeScreen = ({
   navigateToQuestion,
@@ -23,16 +23,10 @@ const HomeScreen = ({
 HomeScreen.navigationOptions = ({ navigation }) => ({
   title: 'Home',
   headerLeft: (
-    <Touchable
+    <DrawerButtonView
       onPress={() => navigation.toggleDrawer()}
       onLongPress={() => navigation.toggleDrawer()}
-    >
-      <Feather
-        name="menu"
-        color={colorsScheme.mainColor}
-        size={35}
-      />
-    </Touchable>
+    />
   ),
 });
 

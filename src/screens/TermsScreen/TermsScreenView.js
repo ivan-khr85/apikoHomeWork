@@ -1,7 +1,6 @@
 import React from 'react';
 import { WebView } from 'react-native';
-import { Feather } from '@expo/vector-icons';
-import { colorsScheme } from '../../styles';
+import DrawerButton from '../../components/DrawerButton';
 
 const TermsScreen = () => (
   <WebView
@@ -11,12 +10,12 @@ const TermsScreen = () => (
 
 TermsScreen.navigationOptions = ({ navigation }) => ({
   title: 'Terms & Conditions',
-  headerLeft: <Feather
-    name="menu"
-    color={colorsScheme.mainColor}
-    size={35}
-    onPress={() => navigation.toggleDrawer()}
-  />,
+  headerLeft: (
+    <DrawerButton
+      onPress={() => navigation.toggleDrawer()}
+      onLongPress={() => navigation.toggleDrawer()}
+    />
+  ),
 });
 
 export default TermsScreen;

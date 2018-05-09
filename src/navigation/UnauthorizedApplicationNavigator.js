@@ -4,7 +4,7 @@ import HomeNavigator from './HomeNavigator';
 import AboutUsNavigator from './AboutUsNavigator';
 import SignUpNavigator from './SignUpNavigator';
 import TermsNavigator from './TermsNavigator';
-import { Drawer } from './components';
+import { UnauthorizedDrawer } from './components';
 import { screenDimensions } from '../styles';
 
 
@@ -16,5 +16,5 @@ export default createDrawerNavigator({
 }, {
   drawerWidth: screenDimensions.width - 56,
   drawerPosition: 'left',
-  contentComponent: Drawer,
+  contentComponent: UnauthorizedDrawer,
 });

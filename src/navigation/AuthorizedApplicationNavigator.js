@@ -6,7 +6,7 @@ import SearchNavigator from './SearchNavigator';
 import CreateQuestionNavigator from './CreateQuestionNavigator';
 import ProfileNavigator from './ProfileNavigator';
 import TermsNavigator from './TermsNavigator';
-import { Drawer } from './components';
+import { AuthorizedDrawer } from './components';
 import { screenDimensions } from '../styles';
 
 
@@ -20,5 +20,5 @@ export default createDrawerNavigator({
 }, {
   drawerWidth: screenDimensions.width - 56,
   drawerPosition: 'left',
-  contentComponent: Drawer,
+  contentComponent: AuthorizedDrawer,
 });

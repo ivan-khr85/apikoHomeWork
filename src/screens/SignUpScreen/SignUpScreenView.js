@@ -1,9 +1,10 @@
 import React from 'react';
 import * as T from 'prop-types';
-import { Feather } from '@expo/vector-icons';
 import { View, Text } from 'react-native';
-import s, { colorsScheme } from '../../styles';
+import s from '../../styles';
 import Touchable from '../../components/Touchable';
+import DrawerButton from '../../components/DrawerButton';
+
 
 const SignUpScreen = ({
   navigateToSignIn,
@@ -22,12 +23,12 @@ const SignUpScreen = ({
 
 SignUpScreen.navigationOptions = ({ navigation }) => ({
   title: 'Sign up',
-  headerLeft: <Feather
-    name="menu"
-    color={colorsScheme.mainColor}
-    size={35}
-    onPress={() => navigation.toggleDrawer()}
-  />,
+  headerLeft: (
+    <DrawerButton
+      onPress={() => navigation.toggleDrawer()}
+      onLongPress={() => navigation.toggleDrawer()}
+    />
+  ),
 });
 
 SignUpScreen.propTypes = {

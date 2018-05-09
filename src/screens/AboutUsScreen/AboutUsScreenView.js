@@ -1,7 +1,7 @@
 import React from 'react';
-import { Feather } from '@expo/vector-icons';
 import { View, Text } from 'react-native';
-import s, { colorsScheme } from '../../styles';
+import DrawerButton from '../../components/DrawerButton';
+import s from '../../styles';
 
 const AboutUsScreen = () => (
   <View style={s.align}>
@@ -12,12 +12,12 @@ const AboutUsScreen = () => (
 
 AboutUsScreen.navigationOptions = ({ navigation }) => ({
   title: 'About Us',
-  headerLeft: <Feather
-    name="menu"
-    color={colorsScheme.mainColor}
-    size={35}
-    onPress={() => navigation.toggleDrawer()}
-  />,
+  headerLeft: (
+    <DrawerButton
+      onPress={() => navigation.toggleDrawer()}
+      onLongPress={() => navigation.toggleDrawer()}
+    />
+  ),
 });
 
 
