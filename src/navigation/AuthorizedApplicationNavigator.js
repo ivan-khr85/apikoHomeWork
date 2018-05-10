@@ -5,7 +5,6 @@ import AboutUsNavigator from './AboutUsNavigator';
 import SearchNavigator from './SearchNavigator';
 import CreateQuestionNavigator from './CreateQuestionNavigator';
 import ProfileNavigator from './ProfileNavigator';
-import TermsNavigator from './TermsNavigator';
 import { AuthorizedDrawer } from './components';
 import { screenDimensions } from '../styles';
 
@@ -16,7 +15,7 @@ export default createDrawerNavigator({
   [screens.CreateQuestionScreen]: { screen: CreateQuestionNavigator },
   [screens.ProfileScreen]: { screen: ProfileNavigator },
   [screens.AboutUsScreen]: { screen: AboutUsNavigator },
-  [screens.TermsScreen]: { screen: TermsNavigator },
+  // [screens.TermsScreen]: { screen: TermsNavigator },
 }, {
   drawerWidth: screenDimensions.width - 56,
   drawerPosition: 'left',

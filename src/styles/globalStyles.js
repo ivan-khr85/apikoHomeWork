@@ -1,4 +1,4 @@
-import { buttonColor } from './colorsScheme';
+import colors from './colors';
 
 export default {
   fillAll: {
@@ -10,7 +10,7 @@ export default {
     justifyContent: 'center',
   },
   button: {
-    backgroundColor: buttonColor,
+    backgroundColor: colors.buttonColor,
     borderRadius: 4,
     paddingHorizontal: 15,
     paddingVertical: 4,

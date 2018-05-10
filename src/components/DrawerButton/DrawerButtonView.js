@@ -2,7 +2,7 @@ import React from 'react';
 import { Feather } from '@expo/vector-icons';
 import * as T from 'prop-types';
 import Touchable from '../Touchable';
-import { colorsScheme } from '../../styles';
+import { colors } from '../../styles';
 import s from './style';
 
 
@@ -18,7 +18,7 @@ const DrawerButtonView = ({
   >
     <Feather
       name="menu"
-      color={colorsScheme.mainColor}
+      color={colors.mainColor}
       size={35}
       style={s.icon}
     />

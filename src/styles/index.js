@@ -1,7 +1,7 @@
-import styles from './styles';
+import globalStyles from './globalStyles';
 
 
-export * as colorsScheme from './colorsScheme';
+export { default as colors } from './colors';
 export * as screenDimensions from './Dimensions';
 
-export default styles;
+export default globalStyles;
