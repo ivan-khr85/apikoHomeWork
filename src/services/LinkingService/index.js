@@ -1,3 +1,3 @@
-import LinkingService from './LinkingService';
+import * as LinkingService from './LinkingService';
 
 export default LinkingService;
