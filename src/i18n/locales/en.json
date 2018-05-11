@@ -3,6 +3,13 @@
 "error": {
   "somethingWrong": "Oops! Somthing when wrong",
   "openLinkError": "Cannot open the link"
+},
+"signOut": {
+  "cancel": "Cancel",
+  "ok": "OK",
+  "signOut": "Sign out",
+  "messages": "You really want to sign out?"
+
 }
 
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import { NavigationActions, DrawerActions } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
 import * as T from 'prop-types';
 import Touchable from '../Touchable';
@@ -8,18 +9,30 @@ import s from './styles';
 
 const DrawerItem = ({
   onPress,
+  navigation,
+  activeItemKey,
   title,
   iconName,
-  activeItemKey,
   borderTop,
-  closeDrawer,
 }) => {
-  const isActive = activeItemKey === title;
+  const navigateToScreen = route => () => {
+    const navigateAction = NavigationActions.navigate({
+      routeName: route,
+    });
+    navigation.dispatch(navigateAction);
+  };
 
+  const closeDrawer = () => navigation.dispatch(DrawerActions.closeDrawer());
+  
+  const isActive = activeItemKey === title;
 
   return (
     <Touchable
-      onPress={isActive ? closeDrawer : onPress}
+      onPress={
+        onPress || (
+          isActive ? closeDrawer : navigateToScreen(title)
+        )
+      }
     >
       <View style={[s.container, isActive && s.activeContainer, borderTop && s.borderTop]}>
         <Ionicons
@@ -37,13 +50,14 @@ const DrawerItem = ({
 
 
 DrawerItem.propTypes = {
+  onPress: T.func,
   title: T.string,
   iconName: T.string,
-  activeItemKey: T.string,
-  onPress: T.func,
   borderTop: T.bool,
-  closeDrawer: T.func,
+  navigation: T.object,
+  activeItemKey: T.string,
 
+  
 };
 
 export default DrawerItem;
