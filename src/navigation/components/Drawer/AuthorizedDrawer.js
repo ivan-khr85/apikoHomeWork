@@ -55,8 +55,7 @@ const AuthorizedDrawer = props => (
         {...props}
         onPress={() => AlertService.singOut(
          () => props.navigation.navigate(screens.UnauthorizedApplicationNavigator) //eslint-disable-line
-        )
-      }
+        )}
         title="Sign Out"
         iconName="md-log-out"
         borderTop
