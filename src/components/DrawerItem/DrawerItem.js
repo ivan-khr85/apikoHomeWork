@@ -12,12 +12,14 @@ const DrawerItem = ({
   iconName,
   activeItemKey,
   borderTop,
+  closeDrawer,
 }) => {
   const isActive = activeItemKey === title;
 
+
   return (
     <Touchable
-      onPress={onPress}
+      onPress={isActive ? closeDrawer : onPress}
     >
       <View style={[s.container, isActive && s.activeContainer, borderTop && s.borderTop]}>
         <Ionicons
@@ -40,6 +42,7 @@ DrawerItem.propTypes = {
   activeItemKey: T.string,
   onPress: T.func,
   borderTop: T.bool,
+  closeDrawer: T.func,
 
 };
 

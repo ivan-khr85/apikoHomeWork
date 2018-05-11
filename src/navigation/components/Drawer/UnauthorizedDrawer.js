@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { SafeAreaView, NavigationActions } from 'react-navigation';
+import { SafeAreaView, NavigationActions, DrawerActions } from 'react-navigation';
 import * as T from 'prop-types';
 import { DrawerItem, DrawerLogo } from '../../../components';
 import { LinkingService } from '../../../services';
@@ -19,6 +19,8 @@ const UnauthorizedDrawer = ({
     navigation.dispatch(navigateAction);
   };
 
+  const closeDrawer = () => navigation.dispatch(DrawerActions.closeDrawer());
+
 
   return (
     <ScrollView>
@@ -33,17 +35,20 @@ const UnauthorizedDrawer = ({
           title={screens.HomeScreen}
           activeItemKey={activeItemKey}
           iconName="ios-chatbubbles"
+          closeDrawer={closeDrawer}
         />
         <DrawerItem
           onPress={navigateToScreen(screens.AboutUsScreen)}
           title={screens.AboutUsScreen}
           activeItemKey={activeItemKey}
           iconName="ios-information-circle"
+          closeDrawer={closeDrawer}
         />
         <DrawerItem
           onPress={LinkingService.openTerms}
           title="Terms & Conditions"
           iconName="ios-document"
+          closeDrawer={closeDrawer}
         />
 
 
@@ -53,6 +58,7 @@ const UnauthorizedDrawer = ({
           activeItemKey={activeItemKey}
           iconName="md-log-in"
           borderTop
+          closeDrawer={closeDrawer}
         />
 
     
