@@ -26,7 +26,7 @@ const UnauthorizedDrawer = ({
         style={globalStyles.fillAll}
         forceInset={{ top: 'always', horizontal: 'never' }}
       >
-        <DrawerLogo />
+        <DrawerLogo borderBottom />
 
         <DrawerItem
           onPress={navigateToScreen(screens.HomeScreen)}

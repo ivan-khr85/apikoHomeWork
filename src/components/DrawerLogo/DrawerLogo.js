@@ -1,12 +1,18 @@
 import React from 'react';
 import { Image, View } from 'react-native';
+import * as T from 'prop-types';
 import fullLogo from '../../icon/fullLogo.png';
 import s from './style';
 
 
-const DrawerLogo = () => (
+const DrawerLogo = ({
+  borderBottom,
+}) => (
   <View
-    style={s.container}
+    style={[
+      s.container,
+      borderBottom && s.borderBottom,
+    ]}
   >
     <Image
       source={fullLogo}
@@ -14,5 +20,9 @@ const DrawerLogo = () => (
     />
   </View>
 );
+
+DrawerLogo.propTypes = {
+  borderBottom: T.bool,
+};
 
 export default DrawerLogo;

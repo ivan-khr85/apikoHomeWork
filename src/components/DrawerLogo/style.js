@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { colors } from '../../styles';
 
 export default StyleSheet.create({
   container: {
@@ -6,8 +7,14 @@ export default StyleSheet.create({
     paddingVertical: 38,
     paddingHorizontal: 35,
   },
+  
   logo: {
     resizeMode: 'contain',
     width: '100%',
+  },
+
+  borderBottom: {
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: colors.separator.border,
   },
 });

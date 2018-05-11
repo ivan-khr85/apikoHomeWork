@@ -17,7 +17,9 @@ const colors = {
     activeIcon: '#fff',
     icon: '#000',
     border: '#c6c6c6',
-    
+  },
+  separator: {
+    border: '#c6c6c6',
   },
 
 };
