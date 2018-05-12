@@ -58,8 +58,6 @@ DrawerItem.propTypes = {
   borderTop: T.bool,
   navigation: T.object,
   activeItemKey: T.string,
-
-  
 };
 
 export default DrawerItem;

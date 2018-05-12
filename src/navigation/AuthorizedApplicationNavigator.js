@@ -15,7 +15,6 @@ export default createDrawerNavigator({
   [screens.CreateQuestionScreen]: { screen: CreateQuestionNavigator },
   [screens.ProfileScreen]: { screen: ProfileNavigator },
   [screens.AboutUsScreen]: { screen: AboutUsNavigator },
-  // [screens.TermsScreen]: { screen: TermsNavigator },
 }, {
   drawerWidth: screenDimensions.width - 56,
   drawerPosition: 'left',

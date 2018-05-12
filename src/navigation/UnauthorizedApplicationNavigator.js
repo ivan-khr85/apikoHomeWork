@@ -12,6 +12,7 @@ export default createDrawerNavigator({
   [screens.AboutUsScreen]: { screen: AboutUsNavigator },
   [screens.SignUpScreen]: { screen: SignUpNavigator },
 }, {
+  initialRouteName: screens.SignUpScreen,
   drawerWidth: screenDimensions.width - 56,
   drawerPosition: 'left',
   contentComponent: UnauthorizedDrawer,

@@ -6,11 +6,11 @@ import Touchable from '../../components/Touchable';
 
 const SignInScreen = ({
   navigateToRestorePassword,
-  navigateToSignIn,
+  navigateToAuth,
 }) => (
   <View style={s.align}>
     <Touchable
-      onPress={navigateToSignIn}
+      onPress={navigateToAuth}
       style={s.button}
         
     >
@@ -35,7 +35,7 @@ SignInScreen.navigationOptions = {
 
 SignInScreen.propTypes = {
   navigateToRestorePassword: T.func,
-  navigateToSignIn: T.func,
+  navigateToAuth: T.func,
 };
 
 

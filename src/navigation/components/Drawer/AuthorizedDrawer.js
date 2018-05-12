@@ -1,5 +1,6 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
+import * as T from 'prop-types';
 import { SafeAreaView } from 'react-navigation';
 import { DrawerItem, DrawerLogo } from '../../../components';
 import { LinkingService, AlertService } from '../../../services';
@@ -54,7 +55,7 @@ const AuthorizedDrawer = props => (
       <DrawerItem
         {...props}
         onPress={() => AlertService.singOut(
-         () => props.navigation.navigate(screens.UnauthorizedApplicationNavigator) //eslint-disable-line
+         () => props.navigation.navigate(screens.UnauthorizedApplicationNavigator),
         )}
         title="Sign Out"
         iconName="md-log-out"
@@ -66,5 +67,10 @@ const AuthorizedDrawer = props => (
   </ScrollView>
 );
 
+AuthorizedDrawer.propTypes = {
+  navigation: T.shape({
+    navigate: T.func,
+  }),
+};
 
 export default AuthorizedDrawer;
