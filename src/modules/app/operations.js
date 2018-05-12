@@ -14,6 +14,7 @@ export const initialization = () => async (dispatch) => {
   /* eslint-disable */
 console.log('====================================');
 console.log('App started');
+console.log('');
   /* eslint-disable */
   NetInfo.isConnected.addEventListener('connectionChange', isConnected => (
     console.log(`isConnected: ${isConnected}`)),
