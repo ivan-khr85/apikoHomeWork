@@ -9,3 +9,12 @@ export const singOut = onPress => Alert.alert(
     { text: i18n.t('signOut.cancel'), style: 'cancel' },
   ],
 );
+
+export const closeApp = onPress => Alert.alert(
+  i18n.t('closeApp.closeApp'),
+  i18n.t('closeApp.messages'),
+  [
+    { text: i18n.t('closeApp.ok'), onPress },
+    { text: i18n.t('closeApp.cancel'), style: 'cancel' },
+  ],
+);

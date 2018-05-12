@@ -9,7 +9,12 @@
   "ok": "OK",
   "signOut": "Sign out",
   "messages": "You really want to sign out?"
-
+},
+"closeApp": {
+    "cancel": "Cancel",
+    "ok": "OK",
+    "closeApp": "Close application",
+    "messages": "You are sure?"
 }
 
 

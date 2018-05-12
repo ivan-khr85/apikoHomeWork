@@ -19,22 +19,25 @@ const DrawerItem = ({
 
   const closeDrawer = () => navigation.dispatch(DrawerActions.closeDrawer());
 
-  const navigateToScreen = route => () => {
+  const navigateToScreen = (route) => {
     const navigateAction = NavigationActions.navigate({
       routeName: route,
     });
     navigation.dispatch(navigateAction);
   };
 
-  const onItemPress = titleName => (
-    onPress || (
-      isActive ? closeDrawer : navigateToScreen(titleName)
-    )
-  );
+  const onItemPress = () => {
+    if (typeof onPress === 'function') {
+      onPress();
+    } else {
+      navigateToScreen(title);
+    }
+    closeDrawer();
+  };
 
   return (
     <Touchable
-      onPress={onItemPress(title)}
+      onPress={onItemPress}
     >
       <View style={[s.container, isActive && s.activeContainer, borderTop && s.borderTop]}>
         <Ionicons

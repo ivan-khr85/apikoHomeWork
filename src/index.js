@@ -13,6 +13,7 @@ import store from './store';
 import s from './styles';
 import { appOperations } from './modules/app';
 import RootNavigator from './navigation/RootNavigator';
+import { AlertService } from './services';
 
 
 const App = ({
@@ -58,7 +59,12 @@ const enhance = compose(
         store.dispatch(appOperations.initialization()),
       ]);
     },
-    navigateBack: () => () => true,
+    navigateBack: () => () => {
+      AlertService.closeApp(
+        BackHandler.exitApp,
+      );
+      return true;
+    },
   }),
   lifecycle({
     componentDidMount() {
