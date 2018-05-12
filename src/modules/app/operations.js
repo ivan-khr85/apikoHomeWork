@@ -11,8 +11,13 @@ export const initApi = token => () => {
 };
 
 export const initialization = () => async (dispatch) => {
-
-  NetInfo.isConnected.addEventListener('connectionChange', isConnected => console.log(`isConnected: ${isConnected}`));
+  /* eslint-disable */
+console.log('====================================');
+console.log('App started');
+  /* eslint-disable */
+  NetInfo.isConnected.addEventListener('connectionChange', isConnected => (
+    console.log(`isConnected: ${isConnected}`)),
+  );
 
   try {
     const token = await AsyncStorage.getItem('token');
