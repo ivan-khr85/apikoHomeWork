@@ -27,6 +27,11 @@ export default StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 5,
   },
+  textBtn: {
+    textAlign: 'center',
+    color: colors.signUp.textBtnColor,
+    paddingHorizontal: 5,
+  },
 
 
 });

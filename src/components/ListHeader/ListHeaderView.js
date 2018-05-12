@@ -6,10 +6,8 @@ import s from './style';
 const Header = ({
   headerText,
 }) => (
-  <View style={s.style}>
-    <Text
-      style={s.text}
-    >
+  <View style={s.container}>
+    <Text style={s.text}>
       {headerText}
     </Text>
   </View>

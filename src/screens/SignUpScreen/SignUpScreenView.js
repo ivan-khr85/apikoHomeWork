@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 import { headerStyle } from '../../styles';
 import s from './style';
 import Touchable from '../../components/Touchable';
-import { DrawerButton, TextInput } from '../../components';
+import { DrawerButton, TextInput, ListHeader } from '../../components';
 
 
 const SignUpScreen = ({
@@ -17,6 +17,8 @@ const SignUpScreen = ({
   <View style={s.container} >
 
     <View style={s.top}>
+
+      <ListHeader headerText="Sign up" />
 
       <TextInput
         value={username}
@@ -39,9 +41,7 @@ const SignUpScreen = ({
         secureTextEntry
       />
 
-      <Touchable onPress={navigateToSignIn} >
-        <Text >Already has an account?</Text>
-      </Touchable>
+      <Text style={s.textBtn} onPress={navigateToSignIn}>Already has an{'\n'}account?</Text>
 
     </View>
 

@@ -1,16 +1,16 @@
 const colors = {
   mainColor: '#ff9f00',
-  white: '#fcfcfc', // backgroundColor for all app
+  white: '#f7f7f7', // backgroundColor for all app
   blue: '#3399ff', // button
   gray: '#dddddd', // backgroundColor for tags
   buttonColor: '#2CCBDC',
 
   drawer: {
-    backgroud: '#fcfcfc',
+    backgroud: '#f7f7f7',
   },
 
   drawerItem: {
-    backgroud: '#fcfcfc',
+    backgroud: '#f7f7f7',
     activeBackground: '#ff9f00',
     title: '#000000',
     activeTitle: '#fff',
@@ -25,7 +25,7 @@ const colors = {
   signUp: {
     backgroud: '#f7f7f7',
     inputBackground: '#fff',
-
+    textBtnColor: '#3b5998',
   },
 };
 
