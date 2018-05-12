@@ -15,6 +15,10 @@ const DrawerItem = ({
   iconName,
   borderTop,
 }) => {
+  const isActive = activeItemKey === title;
+
+  const closeDrawer = () => navigation.dispatch(DrawerActions.closeDrawer());
+
   const navigateToScreen = route => () => {
     const navigateAction = NavigationActions.navigate({
       routeName: route,
@@ -22,17 +26,15 @@ const DrawerItem = ({
     navigation.dispatch(navigateAction);
   };
 
-  const closeDrawer = () => navigation.dispatch(DrawerActions.closeDrawer());
-  
-  const isActive = activeItemKey === title;
+  const onItemPress = titleName => (
+    onPress || (
+      isActive ? closeDrawer : navigateToScreen(titleName)
+    )
+  );
 
   return (
     <Touchable
-      onPress={
-        onPress || (
-          isActive ? closeDrawer : navigateToScreen(title)
-        )
-      }
+      onPress={onItemPress(title)}
     >
       <View style={[s.container, isActive && s.activeContainer, borderTop && s.borderTop]}>
         <Ionicons
