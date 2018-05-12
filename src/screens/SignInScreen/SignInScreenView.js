@@ -1,7 +1,7 @@
 import React from 'react';
 import * as T from 'prop-types';
 import { View, Text } from 'react-native';
-import s from '../../styles';
+import s, { headerStyle } from '../../styles';
 import Touchable from '../../components/Touchable';
 
 const SignInScreen = ({
@@ -30,7 +30,7 @@ const SignInScreen = ({
 );
 
 SignInScreen.navigationOptions = {
-  title: 'Sign in',
+  ...headerStyle,
 };
 
 SignInScreen.propTypes = {

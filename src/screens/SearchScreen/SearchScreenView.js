@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { DrawerButton } from '../../components';
-import s from '../../styles';
+import s, { headerStyle } from '../../styles';
 
 const SearchScreen = () => (
   <View style={s.align}>
@@ -10,13 +10,13 @@ const SearchScreen = () => (
 );
 
 SearchScreen.navigationOptions = ({ navigation }) => ({
-  title: 'Search',
   headerLeft: (
     <DrawerButton
       onPress={() => navigation.toggleDrawer()}
       onLongPress={() => navigation.toggleDrawer()}
     />
   ),
+  ...headerStyle,
 });
 
 

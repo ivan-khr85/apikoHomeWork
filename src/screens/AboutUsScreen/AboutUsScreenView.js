@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { DrawerButton } from '../../components';
-import s from '../../styles';
+import s, { headerStyle } from '../../styles';
 
 const AboutUsScreen = () => (
   <View style={s.align}>
@@ -11,13 +11,13 @@ const AboutUsScreen = () => (
 
 
 AboutUsScreen.navigationOptions = ({ navigation }) => ({
-  title: 'About Us',
   headerLeft: (
     <DrawerButton
       onPress={() => navigation.toggleDrawer()}
       onLongPress={() => navigation.toggleDrawer()}
     />
   ),
+  ...headerStyle,
 });
 
 

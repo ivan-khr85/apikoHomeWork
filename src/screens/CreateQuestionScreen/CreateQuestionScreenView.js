@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import s from '../../styles';
+import s, { headerStyle } from '../../styles';
 import { DrawerButton } from '../../components';
 
 
@@ -11,13 +11,13 @@ const CreateQuestionScreen = () => (
 );
 
 CreateQuestionScreen.navigationOptions = ({ navigation }) => ({
-  title: 'Create question',
   headerLeft: (
     <DrawerButton
       onPress={() => navigation.toggleDrawer()}
       onLongPress={() => navigation.toggleDrawer()}
     />
   ),
+  ...headerStyle,
 });
 
 export default CreateQuestionScreen;

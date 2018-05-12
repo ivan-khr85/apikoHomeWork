@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import s from '../../styles';
+import s, { headerStyle } from '../../styles';
 
 const RestorePasswordScreen = () => (
   <View style={s.align}>
@@ -9,7 +9,7 @@ const RestorePasswordScreen = () => (
 );
 
 RestorePasswordScreen.navigationOptions = {
-  title: 'Restore password',
+  ...headerStyle,
 };
 
 

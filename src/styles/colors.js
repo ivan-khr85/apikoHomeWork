@@ -21,7 +21,12 @@ const colors = {
   separator: {
     border: '#c6c6c6',
   },
+  
+  signUp: {
+    backgroud: '#f7f7f7',
+    inputBackground: '#fff',
 
+  },
 };
 
 export default colors;

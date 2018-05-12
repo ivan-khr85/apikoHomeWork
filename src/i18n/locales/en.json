@@ -13,8 +13,8 @@
 "closeApp": {
     "cancel": "Cancel",
     "ok": "OK",
-    "closeApp": "Close application",
-    "messages": "You are sure?"
+    "closeApp": "Exit",
+    "messages": "Close app?"
 }
 
 

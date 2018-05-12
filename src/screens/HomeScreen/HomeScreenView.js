@@ -1,7 +1,7 @@
 import React from 'react';
 import * as T from 'prop-types';
 import { View, Text } from 'react-native';
-import s from '../../styles';
+import s, { headerStyle } from '../../styles';
 import Touchable from '../../components/Touchable';
 import DrawerButtonView from '../../components/DrawerButton/DrawerButtonView';
 
@@ -21,13 +21,13 @@ const HomeScreen = ({
 );
 
 HomeScreen.navigationOptions = ({ navigation }) => ({
-  title: 'Home',
   headerLeft: (
     <DrawerButtonView
       onPress={() => navigation.toggleDrawer()}
       onLongPress={() => navigation.toggleDrawer()}
     />
   ),
+  ...headerStyle,
 });
 
 HomeScreen.propTypes = {

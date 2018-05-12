@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import s from '../../styles';
+import s, { headerStyle } from '../../styles';
 
 const QuestionScreen = () => (
   <View style={s.align}>
@@ -9,7 +9,7 @@ const QuestionScreen = () => (
 );
 
 QuestionScreen.navigationOptions = {
-  title: 'Question',
+  ...headerStyle,
 };
 
 
