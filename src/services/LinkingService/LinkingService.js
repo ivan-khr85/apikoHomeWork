@@ -3,8 +3,8 @@ import i18n from '../../i18n';
 
 const showErrAlert = () => {
   Alert.alert(
-    i18n.t('errors.somethingWrong'),
-    i18n.t('errors.openLinkError'),
+    i18n.t('error.somethingWrong'),
+    i18n.t('error.openLinkError'),
   );
 };
 
@@ -13,4 +13,4 @@ const openURL = (url) => {
     .catch(() => showErrAlert());
 };
 
-export const openTerms = () => openURL('https://google.com');
+export const openTerms = () => openURL('https://www.google.com');
