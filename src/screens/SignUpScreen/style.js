@@ -6,7 +6,6 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: colors.signUp.backgroud,
     justifyContent: 'space-between',
-
   },
 
   top: {

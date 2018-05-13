@@ -9,6 +9,7 @@ export default StyleSheet.create({
   },
   text: {
     fontWeight: 'bold',
-    fontSize: fontSize.header,
+    fontSize: 32,
+    
   },
 });

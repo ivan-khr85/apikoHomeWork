@@ -3,6 +3,7 @@ import * as T from 'prop-types';
 import { View, Text } from 'react-native';
 import s, { headerStyle } from '../../styles';
 import Touchable from '../../components/Touchable';
+import BackBtn from '../../components/BackBtn/BackBtn';
 
 const SignInScreen = ({
   navigateToRestorePassword,
@@ -29,9 +30,12 @@ const SignInScreen = ({
   </View>
 );
 
-SignInScreen.navigationOptions = {
+SignInScreen.navigationOptions = ({ navigation }) => ({
   ...headerStyle,
-};
+  headerLeft: (
+    <BackBtn navigation={navigation} />
+  ),
+});
 
 SignInScreen.propTypes = {
   navigateToRestorePassword: T.func,

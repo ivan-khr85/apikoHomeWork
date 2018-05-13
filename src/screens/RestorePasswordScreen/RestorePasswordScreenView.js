@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import s, { headerStyle } from '../../styles';
+import BackBtn from '../../components/BackBtn/BackBtn';
 
 const RestorePasswordScreen = () => (
   <View style={s.align}>
@@ -8,9 +9,12 @@ const RestorePasswordScreen = () => (
   </View>
 );
 
-RestorePasswordScreen.navigationOptions = {
+RestorePasswordScreen.navigationOptions = ({ navigation }) => ({
   ...headerStyle,
-};
+  headerLeft: (
+    <BackBtn navigation={navigation} />
+  ),
+});
 
 
 export default RestorePasswordScreen;
