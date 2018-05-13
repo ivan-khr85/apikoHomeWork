@@ -15,6 +15,7 @@ const DrawerButtonView = ({
   <Touchable
     onPress={onPress || noop}
     onLongPress={onLongPress || noop}
+    borderless
   >
     <Ionicons
       name="ios-menu"

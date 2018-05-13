@@ -11,6 +11,7 @@ const BackBtn = ({
   <Touchable
     onPress={() => navigation.goBack()}
     style={s.container}
+    borderless
   >
     <Ionicons
       name="ios-arrow-back"
