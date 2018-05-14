@@ -26,7 +26,8 @@ const colors = {
   signUp: {
     background: '#f7f7f7',
     inputBackground: '#fff',
-    textBtnColor: '#3b5998',
+    text: '#3b5998',
+    textSignUp: '#fff',
   },
 };
 

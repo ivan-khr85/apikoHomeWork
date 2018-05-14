@@ -16,7 +16,6 @@ import { withLoadingModal } from '../../utils/enhancers';
 
 const mapStateToProps = state => ({
   isLoading: authSelectors.getSigningUpState(state),
-  // isLoading: true,
 });
 
 const mapDispatchToProps = {

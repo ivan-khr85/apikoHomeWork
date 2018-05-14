@@ -26,9 +26,13 @@ export default StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 5,
   },
+  buttonSignUpText: {
+    color: colors.signUp.textSignUp,
+  },
   textBtn: {
+    flex: 1,
     textAlign: 'center',
-    color: colors.signUp.textBtnColor,
+    color: colors.signUp.text,
     paddingHorizontal: 5,
   },
 

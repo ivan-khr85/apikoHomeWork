@@ -1,7 +1,7 @@
 import React from 'react';
 import T from 'prop-types';
 import { AppLoading } from 'expo';
-import { BackHandler, View, StatusBar, Platform } from 'react-native';
+import { BackHandler, View, Platform } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import { Provider } from 'react-redux';
 import {
@@ -11,7 +11,7 @@ import {
   lifecycle,
 } from 'recompose';
 import store from './store';
-import { selectStyle, globalStyles, colors } from './styles';
+import { selectStyle, globalStyles } from './styles';
 import { appOperations } from './modules/app';
 import RootNavigator from './navigation/RootNavigator';
 import { AlertService } from './services';
@@ -21,9 +21,10 @@ const isAndroid = Platform.OS === 'android';
 
 SafeAreaView.setStatusBarHeight(
   isAndroid
-    ? StatusBar.currentHeight
+    ? 0
     : selectStyle({ iphoneX: 44, default: 20 }),
 );
+
 
 const App = ({
   showLoading,
@@ -44,9 +45,6 @@ const App = ({
   return (
     <Provider store={store}>
       <View style={globalStyles.fillAll}>
-        <StatusBar
-          backgroundColor={colors.mainColor}
-        />
         <RootNavigator />
       </View>
     </Provider>

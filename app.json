@@ -4,9 +4,10 @@
     "sdkVersion": "26.0.0",
     "orientation": "portrait",
     "icon": "./src/icon/ico.png",
-    // "androidStatusBar": {
-      // "backgroundColor": "#FF9900",
-    // },
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#FF9900",
+    },
     "splash": {
       "image": "./src/icon/logo.png",
     }

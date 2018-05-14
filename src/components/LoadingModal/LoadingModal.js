@@ -1,9 +1,8 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import Modal from 'react-native-modal';
 import * as T from 'prop-types';
 import s from './styles';
-import fullLogo from '../../icon/loader.gif';
 
 
 const LoadingModal = ({
@@ -13,10 +12,13 @@ const LoadingModal = ({
   <Modal
     isVisible={isVisible}
   >
-      <View style={s.container}>    
-        <View style={s.circle}></View>
-        <View style={s.right}></View>
-        <View style={s.animated}></View>
+    <View>
+      <View style={s.container}>
+        <View style={s.circle} />
+        <View style={s.right} />
+        <View style={s.animated} />
+      </View>
+      {/* <Text style={s.text}>Loading...</Text> */}
     </View>
   </Modal>
 );
