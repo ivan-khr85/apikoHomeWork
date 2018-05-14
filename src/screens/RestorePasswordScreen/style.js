@@ -19,21 +19,20 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
 
-  buttonSignUp: {
+  btnOnSubmit: {
     backgroundColor: colors.buttonColor,
     paddingHorizontal: 30,
     marginBottom: 42,
     paddingVertical: 10,
     borderRadius: 5,
   },
-  signUpText: {
-    color: colors.signUp.textSignUp,
+  textOnSubmit: {
+    color: colors.restorePassword.btnText,
   },
-  textBtn: {
-    flex: 1,
-    textAlign: 'center',
-    color: colors.signUp.text,
+  aboutFormText: {
+    color: colors.restorePassword.aboutFormText,
     paddingHorizontal: 5,
+    paddingBottom: 20,
   },
 
 

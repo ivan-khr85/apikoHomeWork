@@ -1,7 +1,13 @@
 import { Alert } from 'react-native';
 import i18n from '../../i18n';
 
-export const singOut = onPress => Alert.alert(
+export const showAlert = (title, subTitle, buttons, options) => { //eslint-disable-line
+  Alert.alert(
+    title, subTitle, buttons, options,
+  );
+};
+
+export const singOut = onPress => showAlert(
   i18n.t('signOut.signOut'),
   i18n.t('signOut.messages'),
   [
@@ -10,7 +16,7 @@ export const singOut = onPress => Alert.alert(
   ],
 );
 
-export const closeApp = onPress => Alert.alert(
+export const closeApp = onPress => showAlert(
   i18n.t('closeApp.closeApp'),
   i18n.t('closeApp.messages'),
   [
@@ -19,7 +25,7 @@ export const closeApp = onPress => Alert.alert(
   ],
 );
 
-export const SignUpErr = () => Alert.alert(
+export const SignUpErr = () => showAlert(
   i18n.t('SignUpErr.title'),
   i18n.t('SignUpErr.messages'),
   [
@@ -28,10 +34,18 @@ export const SignUpErr = () => Alert.alert(
 );
 
 
-export const SignInErr = () => Alert.alert(
+export const SignInErr = () => showAlert(
   i18n.t('SignInErr.title'),
   i18n.t('SignInErr.messages'),
   [
     { text: i18n.t('SignInErr.ok') },
+  ],
+);
+
+export const SendEmailRestorePasswordAlert = () => showAlert(
+  i18n.t('SendEmailRestorePasswordAlert.title'),
+  i18n.t('SendEmailRestorePasswordAlert.messages'),
+  [
+    { text: i18n.t('SendEmailRestorePasswordAlert.ok') },
   ],
 );

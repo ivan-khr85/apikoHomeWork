@@ -47,7 +47,7 @@ const SignInScreen = ({
         onPress={signIn}
         style={s.buttonSignIn}
       >
-        <Text style={s.buttonSignInText}>Sign in</Text>
+        <Text style={s.signInText}>Sign in</Text>
       </Touchable>
     </View>
   </View>

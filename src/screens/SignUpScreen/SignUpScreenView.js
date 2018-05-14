@@ -53,7 +53,7 @@ const SignUpScreen = ({
           onPress={signUp}
           style={s.buttonSignUp}
         >
-          <Text style={s.buttonSignUpText}>Sign up</Text>
+          <Text style={s.signUpText}>Sign up</Text>
         </Touchable>
       </View>
     {/* </ScrollView> */}

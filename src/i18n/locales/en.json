@@ -25,6 +25,12 @@
     "title": "Sign In Error",
     "messages": "Something Error",
     "ok": "OK"
-  }
+  },
+
+    "SendEmailRestorePasswordAlert": {
+      "title": "Restore password",
+      "messages": "Instructions for password recovery is sent to your email",
+      "ok": "OK"
+    }
 
 }

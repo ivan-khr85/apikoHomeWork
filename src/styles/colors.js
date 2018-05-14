@@ -29,6 +29,10 @@ const colors = {
     text: '#3b5998',
     textSignUp: '#fff',
   },
+  restorePassword: {
+    btnText: '#fff',
+    aboutFormText: '#ccc',
+  },
 };
 
 export default colors;

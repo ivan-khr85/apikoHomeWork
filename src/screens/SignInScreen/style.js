@@ -26,7 +26,7 @@ export default StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 5,
   },
-  buttonSignInText: {
+  signInText: {
     color: colors.signUp.textSignUp,
   },
   textBtn: {
