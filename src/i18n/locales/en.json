@@ -1,25 +1,30 @@
 {
 
-"error": {
-  "somethingWrong": "Oops! Somthing when wrong",
-  "openLinkError": "Cannot open the link"
-},
-"signOut": {
-  "cancel": "Cancel",
-  "ok": "OK",
-  "signOut": "Sign out",
-  "messages": "You really want to sign out?"
-},
-"closeApp": {
+  "error": {
+    "somethingWrong": "Oops! Somthing when wrong",
+    "openLinkError": "Cannot open the link"
+  },
+  "signOut": {
     "cancel": "Cancel",
-    "messages": "Close app?",
     "ok": "OK",
-    "closeApp": "Exit"
-},
-"SignUpErr": {
-      "title": "Sign Up Error",
-      "messages": "Something Error",
-      "ok": "OK"
-}
+    "signOut": "Sign out",
+    "messages": "You really want to sign out?"
+  },
+  "closeApp": {
+      "cancel": "Cancel",
+      "messages": "Close app?",
+      "ok": "OK",
+      "closeApp": "Exit"
+  },
+  "SignUpErr": {
+        "title": "Sign Up Error",
+        "messages": "Something Error",
+        "ok": "OK"
+  },
+  "SignInErr": {
+    "title": "Sign In Error",
+    "messages": "Something Error",
+    "ok": "OK"
+  }
 
 }

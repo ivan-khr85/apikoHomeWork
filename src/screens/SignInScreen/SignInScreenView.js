@@ -1,32 +1,55 @@
 import React from 'react';
-import * as T from 'prop-types';
+import T from 'prop-types';
 import { View, Text } from 'react-native';
-import { globalStyles, headerStyle } from '../../styles';
+import s from './style';
+import { headerStyle } from '../../styles';
 import Touchable from '../../components/Touchable';
 import BackBtn from '../../components/BackBtn/BackBtn';
+import { TextInput, ListHeader } from '../../components';
+
 
 const SignInScreen = ({
   navigateToRestorePassword,
-  navigateToAuth,
+  signIn,
+  email,
+  password,
+  onChange,
+  
 }) => (
-  <View style={globalStyles.align}>
-    <Touchable
-      onPress={navigateToAuth}
-      style={globalStyles.button}
-        
-    >
-      <Text>Sign In</Text>
-    </Touchable>
-    
-    <Text />
-    
-    <Touchable
-      onPress={navigateToRestorePassword}
-      style={globalStyles.button}
-    >
-      <Text>Forgot password?</Text>
-    </Touchable>
-    
+  <View style={s.container}>
+
+    <View style={s.top}>
+
+      <ListHeader headerText="Sign in" />
+
+
+      <TextInput
+        value={email}
+        onChangeText={text => onChange('email', text)}
+        placeholder=" email"
+
+      />
+
+      <TextInput
+        value={password}
+        onChangeText={text => onChange('password', text)}
+        placeholder=" password"
+
+        secureTextEntry
+      />
+
+      <Text style={s.textBtn} onPress={navigateToRestorePassword}>Forgot password?</Text>
+
+    </View>
+
+    <View style={s.bottom}>
+      <Touchable
+        onPress={signIn}
+        style={s.buttonSignIn}
+      >
+        <Text style={s.buttonSignInText}>Sign in</Text>
+      </Touchable>
+    </View>
   </View>
 );
 
@@ -39,7 +62,11 @@ SignInScreen.navigationOptions = ({ navigation }) => ({
 
 SignInScreen.propTypes = {
   navigateToRestorePassword: T.func,
-  navigateToAuth: T.func,
+  onChange: T.func,
+  email: T.string,
+  password: T.string,
+  signIn: T.func,
+
 };
 
 

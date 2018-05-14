@@ -5,7 +5,6 @@ import {
   withStateHandlers,
   withPropsOnChange,
 } from 'recompose';
-import R from 'ramda';
 import { connect } from 'react-redux';
 import { authOperations, authSelectors } from '../../modules/auth';
 import { screens } from '../../navigation';

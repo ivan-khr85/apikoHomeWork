@@ -26,3 +26,12 @@ export const SignUpErr = () => Alert.alert(
     { text: i18n.t('SignUpErr.ok') },
   ],
 );
+
+
+export const SignInErr = () => Alert.alert(
+  i18n.t('SignInErr.title'),
+  i18n.t('SignInErr.messages'),
+  [
+    { text: i18n.t('SignInErr.ok') },
+  ],
+);

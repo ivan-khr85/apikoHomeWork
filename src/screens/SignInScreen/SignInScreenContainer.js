@@ -1,33 +1,68 @@
-import { compose, withHandlers, hoistStatics } from 'recompose';
-// import { StackActions, NavigationActions } from 'react-navigation';
+import {
+  compose,
+  withHandlers,
+  hoistStatics,
+  withStateHandlers,
+  withPropsOnChange,
+} from 'recompose';
+import { connect } from 'react-redux';
 import { screens } from '../../navigation';
 import SignInScreen from './SignInScreenView';
+import { signInOperations, signInSelectors } from '../../modules/signIn';
+import { AlertService } from '../../services';
 
 
-/* It`s worked, but I disable back btn */
+const mapStateToProps = state => ({
+  isLoading: signInSelectors.getSigningUpState(state),
+});
 
+const mapDispatchToProps = {
+  signIn: signInOperations.signIn,
 
-// const resetNavigator = (props) => {
-//   const resetAction = StackActions.reset({
-//     key: screens.AuthorizedApplicationNavigator,
-//     index: 0,
-//     actions: [NavigationActions.navigate({ routeName: screens.AuthorizedApplicationNavigator })],
-//   });
-//   props.navigation.dispatch(resetAction);
-// };
+};
 
 
 const enhancer = compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withStateHandlers({
+    email: '',
+    password: '',
+    isValid: false,
+  }, {
+    onChange: () => (field, value) => ({ [field]: value }),
+  }),
   withHandlers({
     navigateToRestorePassword: props => () => (
       props.navigation.navigate(screens.RestorePasswordScreen)
     ),
     navigateToAuth: props => () => (
       props.navigation.navigate(screens.AuthorizedApplicationNavigator)
-      //  && resetNavigator(props)
     ),
-    
+    signIn: props => async () => {
+      if (props.isValid) {
+        try {
+          await props.signIn({
+            email: props.email,
+            password: props.password,
+          });
+          props.navigation.navigate(screens.AuthorizedApplicationNavigator);
+        } catch (err) {
+          console.log(`err: ${err}`);
+          AlertService.SignInErr();
+        }
+      }
+    },
   }),
+  withPropsOnChange(
+    ['email', 'password'],
+    (props) => {
+      const isValid = (
+        props.email.trim().includes('@') &&
+        props.password.trim().length >= 6
+      );
+      props.onChange('isValid', isValid);
+    },
+  ),
 );
 
 

@@ -5,7 +5,7 @@
     "orientation": "portrait",
     "icon": "./src/icon/ico.png",
     "androidStatusBar": {
-      "barStyle": "light-content",
+      "barStyle": "dark-content",
       "backgroundColor": "#FF9900",
     },
     "splash": {

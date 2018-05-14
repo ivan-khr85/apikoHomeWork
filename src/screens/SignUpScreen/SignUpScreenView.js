@@ -15,6 +15,7 @@ const SignUpScreen = ({
   password,
   signUp,
 }) => (
+
   <View style={s.container}>
     {/* <ScrollView scrollEnabled={false} contentContainerStyle={s.container} > */}
 
@@ -75,7 +76,7 @@ SignUpScreen.propTypes = {
   username: T.string,
   email: T.string,
   password: T.string,
-  signUp: T.func.isRequired,
+  signUp: T.func,
 
 };
 
