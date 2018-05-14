@@ -11,10 +11,6 @@ export const initApi = token => () => {
 };
 
 export const initialization = () => async (dispatch) => {
-  /* eslint-disable */
-console.log('====================================');
-console.log('App started');
-  /* eslint-disable */
   NetInfo.isConnected.addEventListener('connectionChange', isConnected => (
     console.log(`isConnected: ${isConnected}`)),
   );

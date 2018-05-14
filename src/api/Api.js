@@ -22,7 +22,17 @@ class Api {
         password,
       });
   }
+
+
+  signIn({ password, email }) {
+    return axios.post(`${this._baseUrl}/auth/sign-in`,
+      {
+        email,
+        password,
+      });
+  }
 }
+
 
 const api = new Api(config.api_url);
 
