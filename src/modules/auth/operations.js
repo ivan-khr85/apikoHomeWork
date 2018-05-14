@@ -10,8 +10,9 @@ export const signUp = ({ username, password, email }) => async (dispatch) => {
   
     const res = await Api.signUp({ username, password, email });
 
-    console.log(res.data);
-    // await AsyncStorage.setItem('token', res.data)
+    console.log(res.data); // eslint-disable-line
+    await AsyncStorage.setItem('token', res.data.token);
+    await AsyncStorage.setItem('user', res.data.user);
 
     dispatch(actions.signUpSuccess());
   } catch (err) {

@@ -23,6 +23,7 @@ const mapDispatchToProps = {
 
 };
 
+
 const enhancer = compose(
   connect(mapStateToProps, mapDispatchToProps),
   withLoadingModal.stateProp('isLoading'),
@@ -39,11 +40,14 @@ const enhancer = compose(
     signUp: props => async () => {
       if (props.isValid) {
         try {
-          await props.signUp(R.props(
-            ['username', 'email', 'password'],
-            props,
-          ));
+          await props.signUp({
+            username: props.username,
+            email: props.email,
+            password: props.password,
+          });
+          props.navigation.navigate(screens.AuthorizedApplicationNavigator);
         } catch (err) {
+          console.log(`err: ${err}`);
           AlertService.SignUpErr();
         }
       }
@@ -55,9 +59,8 @@ const enhancer = compose(
       const isValid = (
         props.username.trim().length > 3 &&
         props.email.trim().includes('@') &&
-        props.password.trim().length >= 8
+        props.password.trim().length >= 6
       );
-
       props.onChange('isValid', isValid);
     },
   ),

@@ -11,5 +11,5 @@ const INITIAL_STATE = {
 export default handleActions({
   [types.SIGN_UP_START]: mergeDeep({ isSigningUp: true }),
   [types.SIGN_UP_SUCCESS]: mergeDeep({ isSigningUp: false, signedIn: true }),
-  [types.SIGN_UP_ERROR]: mergeDeep(action => ({ isSigningUp: false, isSignUpError: action.payload.error })),
+  [types.SIGN_UP_ERROR]: mergeDeep(action => ({ isSigningUp: false, isSignUpError: action.payload })),
 }, INITIAL_STATE);
