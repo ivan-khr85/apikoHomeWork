@@ -18,3 +18,11 @@ export const closeApp = onPress => Alert.alert(
     { text: i18n.t('closeApp.cancel'), style: 'cancel' },
   ],
 );
+
+export const SignUpErr = () => Alert.alert(
+  i18n.t('SignUpErr.title'),
+  i18n.t('SignUpErr.messages'),
+  [
+    { text: i18n.t('SignUpErr.ok') },
+  ],
+);

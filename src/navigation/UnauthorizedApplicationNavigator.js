@@ -4,7 +4,7 @@ import HomeNavigator from './HomeNavigator';
 import AboutUsNavigator from './AboutUsNavigator';
 import SignUpNavigator from './SignUpNavigator';
 import { UnauthorizedDrawer } from './components';
-import { screenDimensions } from '../styles';
+import { dimensions } from '../styles';
 
 
 export default createDrawerNavigator({
@@ -13,7 +13,7 @@ export default createDrawerNavigator({
   [screens.SignUpScreen]: { screen: SignUpNavigator },
 }, {
   initialRouteName: screens.SignUpScreen,
-  drawerWidth: screenDimensions.width - 56,
+  drawerWidth: dimensions.width - 56,
   drawerPosition: 'left',
   contentComponent: UnauthorizedDrawer,
 });

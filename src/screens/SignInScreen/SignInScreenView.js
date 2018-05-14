@@ -1,7 +1,7 @@
 import React from 'react';
 import * as T from 'prop-types';
 import { View, Text } from 'react-native';
-import s, { headerStyle } from '../../styles';
+import { globalStyles, headerStyle } from '../../styles';
 import Touchable from '../../components/Touchable';
 import BackBtn from '../../components/BackBtn/BackBtn';
 
@@ -9,10 +9,10 @@ const SignInScreen = ({
   navigateToRestorePassword,
   navigateToAuth,
 }) => (
-  <View style={s.align}>
+  <View style={globalStyles.align}>
     <Touchable
       onPress={navigateToAuth}
-      style={s.button}
+      style={globalStyles.button}
         
     >
       <Text>Sign In</Text>
@@ -22,7 +22,7 @@ const SignInScreen = ({
     
     <Touchable
       onPress={navigateToRestorePassword}
-      style={s.button}
+      style={globalStyles.button}
     >
       <Text>Forgot password?</Text>
     </Touchable>

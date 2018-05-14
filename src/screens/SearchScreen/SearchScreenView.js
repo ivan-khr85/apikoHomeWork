@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { DrawerButton } from '../../components';
-import s, { headerStyle } from '../../styles';
+import { globalStyles, headerStyle } from '../../styles';
 
 const SearchScreen = () => (
-  <View style={s.align}>
+  <View style={globalStyles.align}>
     <Text>Search Screen</Text>
   </View>
 );

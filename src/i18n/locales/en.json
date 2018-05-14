@@ -12,10 +12,14 @@
 },
 "closeApp": {
     "cancel": "Cancel",
+    "messages": "Close app?",
     "ok": "OK",
-    "closeApp": "Exit",
-    "messages": "Close app?"
+    "closeApp": "Exit"
+},
+"SignUpErr": {
+      "title": "Sign Up Error",
+      "messages": "Something Error",
+      "ok": "OK"
 }
-
 
 }

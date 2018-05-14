@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { DrawerButton } from '../../components';
-import s, { headerStyle } from '../../styles';
+import { globalStyles, headerStyle } from '../../styles';
 
 const AboutUsScreen = () => (
-  <View style={s.align}>
+  <View style={globalStyles.align}>
     <Text>About Us Screen</Text>
   </View>
 );

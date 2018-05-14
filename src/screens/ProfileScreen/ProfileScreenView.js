@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import s, { headerStyle } from '../../styles';
+import { globalStyles, headerStyle } from '../../styles';
 import { DrawerButton } from '../../components';
 
 
 const ProfileScreen = () => (
-  <View style={s.align}>
+  <View style={globalStyles.align}>
     <Text>Profile Screen</Text>
   </View>
 );

@@ -4,7 +4,7 @@ import { colors } from '../../styles';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.signUp.backgroud,
+    backgroundColor: colors.signUp.background,
     justifyContent: 'space-between',
   },
 

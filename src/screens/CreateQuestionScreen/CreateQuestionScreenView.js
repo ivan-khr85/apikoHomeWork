@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import s, { headerStyle } from '../../styles';
+import { globalStyles, headerStyle } from '../../styles';
 import { DrawerButton } from '../../components';
 
 
 const CreateQuestionScreen = () => (
-  <View style={s.align}>
+  <View style={globalStyles.align}>
     <Text>Create Question Screen</Text>
   </View>
 );

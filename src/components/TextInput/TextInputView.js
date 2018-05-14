@@ -7,13 +7,13 @@ import s from './style';
 
 const TextInputView = ({
   value,
-  onChange,
+  onChangeText,
   secureTextEntry,
   placeholder,
 }) => (
   <TextInput
     value={value}
-    onChange={onChange}
+    onChangeText={onChangeText}
     style={s.input}
     secureTextEntry={secureTextEntry}
     underlineColorAndroid="transparent"
@@ -25,7 +25,7 @@ const TextInputView = ({
 
 TextInputView.propTypes = {
   value: T.string,
-  onChange: T.func,
+  onChangeText: T.func,
   secureTextEntry: T.bool,
   placeholder: T.string,
 

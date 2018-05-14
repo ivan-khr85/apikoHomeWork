@@ -1,19 +1,19 @@
 import React from 'react';
 import * as T from 'prop-types';
 import { View, Text } from 'react-native';
-import s, { headerStyle } from '../../styles';
+import { globalStyles, headerStyle } from '../../styles';
 import Touchable from '../../components/Touchable';
 import DrawerButtonView from '../../components/DrawerButton/DrawerButtonView';
 
 const HomeScreen = ({
   navigateToQuestion,
 }) => (
-  <View style={s.align}>
+  <View style={globalStyles.align}>
     <Text>Home Screen</Text>
     <Text />
     <Touchable
       onPress={navigateToQuestion}
-      style={s.button}
+      style={globalStyles.button}
     >
       <Text>Go to question</Text>
     </Touchable>

@@ -3,7 +3,7 @@ import config from '../config';
 
 class Api {
   constructor(baseUrl) {
-    this._baseUrl = baseUrl;
+    this._baseUrl = `${baseUrl}/api/v1`;
   }
 
   setToken(token) { // eslint-disable-line
@@ -12,6 +12,15 @@ class Api {
 
   mockCall() { // eslint-disable-line
     return new Promise(res => setTimeout(res, 1000));
+  }
+
+  signUp({ username, password, email }) {
+    return axios.post(`${this._baseUrl}/auth/sign-up`,
+      {
+        profile: { fullName: username },
+        password,
+        email,
+      });
   }
 }
 

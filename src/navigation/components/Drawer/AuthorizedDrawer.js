@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-navigation';
 import { DrawerItem, DrawerLogo } from '../../../components';
 import { LinkingService, AlertService } from '../../../services';
 import { screens } from '../../';
-import globalStyles from '../../../styles';
+import { globalStyles } from '../../../styles';
 
 
 const AuthorizedDrawer = props => (
