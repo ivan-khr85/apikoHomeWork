@@ -5,9 +5,9 @@ import {
   withPropsOnChange,
   hoistStatics,
 } from 'recompose';
+import { StackActions } from 'react-navigation';
 import RestorePasswordScreen from './RestorePasswordScreenView';
 import { AlertService } from '../../services';
-import { navigationOperations } from '../../modules/navigation';
 
 
 const enhancer = compose(
@@ -21,7 +21,7 @@ const enhancer = compose(
     onSubmit: props => () => {
       if (props.isValid) {
         AlertService.SendEmailRestorePasswordAlert(
-          () => props.navigation.dispatch(navigationOperations.navigateToSignUpScreen()),
+          () => props.navigation.dispatch(StackActions.PopToTop()),
         );
       } else {
         AlertService.noValidInputData();
