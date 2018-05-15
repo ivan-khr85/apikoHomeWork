@@ -10,3 +10,6 @@ export const navigateToAuthorized = () =>
 
 export const navigateToUnauthorized = () =>
   NavigationActions.navigate({ routeName: screens.UnauthorizedApplicationNavigator });
+
+export const navigateToSignUpScreen = () =>
+  NavigationActions.navigate({ routeName: screens.SignUpScreen });

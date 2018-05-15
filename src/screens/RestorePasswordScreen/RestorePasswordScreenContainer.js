@@ -7,6 +7,7 @@ import {
 } from 'recompose';
 import RestorePasswordScreen from './RestorePasswordScreenView';
 import { AlertService } from '../../services';
+import { navigationOperations } from '../../modules/navigation';
 import { screens } from '../../navigation';
 
 
@@ -20,8 +21,8 @@ const enhancer = compose(
   withHandlers({
     onSubmit: props => () => {
       if (props.isValid) {
-        AlertService.singOut(
-          props.navigation.navigate(screens.UnauthorizedApplicationNavigator),
+        AlertService.SendEmailRestorePasswordAlert(
+          () => props.navigation.dispatch(navigationOperations.navigateToSignUpScreen()),
         );
       } else {
         AlertService.noValidInputData();
