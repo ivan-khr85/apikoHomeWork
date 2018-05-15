@@ -42,6 +42,15 @@ export const SignInErr = () => showAlert(
   ],
 );
 
+export const noValidInputData = () => showAlert(
+  i18n.t('noValidInputData.title'),
+  i18n.t('noValidInputData.messages'),
+  [
+    { text: i18n.t('noValidInputData.ok') },
+  ],
+);
+
+
 export const SendEmailRestorePasswordAlert = onPress => showAlert(
   i18n.t('SendEmailRestorePasswordAlert.title'),
   i18n.t('SendEmailRestorePasswordAlert.messages'),

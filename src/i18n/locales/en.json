@@ -21,16 +21,24 @@
         "messages": "Something Error",
         "ok": "OK"
   },
+
   "SignInErr": {
     "title": "Sign In Error",
-    "messages": "Something Error",
+    "messages": "Please register, or verify the correctness of the data entered",
     "ok": "OK"
   },
 
-    "SendEmailRestorePasswordAlert": {
-      "title": "Restore password",
-      "messages": "Instructions for password recovery is sent to your email",
-      "ok": "OK"
-    }
+  "noValidInputData": {
+    "title": "Data is not valid",
+    "messages": "Please verify the correctness of the data entered",
+    "ok": "OK"
+  },
+
+
+  "SendEmailRestorePasswordAlert": {
+    "title": "Restore password",
+    "messages": "Instructions for password recovery is sent to your email",
+    "ok": "OK"
+  }
 
 }

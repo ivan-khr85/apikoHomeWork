@@ -23,6 +23,8 @@ const enhancer = compose(
         AlertService.singOut(
           props.navigation.navigate(screens.UnauthorizedApplicationNavigator),
         );
+      } else {
+        AlertService.noValidInputData();
       }
     },
   }),

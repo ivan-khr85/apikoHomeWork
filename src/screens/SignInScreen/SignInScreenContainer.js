@@ -52,6 +52,8 @@ const enhancer = compose(
           console.log(`err: ${err}`);
           AlertService.SignInErr();
         }
+      } else {
+        AlertService.noValidInputData();
       }
     },
   }),
