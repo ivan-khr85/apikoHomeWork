@@ -1,11 +1,12 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, AsyncStorage } from 'react-native';
 import * as T from 'prop-types';
 import { SafeAreaView } from 'react-navigation';
 import { DrawerItem, DrawerLogo } from '../../../components';
 import { LinkingService, AlertService } from '../../../services';
 import { screens } from '../../';
 import { globalStyles } from '../../../styles';
+import { navigationOperations } from '../../../modules/navigation';
 
 
 const AuthorizedDrawer = props => (
@@ -55,7 +56,10 @@ const AuthorizedDrawer = props => (
       <DrawerItem
         {...props}
         onPress={() => AlertService.singOut(
-         () => props.navigation.navigate(screens.UnauthorizedApplicationNavigator),
+          () => (
+            props.navigation.dispatch(navigationOperations.navigateToUnauthorized()) &&
+            AsyncStorage.clear(() => console.warn)
+          ),
         )}
         title="Sign Out"
         iconName="md-log-out"
@@ -70,6 +74,7 @@ const AuthorizedDrawer = props => (
 AuthorizedDrawer.propTypes = {
   navigation: T.shape({
     navigate: T.func,
+    dispatch: T.func,
   }),
 };
 

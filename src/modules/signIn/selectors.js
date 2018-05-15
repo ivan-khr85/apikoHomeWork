@@ -1,17 +1,17 @@
 import { createSelector } from 'reselect';
 import R from 'ramda';
 
-export const getSigningUpState = createSelector(
-  R.pathOr(0, ['auth', 'isSigningUp']),
+export const getSigningInState = createSelector(
+  R.pathOr(0, ['signIn', 'isSigningIn']),
   state => state,
 );
 
 export const getSignedInState = createSelector(
-  R.pathOr(0, ['auth', 'signedIn']),
+  R.pathOr(0, ['signIn', 'signedIn']),
   state => state,
 );
 
-export const getSignUpErrorState = createSelector(
-  R.pathOr(0, ['auth', 'SignUpError']),
+export const getSignInErrorState = createSelector(
+  R.pathOr(0, ['signIn', 'isSignInError']),
   state => state,
 );

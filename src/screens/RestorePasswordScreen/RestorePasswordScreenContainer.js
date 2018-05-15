@@ -7,6 +7,7 @@ import {
 } from 'recompose';
 import RestorePasswordScreen from './RestorePasswordScreenView';
 import { AlertService } from '../../services';
+import { screens } from '../../navigation';
 
 
 const enhancer = compose(
@@ -19,7 +20,9 @@ const enhancer = compose(
   withHandlers({
     onSubmit: props => () => {
       if (props.isValid) {
-        AlertService.SendEmailRestorePasswordAlert();
+        AlertService.singOut(
+          props.navigation.navigate(screens.UnauthorizedApplicationNavigator),
+        );
       }
     },
   }),

@@ -13,7 +13,7 @@ import {
 import store from './store';
 import { selectStyle, globalStyles } from './styles';
 import { appOperations } from './modules/app';
-import RootNavigator from './navigation/RootNavigator';
+import RootNavigatorContainer from './navigation';
 import { AlertService } from './services';
 
 
@@ -28,14 +28,14 @@ SafeAreaView.setStatusBarHeight(
 
 const App = ({
   showLoading,
-  setLoadingStatus,
+  onFinish,
   asyncJob,
 }) => {
   if (showLoading) {
     return (
       <AppLoading
         startAsync={asyncJob}
-        onFinish={() => setLoadingStatus(false)}
+        onFinish={onFinish}
         onError={console.warn} // eslint-disable-line  
       />
     );
@@ -45,7 +45,7 @@ const App = ({
   return (
     <Provider store={store}>
       <View style={globalStyles.fillAll}>
-        <RootNavigator />
+        <RootNavigatorContainer />
       </View>
     </Provider>
   );
@@ -53,7 +53,7 @@ const App = ({
 
 App.propTypes = {
   showLoading: T.bool,
-  setLoadingStatus: T.func,
+  onFinish: T.func,
   asyncJob: T.func,
 };
 
@@ -72,10 +72,14 @@ const enhance = compose(
       );
       return true;
     },
+    onFinish: props => () => {
+      props.setLoadingStatus(false);
+    },
   }),
   lifecycle({
     componentDidMount() {
       BackHandler.addEventListener('hardwareBackPress', this.props.navigateBack);
+      
     },
   }),
 );

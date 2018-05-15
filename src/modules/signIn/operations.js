@@ -11,7 +11,7 @@ export const signIn = ({ password, email }) => async (dispatch) => {
 
     await AsyncStorage.multiSet([
       ['token', res.data.token],
-      ['_id', res.data.user._id], 
+      ['_id', res.data.user._id],
       ['email', res.data.user.email],
       ['username', res.data.user.username],
     ]);

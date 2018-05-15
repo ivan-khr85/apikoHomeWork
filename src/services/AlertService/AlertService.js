@@ -42,10 +42,14 @@ export const SignInErr = () => showAlert(
   ],
 );
 
-export const SendEmailRestorePasswordAlert = () => showAlert(
+export const SendEmailRestorePasswordAlert = onPress => showAlert(
   i18n.t('SendEmailRestorePasswordAlert.title'),
   i18n.t('SendEmailRestorePasswordAlert.messages'),
   [
-    { text: i18n.t('SendEmailRestorePasswordAlert.ok') },
+    {
+      text: i18n.t('SendEmailRestorePasswordAlert.ok'),
+      onPress,
+    },
   ],
+  { cancelable: false },
 );

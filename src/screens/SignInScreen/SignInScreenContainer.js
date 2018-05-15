@@ -10,10 +10,11 @@ import { screens } from '../../navigation';
 import SignInScreen from './SignInScreenView';
 import { signInOperations, signInSelectors } from '../../modules/signIn';
 import { AlertService } from '../../services';
+import { withLoadingModal } from '../../utils/enhancers';
 
 
 const mapStateToProps = state => ({
-  isLoading: signInSelectors.getSigningUpState(state),
+  isLoading: signInSelectors.getSigningInState(state),
 });
 
 const mapDispatchToProps = {
@@ -24,6 +25,7 @@ const mapDispatchToProps = {
 
 const enhancer = compose(
   connect(mapStateToProps, mapDispatchToProps),
+  withLoadingModal.stateProp('isLoading'),
   withStateHandlers({
     email: '',
     password: '',
