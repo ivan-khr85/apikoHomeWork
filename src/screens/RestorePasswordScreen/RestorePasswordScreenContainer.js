@@ -21,7 +21,7 @@ const enhancer = compose(
     onSubmit: props => () => {
       if (props.isValid) {
         AlertService.SendEmailRestorePasswordAlert(
-          () => props.navigation.dispatch(StackActions.PopToTop()),
+          () => props.navigation.dispatch(StackActions.popToTop()),
         );
       } else {
         AlertService.noValidInputData();
