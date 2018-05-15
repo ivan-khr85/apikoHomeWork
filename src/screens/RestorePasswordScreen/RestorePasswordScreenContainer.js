@@ -8,7 +8,6 @@ import {
 import RestorePasswordScreen from './RestorePasswordScreenView';
 import { AlertService } from '../../services';
 import { navigationOperations } from '../../modules/navigation';
-import { screens } from '../../navigation';
 
 
 const enhancer = compose(
