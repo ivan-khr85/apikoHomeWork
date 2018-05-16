@@ -1,0 +1,3 @@
+export const GET_QUESTIONS_START = 'questions/GET_QUESTIONS_START';
+export const GET_QUESTIONS_SUCCESS = 'questions/GET_QUESTIONS_SUCCESS';
+export const GET_QUESTIONS_ERROR = 'questions/GET_QUESTIONS_ERROR';
