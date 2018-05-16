@@ -41,7 +41,6 @@ const App = ({
     );
   }
 
-
   return (
     <Provider store={store}>
       <View style={globalStyles.fillAll}>

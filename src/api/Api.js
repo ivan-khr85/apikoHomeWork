@@ -15,21 +15,24 @@ class Api {
   }
 
   signUp({ username, password, email }) {
-    return axios.post(`${this._baseUrl}/auth/sign-up`,
-      {
-        username,
-        email,
-        password,
-      });
+    return axios.post(`${this._baseUrl}/auth/sign-up`, {
+      // profile: { fullName: username },
+      // username: email,
+      username,
+      password,
+      email,
+    });
   }
 
-
   signIn({ password, email }) {
-    return axios.post(`${this._baseUrl}/auth/sign-in`,
-      {
-        email,
-        password,
-      });
+    return axios.post(`${this._baseUrl}/auth/sign-in`, {
+      email,
+      password,
+    });
+  }
+
+  signOut() {
+    return axios.post(`${this._baseUrl}/auth/sign-out`);
   }
 }
 

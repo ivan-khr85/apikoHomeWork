@@ -8,24 +8,24 @@ import {
 import { connect } from 'react-redux';
 import { screens } from '../../navigation';
 import SignInScreen from './SignInScreenView';
-import { signInOperations, signInSelectors } from '../../modules/signIn';
+import { authOperations, authSelectors } from '../../modules/auth';
 import { AlertService } from '../../services';
-import { withLoadingModal } from '../../utils/enhancers';
+// import { withLoadingModal } from '../../utils/enhancers';
 
 
 const mapStateToProps = state => ({
-  isLoading: signInSelectors.getSigningInState(state),
+  isLoading: authSelectors.getSigningInState(state),
 });
 
 const mapDispatchToProps = {
-  signIn: signInOperations.signIn,
+  signIn: authOperations.signIn,
 
 };
 
 
 const enhancer = compose(
   connect(mapStateToProps, mapDispatchToProps),
-  withLoadingModal.stateProp('isLoading'),
+  // withLoadingModal.stateProp('isLoading'),
   withStateHandlers({
     email: '',
     password: '',
@@ -36,9 +36,6 @@ const enhancer = compose(
   withHandlers({
     navigateToRestorePassword: props => () => (
       props.navigation.navigate(screens.RestorePasswordScreen)
-    ),
-    navigateToAuth: props => () => (
-      props.navigation.navigate(screens.AuthorizedApplicationNavigator)
     ),
     signIn: props => async () => {
       if (props.isValid) {
@@ -62,7 +59,7 @@ const enhancer = compose(
     (props) => {
       const isValid = (
         props.email.trim().includes('@') &&
-        props.password.trim().length >= 6
+        props.password.trim().length >= 8
       );
       props.onChange('isValid', isValid);
     },

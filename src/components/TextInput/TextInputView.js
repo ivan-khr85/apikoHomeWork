@@ -10,6 +10,7 @@ const TextInputView = ({
   onChangeText,
   secureTextEntry,
   placeholder,
+  blurOnSubmit,
 }) => (
   <TextInput
     value={value}
@@ -19,6 +20,7 @@ const TextInputView = ({
     underlineColorAndroid="transparent"
     selectionColor={colors.mainColor}
     placeholder={placeholder}
+    blurOnSubmit={blurOnSubmit}
   />
 );
 
@@ -28,7 +30,7 @@ TextInputView.propTypes = {
   onChangeText: T.func,
   secureTextEntry: T.bool,
   placeholder: T.string,
-
+  blurOnSubmit: T.bool,
 };
 
 export default TextInputView;

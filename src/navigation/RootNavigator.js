@@ -1,11 +1,11 @@
 import React from 'react';
 import T from 'prop-types';
 import { createSwitchNavigator } from 'react-navigation';
-import { connect } from 'react-redux';
 import { screens } from './';
 import { addNavigationListener } from '../store';
 import AuthorizedApplicationNavigator from './AuthorizedApplicationNavigator';
 import UnauthorizedApplicationNavigator from './UnauthorizedApplicationNavigator';
+import enhancer from './RootNavigatorEnhancer';
 
 export const RootNavigator = createSwitchNavigator({
   [screens.AuthorizedApplicationNavigator]: { screen: AuthorizedApplicationNavigator },
@@ -30,6 +30,4 @@ RootNavigatorContainer.propTypes = {
   state: T.object,
 };
 
-export default connect(
-  state => ({ state: state.nav }),
-)(RootNavigatorContainer);
+export default enhancer(RootNavigatorContainer);

@@ -10,7 +10,7 @@ import { authOperations, authSelectors } from '../../modules/auth';
 import { screens } from '../../navigation';
 import SignUpScreen from './SignUpScreenView';
 import { AlertService } from '../../services';
-import { withLoadingModal } from '../../utils/enhancers';
+// import { withLoadingModal } from '../../utils/enhancers';
 
 
 const mapStateToProps = state => ({
@@ -19,13 +19,12 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   signUp: authOperations.signUp,
-  
 };
 
 
 const enhancer = compose(
   connect(mapStateToProps, mapDispatchToProps),
-  withLoadingModal.stateProp('isLoading'),
+  // withLoadingModal.stateProp('isLoading'),
   withStateHandlers({
     username: '',
     email: '',
@@ -60,7 +59,7 @@ const enhancer = compose(
       const isValid = (
         props.username.trim().length > 3 &&
         props.email.trim().includes('@') &&
-        props.password.trim().length >= 6
+        props.password.trim().length >= 8
       );
       props.onChange('isValid', isValid);
     },

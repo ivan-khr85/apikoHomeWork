@@ -8,6 +8,7 @@ import { DrawerButton, TextInput, ListHeader } from '../../components';
 
 const isAndroid = Platform.OS === 'android';
 
+
 const SignUpScreen = ({
   navigateToSignIn,
   onChange,
@@ -27,13 +28,13 @@ const SignUpScreen = ({
         value={username}
         onChangeText={text => onChange('username', text)}
         placeholder=" username"
+
       />
 
       <TextInput
         value={email}
         onChangeText={text => onChange('email', text)}
         placeholder=" email"
-        
       />
 
       <TextInput
