@@ -30,7 +30,7 @@ export default handleActions({
     isSignInError: action.payload,
   })),
 
-  
+
   [types.SIGN_OUT_START]: mergeDeep({ isSigningOut: true }),
   [types.SIGN_OUT_SUCCESS]: mergeDeep({ isSigningOut: false, signedIn: false }),
   [types.SIGN_OUT_ERROR]: mergeDeep(action => ({

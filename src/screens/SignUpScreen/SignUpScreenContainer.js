@@ -10,7 +10,6 @@ import { authOperations, authSelectors } from '../../modules/auth';
 import { screens } from '../../navigation';
 import SignUpScreen from './SignUpScreenView';
 import { AlertService } from '../../services';
-// import { withLoadingModal } from '../../utils/enhancers';
 
 
 const mapStateToProps = state => ({
@@ -24,7 +23,6 @@ const mapDispatchToProps = {
 
 const enhancer = compose(
   connect(mapStateToProps, mapDispatchToProps),
-  // withLoadingModal.stateProp('isLoading'),
   withStateHandlers({
     username: '',
     email: '',

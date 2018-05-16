@@ -1,10 +1,4 @@
-import {
-  compose,
-  withHandlers,
-  hoistStatics,
-  withStateHandlers,
-  withPropsOnChange,
-} from 'recompose';
+import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import { withLoadingModal } from '../utils/enhancers';
 import { authSelectors } from '../modules/auth';
