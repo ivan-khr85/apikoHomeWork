@@ -30,10 +30,11 @@ export default StyleSheet.create({
     color: colors.signUp.textSignUp,
   },
   textBtn: {
-    flex: 1,
     textAlign: 'center',
     color: colors.signUp.text,
-    paddingHorizontal: 5,
+  },
+  navigateToSignIn: {
+    flexBasis: 'auto',
   },
 
 

@@ -34,8 +34,8 @@ const SignInScreen = ({
 
     <View style={s.bottom}>
       <Touchable
-          onPress={onSubmit}
-          style={s.btnOnSubmit}
+        onPress={onSubmit}
+        style={s.btnOnSubmit}
       >
         <Text style={s.textOnSubmit}>Send instruction</Text>
       </Touchable>

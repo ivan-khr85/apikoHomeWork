@@ -43,8 +43,11 @@ const SignUpScreen = ({
           
           secureTextEntry
         />
-
-        <Text style={s.textBtn} onPress={navigateToSignIn}>Already has an{'\n'}account?</Text>
+        <Touchable
+          style={s.navigateToSignIn}
+        >
+          <Text style={s.textBtn} onPress={navigateToSignIn}>Already has an{'\n'}account?</Text>
+        </Touchable>
 
       </View>
 

@@ -37,9 +37,11 @@ const SignInScreen = ({
 
         secureTextEntry
       />
-
-      <Text style={s.textBtn} onPress={navigateToRestorePassword}>Forgot password?</Text>
-
+      <Touchable
+        style={s.forgotPassword}
+      >
+        <Text style={s.textBtn} onPress={navigateToRestorePassword}>Forgot password?</Text>
+      </Touchable>
     </View>
 
     <View style={s.bottom}>
