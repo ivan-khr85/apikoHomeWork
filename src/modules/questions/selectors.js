@@ -27,7 +27,11 @@ export const getQuestionList = createSelector(
     R.path(['question', 'isQuestionListLoading'], state),
   ],
   (ids, entities) => ids.map(item => entities[item]),
-  
+);
+
+export const getQuestionListCount = createSelector(
+  R.path(['question', 'isQuestionListLoading']),
+  ids => ids.length,
 );
 
 export const getQuestionListHasNoMoreState = createSelector(

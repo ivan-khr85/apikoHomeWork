@@ -8,6 +8,8 @@ const INITIAL_STATE = {
   isQuestionsListLoadingMore: false,
   isQuestionListLoadingMoreError: null,
 
+  isQuestionsListHasNoMore: false,
+
   questionsIds: [],
   questionsEntities: {},
 };
@@ -34,5 +36,8 @@ export default handleActions({
   [types.GET_QUESTIONS_MORE_ERROR]: mergeDeep(action => ({
     isQuestionsListLoadingMore: false,
     isQuestionsListLoadingError: action.payload.error,
+  })),
+  [types.QUESTIONS_MORE_ERROR]: mergeDeep(action => ({
+    isQuestionsListHasNoMore: action.payload,
   })),
 }, INITIAL_STATE);
