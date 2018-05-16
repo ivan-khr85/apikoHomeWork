@@ -1,12 +1,13 @@
 import React from 'react';
 import T from 'prop-types';
-import { View, Text } from 'react-native';
+import { View, Text, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import s from './style';
 import { headerStyle } from '../../styles';
 import Touchable from '../../components/Touchable';
 import BackBtn from '../../components/BackBtn/BackBtn';
 import { TextInput, ListHeader } from '../../components';
 
+const isAndroid = Platform.OS === 'android';
 
 const SignInScreen = ({
   navigateToRestorePassword,
@@ -16,7 +17,7 @@ const SignInScreen = ({
   onChange,
   
 }) => (
-  <View style={s.container}>
+  <ScrollView contentContainerStyle={s.container} scrollEnabled={false}>
 
     <View style={s.top}>
 
@@ -44,15 +45,15 @@ const SignInScreen = ({
       </Touchable>
     </View>
 
-    <View style={s.bottom}>
+    <KeyboardAvoidingView style={s.bottom} behavior="position" enabled={!isAndroid}>
       <Touchable
         onPress={signIn}
         style={s.buttonSignIn}
       >
         <Text style={s.signInText}>Sign in</Text>
       </Touchable>
-    </View>
-  </View>
+    </KeyboardAvoidingView>
+  </ScrollView>
 );
 
 SignInScreen.navigationOptions = ({ navigation }) => ({
