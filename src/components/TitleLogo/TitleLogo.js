@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, View } from 'react-native';
-import fullLogo from '../../icon/fullLogo.png';
+import fullLogo from '../../../assets/images/fullLogo.png';
 import s from './style';
 
 

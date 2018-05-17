@@ -3,13 +3,13 @@
     "name": "Ask apiko",
     "sdkVersion": "26.0.0",
     "orientation": "portrait",
-    "icon": "./src/icon/ico.png",
+    "icon": "./assets/images/ico.png",
     "androidStatusBar": {
       "barStyle": "dark-content",
       "backgroundColor": "#FF9900",
     },
     "splash": {
-      "image": "./src/icon/logo.png",
+      "image": "./assets/images/logo.png",
     }
   }
 }
