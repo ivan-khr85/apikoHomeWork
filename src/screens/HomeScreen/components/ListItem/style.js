@@ -5,6 +5,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 10,
+    paddingVertical: 8,
   },
   title: {
     fontSize: 18,
@@ -13,17 +14,15 @@ export default StyleSheet.create({
 
   date: {
     color: colors.userQuestions.textCreatedAt,
-    paddingTop: 7,
-    paddingBottom: 5,
+    paddingTop: 8,
   },
   tags: {
     flex: 1,
-    paddingTop: 5,
-    paddingBottom: 5,
+    paddingTop: 8,
     flexDirection: 'row',
   },
   tagContainer: {
-    paddingRight: 6,
+    paddingRight: 8,
   },
   tagText: {
     backgroundColor: colors.userQuestions.tagsBackground, 
