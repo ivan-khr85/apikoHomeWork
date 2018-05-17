@@ -14,7 +14,6 @@ export const getQuestions = () => async (dispatch, getState) => {
     
     const res = await Api.getQuestions();
     console.log(res.data);
-    
     const payload = normalize(res.data);
 
     dispatch(actions.getQuestionsSuccess(payload));

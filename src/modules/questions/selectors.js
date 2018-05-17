@@ -30,7 +30,7 @@ export const getQuestionsList = createSelector(
 );
 
 export const getQuestionsListCount = createSelector(
-  R.path(['questions', 'isQuestionsListLoading']),
+  R.path(['questions', 'questionsIds']),  
   ids => ids.length,
 );
 
