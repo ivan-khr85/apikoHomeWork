@@ -34,7 +34,7 @@ class Api {
     return axios.post(`${this._baseUrl}/auth/sign-out`);
   }
 
-  getQuestions({ limit = 4, skip = 0 } = {}) {
+  getQuestions({ limit = 10, skip = 0 } = {}) {
     return axios.get(
       `${this._baseUrl}/questions?limit=${limit}&skip=${skip}`,
     );

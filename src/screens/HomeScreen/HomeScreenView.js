@@ -4,23 +4,25 @@ import { View } from 'react-native';
 import { headerStyle } from '../../styles';
 import s from './style';
 import DrawerButtonView from '../../components/DrawerButton/DrawerButtonView';
-import { ListHeader } from '../../components';
 import QuestionsList from './components/QuestionsList';
 
 const HomeScreen = ({
   questionsList,
   getQuestionsMore,
+  getQuestions,
+  isLoading,
+  hasNoMore,
+  isLoadingMore,
 }) => (
   <View style={s.container}>
-    {/* <ListHeader
-      headerText="User questions"
-      styleText={s.headerText}
-      styleContainer={s.headerContainer}
-    /> */}
     <QuestionsList
+      onRefresh={getQuestions}
+      refreshing={isLoading}
       data={questionsList}
       onEndReachedThreshold={0.7}
       onEndReached={getQuestionsMore}
+      hasNoMore={hasNoMore}
+      isLoadingMore={isLoadingMore}
     />
   </View>
 );
@@ -38,6 +40,10 @@ HomeScreen.navigationOptions = ({ navigation }) => ({
 HomeScreen.propTypes = {
   questionsList: T.array,
   getQuestionsMore: T.func,
+  isLoading: T.bool,
+  getQuestions: T.func,
+  hasNoMore: T.bool,
+  isLoadingMore: T.bool,
 
 };
 

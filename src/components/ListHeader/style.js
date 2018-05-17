@@ -3,7 +3,7 @@ import { colors } from '../../styles';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.listHeader.background,
   },
   text: {
     marginTop: 10,

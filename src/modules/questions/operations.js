@@ -15,6 +15,7 @@ export const getQuestions = () => async (dispatch, getState) => {
     const res = await Api.getQuestions();
     const payload = normalize(res.data.questions);
     
+
     dispatch(actions.getQuestionsSuccess(payload));
   } catch (err) {
     dispatch(actions.getQuestionsError());
@@ -36,9 +37,9 @@ export const getQuestionsMore = () => async (dispatch, getState) => {
     dispatch(actions.getQuestionsMoreStart());
 
     const res = await Api.getQuestions({ skip: count });
-
-    const payload = normalize(res.data);
-
+    
+    const payload = normalize(res.data.questions);
+    
     dispatch(actions.getQuestionsMoreSuccess(payload));
   } catch (err) {
     dispatch(actions.getQuestionsMoreError());

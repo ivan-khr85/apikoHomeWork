@@ -4,11 +4,12 @@ const colors = {
   white: '#f7f7f7', // backgroundColor for all app
   blue: '#3399ff', // button
   LogoGray: '#333', // backgroundColor for tags
-  buttonColor: '#2CCBDC',
-  headerColor: '#fdfdfd',
+  buttonColor: '#4597D3',
+  headerColor: '#F8F8F8',
+  activityIndicatorColor: '#FF9900',
 
   drawer: {
-    background: '#fff',
+    background: '#F8F8F8',
   },
 
   drawerItem: {
@@ -26,7 +27,7 @@ const colors = {
   },
   
   signUp: {
-    background: '#f7f7f7',
+    background: '#F8F8F8',
     inputBackground: '#fff',
     text: '#3b5998',
     textSignUp: '#fff',
@@ -41,6 +42,15 @@ const colors = {
     textCreatedAt: '#c6c6c6',
     tagsBackground: '#b6b6b6',
     tagText: '#fff',
+  },
+  listHeader: {
+    background: '#F8F8F8',
+    borderBottom: '#ccc',
+  },
+  emptyList: {
+    description: '#ccc',
+    buttonText: '#fff',
+
   },
 };
 

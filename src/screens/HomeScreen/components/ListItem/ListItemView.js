@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import { View, Text } from 'react-native';
 import T from 'prop-types';
 import s from './style';
@@ -12,8 +13,7 @@ const ListItem = ({
   title,
   id,
 }) => {
-  const dateCreated = new Date(createdAt).toDateString();
-
+  const dateCreated = moment(createdAt).format('ddd, MMM D, YYYY');
   return (
     <Touchable style={s.container}>
       <View>

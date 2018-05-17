@@ -37,4 +37,5 @@ export default handleActions({
     isSigningOut: false,
     isSignOutError: action.error,
   })),
+
 }, INITIAL_STATE);

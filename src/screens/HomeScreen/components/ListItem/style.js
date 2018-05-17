@@ -4,21 +4,22 @@ import { colors } from '../../../../styles';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 35,
+    paddingHorizontal: 10,
   },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
-
   },
 
   date: {
     color: colors.userQuestions.textCreatedAt,
-    paddingTop: 12,
+    paddingTop: 7,
+    paddingBottom: 5,
   },
   tags: {
     flex: 1,
     paddingTop: 5,
+    paddingBottom: 5,
     flexDirection: 'row',
   },
   tagContainer: {
