@@ -4,28 +4,26 @@ import { colors } from '../../../../styles';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    height: 100,
-  },
-  text: {
-    textAlign: 'center',
+    justifyContent: 'center',
   },
 
-  buttonErr: {
+  description: {
+    paddingTop: 5,
+    color: colors.emptyList.description,
+  },
+
+  button: {
     backgroundColor: colors.buttonColor,
-    width: 80,
-    height: 35,
+    marginTop: 15,
+    paddingHorizontal: 30,
     paddingVertical: 7,
     borderRadius: 5,
   },
+  
+  buttonText: {
+    color: colors.emptyList.buttonText,
 
-  buttonErrText: {
-    textAlign: 'center',
-    fontSize: 15,
-    fontWeight: 'bold',
-    color: colors.tryAgain.textColor,
   },
-
 
 });

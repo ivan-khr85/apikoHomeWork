@@ -1,6 +1,10 @@
-import { pure } from 'recompose';
+import { pure, compose } from 'recompose';
 import QuestionsList from './QuestionsListView';
 
 
-export default pure(QuestionsList);
+const enhancer = compose(
+  pure,
+);
+
+export default enhancer(QuestionsList);
 

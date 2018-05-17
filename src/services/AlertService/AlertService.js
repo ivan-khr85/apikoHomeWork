@@ -62,3 +62,13 @@ export const SendEmailRestorePasswordAlert = onPress => showAlert(
   ],
   { cancelable: false },
 );
+
+
+export const questionLoadingErr = onPress => showAlert(
+  i18n.t('questionLoadingErr.title'),
+  i18n.t('questionLoadingErr.messages'),
+  [
+    { text: i18n.t('questionLoadingErr.ok'), onPress },
+    { text: i18n.t('questionLoadingErr.cancel'), style: 'cancel' },
+  ],
+);

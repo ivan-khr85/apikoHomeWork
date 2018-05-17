@@ -50,7 +50,9 @@ const colors = {
   emptyList: {
     description: '#ccc',
     buttonText: '#fff',
-
+  },
+  tryAgain: {
+    textColor: '#fff',
   },
 };
 

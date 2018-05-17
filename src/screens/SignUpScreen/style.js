@@ -33,9 +33,6 @@ export default StyleSheet.create({
     textAlign: 'center',
     color: colors.signUp.text,
   },
-  navigateToSignIn: {
-    flexBasis: 'auto',
-  },
 
 
 });

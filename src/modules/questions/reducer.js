@@ -5,6 +5,7 @@ import { mergeDeep } from '../../utils/stateHelpers';
 const INITIAL_STATE = {
   isQuestionsListLoading: false,
   isQuestionsListError: null,
+
   isQuestionsListLoadingMore: false,
   isQuestionsListLoadingMoreError: null,
 
@@ -15,7 +16,10 @@ const INITIAL_STATE = {
 };
 
 export default handleActions({
-  [types.GET_QUESTIONS_START]: mergeDeep({ isQuestionsListLoading: true }),
+  [types.GET_QUESTIONS_START]: mergeDeep({
+    isQuestionsListLoading: true,
+    isQuestionsListError: null,
+  }),
   [types.GET_QUESTIONS_SUCCESS]: mergeDeep(action => ({
     isQuestionsListLoading: false,
     questionsIds: action.payload.ids,
@@ -27,7 +31,10 @@ export default handleActions({
   })),
 
 
-  [types.GET_QUESTIONS_MORE_START]: mergeDeep({ isQuestionsListLoadingMore: true }),
+  [types.GET_QUESTIONS_MORE_START]: mergeDeep({
+    isQuestionsListLoadingMore: true,
+    isQuestionsListLoadingMoreError: null,
+  }),
   [types.GET_QUESTIONS_MORE_SUCCESS]: mergeDeep((action, state) => ({
     isQuestionsListLoadingMore: false,
     questionsIds: state.questionsIds.concat(action.payload.ids),

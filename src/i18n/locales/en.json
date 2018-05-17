@@ -39,6 +39,14 @@
     "title": "Restore password",
     "messages": "Instructions for password recovery is sent to your email",
     "ok": "OK"
-  }
+  },
+
+
+  "questionLoadingErr": {
+    "cancel": "Cancel",
+    "ok": "OK",
+    "messages": "Try again?",
+    "title": "Loading question error"
+  },
 
 }

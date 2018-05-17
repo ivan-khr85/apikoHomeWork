@@ -5,6 +5,9 @@ import { headerStyle } from '../../styles';
 import s from './style';
 import DrawerButtonView from '../../components/DrawerButton/DrawerButtonView';
 import QuestionsList from './components/QuestionsList';
+import { ListHeader } from '../../components';
+import LoadingError from './components/LoadingError';
+
 
 const HomeScreen = ({
   questionsList,
@@ -13,19 +16,30 @@ const HomeScreen = ({
   isLoading,
   hasNoMore,
   isLoadingMore,
-}) => (
-  <View style={s.container}>
-    <QuestionsList
-      onRefresh={getQuestions}
-      refreshing={isLoading}
-      data={questionsList}
-      onEndReachedThreshold={0.7}
-      onEndReached={getQuestionsMore}
-      hasNoMore={hasNoMore}
-      isLoadingMore={isLoadingMore}
-    />
-  </View>
-);
+  loadingError,
+}) =>
+  (loadingError ? (
+    <View style={s.container}>
+      <ListHeader
+        headerText="User questions"
+        styleContainer={s.headerContainer}
+        styleText={s.headerText}
+      />
+      <LoadingError />
+    </View>
+  ) : (
+    <View style={s.container}>
+      <QuestionsList
+        onRefresh={getQuestions}
+        refreshing={isLoading}
+        data={questionsList}
+        onEndReachedThreshold={0.7}
+        onEndReached={getQuestionsMore}
+        hasNoMore={hasNoMore}
+        isLoadingMore={isLoadingMore}
+      />
+    </View>
+  ));
 
 HomeScreen.navigationOptions = ({ navigation }) => ({
   headerLeft: (
@@ -44,7 +58,8 @@ HomeScreen.propTypes = {
   getQuestions: T.func,
   hasNoMore: T.bool,
   isLoadingMore: T.bool,
-
+  loadingError: T.any,
+  
 };
 
 

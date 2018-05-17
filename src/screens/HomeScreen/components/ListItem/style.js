@@ -8,13 +8,14 @@ export default StyleSheet.create({
     paddingVertical: 8,
   },
   title: {
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: 'bold',
   },
 
   date: {
     color: colors.userQuestions.textCreatedAt,
     paddingTop: 8,
+    fontSize: 13,
   },
   tags: {
     flex: 1,
@@ -28,6 +29,7 @@ export default StyleSheet.create({
     backgroundColor: colors.userQuestions.tagsBackground,
     color: colors.userQuestions.tagText,
     paddingHorizontal: 4,
+    fontSize: 13,
   },
 
 
