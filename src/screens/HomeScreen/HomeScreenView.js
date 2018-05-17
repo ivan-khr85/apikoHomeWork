@@ -1,22 +1,27 @@
 import React from 'react';
 import * as T from 'prop-types';
-import { View, Text } from 'react-native';
-import { globalStyles, headerStyle } from '../../styles';
-import Touchable from '../../components/Touchable';
+import { View } from 'react-native';
+import { headerStyle } from '../../styles';
+import s from './style';
 import DrawerButtonView from '../../components/DrawerButton/DrawerButtonView';
+import { ListHeader } from '../../components';
+import QuestionsList from './components/QuestionsList';
 
 const HomeScreen = ({
-  navigateToQuestion,
+  questionsList,
+  getQuestionsMore,
 }) => (
-  <View style={globalStyles.align}>
-    <Text>Home Screen</Text>
-    <Text />
-    <Touchable
-      onPress={navigateToQuestion}
-      style={globalStyles.button}
-    >
-      <Text>Go to question</Text>
-    </Touchable>
+  <View style={s.container}>
+    {/* <ListHeader
+      headerText="User questions"
+      styleText={s.headerText}
+      styleContainer={s.headerContainer}
+    /> */}
+    <QuestionsList
+      data={questionsList}
+      onEndReachedThreshold={0.7}
+      onEndReached={getQuestionsMore}
+    />
   </View>
 );
 
@@ -31,7 +36,9 @@ HomeScreen.navigationOptions = ({ navigation }) => ({
 });
 
 HomeScreen.propTypes = {
-  navigateToQuestion: T.func,
+  questionsList: T.array,
+  getQuestionsMore: T.func,
+
 };
 
 

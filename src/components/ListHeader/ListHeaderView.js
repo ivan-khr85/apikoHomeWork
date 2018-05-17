@@ -5,9 +5,11 @@ import s from './style';
 
 const Header = ({
   headerText,
+  styleText,
+  styleContainer,
 }) => (
-  <View style={s.container}>
-    <Text style={s.text}>
+  <View style={[s.container, styleContainer]}>
+    <Text style={[s.text, styleText]}>
       {headerText}
     </Text>
   </View>
@@ -15,6 +17,8 @@ const Header = ({
 
 Header.propTypes = {
   headerText: T.string,
+  styleText: T.any,
+  styleContainer: T.any,
 
 };
 

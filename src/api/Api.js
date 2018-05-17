@@ -25,7 +25,7 @@ class Api {
 
   signIn({ password, email }) {
     return axios.post(`${this._baseUrl}/auth/sign-in`, {
-      email,
+      username: email,
       password,
     });
   }

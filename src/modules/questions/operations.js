@@ -13,9 +13,8 @@ export const getQuestions = () => async (dispatch, getState) => {
     dispatch(actions.getQuestionsStart());
     
     const res = await Api.getQuestions();
-    console.log(res.data);
-    const payload = normalize(res.data);
-
+    const payload = normalize(res.data.questions);
+    
     dispatch(actions.getQuestionsSuccess(payload));
   } catch (err) {
     dispatch(actions.getQuestionsError());
@@ -26,9 +25,9 @@ export const getQuestions = () => async (dispatch, getState) => {
 export const getQuestionsMore = () => async (dispatch, getState) => {
   try {
     const isFetchingMore = questionsSelectors.getQuestionsListLoadingMoreState(getState());
-
+    const isFetching = questionsSelectors.getQuestionsListLoadingState(getState());
     
-    if (isFetchingMore) {
+    if (isFetchingMore || isFetching) {
       return;
     }
     

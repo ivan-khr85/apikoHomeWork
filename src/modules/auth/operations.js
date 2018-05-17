@@ -1,4 +1,5 @@
 import { AsyncStorage } from 'react-native';
+import axios from 'axios';
 import * as actions from './actions';
 import Api from '../../api';
 
@@ -14,8 +15,7 @@ export const signUp = ({ username, password, email }) => async (dispatch) => {
       ['email', res.data.user.email],
       ['username', res.data.user.username],
     ]);
-    
-
+    Api.setToken(res.data.token);
     dispatch(actions.signUpSuccess());
   } catch (err) {
     console.log(err);
@@ -37,7 +37,7 @@ export const signIn = ({ password, email }) => async (dispatch) => {
       ['email', res.data.user.email],
       ['username', res.data.user.username],
     ]);
-
+    Api.setToken(res.data.token);
     dispatch(actions.signInSuccess());
   } catch (err) {
     dispatch(actions.signInError());
@@ -51,7 +51,7 @@ export const signOut = () => async (dispatch) => {
 
     await Api.signOut();
     await AsyncStorage.clear();
-
+    axios.defaults.headers.common.Authorization = `Bearer ${null}`;
     dispatch(actions.signOutSuccess());
   } catch (err) {
     dispatch(actions.signOutError());

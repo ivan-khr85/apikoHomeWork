@@ -5,6 +5,7 @@ const colors = {
   blue: '#3399ff', // button
   LogoGray: '#333', // backgroundColor for tags
   buttonColor: '#2CCBDC',
+  headerColor: '#fdfdfd',
 
   drawer: {
     background: '#fff',
