@@ -25,7 +25,7 @@ export default StyleSheet.create({
     paddingRight: 8,
   },
   tagText: {
-    backgroundColor: colors.userQuestions.tagsBackground, 
+    backgroundColor: colors.userQuestions.tagsBackground,
     color: colors.userQuestions.tagText,
     paddingHorizontal: 4,
   },
