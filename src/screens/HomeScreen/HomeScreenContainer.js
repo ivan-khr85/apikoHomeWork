@@ -3,6 +3,7 @@ import {
   withHandlers,
   hoistStatics,
   lifecycle,
+  pure,
 } from 'recompose';
 import { connect } from 'react-redux';
 import HomeScreen from './HomeScreenView';
@@ -34,6 +35,7 @@ const enhancer = compose(
       this.props.getQuestions();
     },
   }),
+  pure,
 );
 
 

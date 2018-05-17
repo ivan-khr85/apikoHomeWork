@@ -22,7 +22,7 @@ const QuestionsList = ({
     refreshing={refreshing}
     data={data}
     ItemSeparatorComponent={() => <Separator />}
-    keyExtractor={item => (`${R.prop('_id')(item)}-${item.createdAt}`)}
+    keyExtractor={(item, index) => (`${R.prop('_id')(item)}-${item.createdAt}-${index}`)}
     onEndReachedThreshold={onEndReachedThreshold}
     onEndReached={onEndReached}
     ListFooterComponent={() => (
