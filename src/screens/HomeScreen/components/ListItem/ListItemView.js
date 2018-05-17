@@ -15,7 +15,10 @@ const ListItem = ({
 }) => {
   const dateCreated = moment(createdAt).format('ddd, MMM D, YYYY');
   return (
-    <Touchable style={s.container}>
+    <Touchable
+      style={s.container}
+      useOpacity
+    >
       <View>
         <Text style={s.title}>{title}</Text>
         <View style={[tags.length && s.tags]}><Tag tags={tags} /></View>
