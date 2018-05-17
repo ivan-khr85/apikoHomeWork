@@ -6,21 +6,20 @@ import normalize from '../../utils/normalize';
 export const getQuestions = () => async (dispatch, getState) => {
   try {
     const isFetching = questionsSelectors.getQuestionsListLoadingState(getState());
-
     if (isFetching) {
       return;
     }
-
+    
     dispatch(actions.getQuestionsStart());
-
+    
     const res = await Api.getQuestions();
-
+    console.log(res.data);
+    
     const payload = normalize(res.data);
 
     dispatch(actions.getQuestionsSuccess(payload));
   } catch (err) {
     dispatch(actions.getQuestionsError());
-    throw new Error('Get questions error');
   }
 };
 
@@ -45,7 +44,6 @@ export const getQuestionsMore = () => async (dispatch, getState) => {
     dispatch(actions.getQuestionsMoreSuccess(payload));
   } catch (err) {
     dispatch(actions.getQuestionsMoreError());
-    throw new Error('Get questions error');
   }
 };
 

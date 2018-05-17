@@ -16,9 +16,8 @@ class Api {
 
   signUp({ username, password, email }) {
     return axios.post(`${this._baseUrl}/auth/sign-up`, {
-      // profile: { fullName: username },
-      // username: email,
-      username,
+      profile: { fullName: username },
+      username: email,
       password,
       email,
     });
@@ -33,6 +32,12 @@ class Api {
 
   signOut() {
     return axios.post(`${this._baseUrl}/auth/sign-out`);
+  }
+
+  getQuestions({ limit = 4, skip = 0 } = {}) {
+    return axios.get(
+      `${this._baseUrl}/questions?limit=${limit}&skip=${skip}`,
+    );
   }
 }
 

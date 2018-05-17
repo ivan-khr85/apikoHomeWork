@@ -1,7 +1,7 @@
 import React from 'react';
 import T from 'prop-types';
 import { AppLoading } from 'expo';
-import { BackHandler, View, Platform } from 'react-native';
+import { BackHandler, View, Platform, Text } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import { Provider } from 'react-redux';
 import {

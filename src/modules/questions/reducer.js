@@ -6,7 +6,7 @@ const INITIAL_STATE = {
   isQuestionsListLoading: false,
   isQuestionsListError: null,
   isQuestionsListLoadingMore: false,
-  isQuestionListLoadingMoreError: null,
+  isQuestionsListLoadingMoreError: null,
 
   isQuestionsListHasNoMore: false,
 
@@ -15,29 +15,29 @@ const INITIAL_STATE = {
 };
 
 export default handleActions({
-  [types.GET_QUESTIONS_START]: mergeDeep({ isQuestionsListLoadingMore: true }),
+  [types.GET_QUESTIONS_START]: mergeDeep({ isQuestionsListLoading: true }),
   [types.GET_QUESTIONS_SUCCESS]: mergeDeep(action => ({
-    isQuestionsListLoadingMore: false,
+    isQuestionsListLoading: false,
     questionsIds: action.payload.ids,
     questionsEntities: action.payload.entities,
   })),
   [types.GET_QUESTIONS_ERROR]: mergeDeep(action => ({
     isQuestionsListLoadingMore: false,
-    isQuestionsListLoadingError: action.payload.error,
+    isQuestionsListLoadingError: action.error,
   })),
 
 
   [types.GET_QUESTIONS_MORE_START]: mergeDeep({ isQuestionsListLoadingMore: true }),
   [types.GET_QUESTIONS_MORE_SUCCESS]: mergeDeep((action, state) => ({
     isQuestionsListLoadingMore: false,
-    questionsIds: state.questionsIds.cuncat(action.payload.ids),
+    questionsIds: state.questionsIds.concat(action.payload.ids),
     questionsEntities: action.payload.entities,
   })),
   [types.GET_QUESTIONS_MORE_ERROR]: mergeDeep(action => ({
     isQuestionsListLoadingMore: false,
-    isQuestionsListLoadingError: action.payload.error,
+    isQuestionsListLoadingError: action.error,
   })),
   [types.QUESTIONS_MORE_ERROR]: mergeDeep(action => ({
-    isQuestionsListHasNoMore: action.payload,
+    isQuestionsListHasNoMore: action.error,
   })),
 }, INITIAL_STATE);

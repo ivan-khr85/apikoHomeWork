@@ -1,40 +1,40 @@
 import { createSelector } from 'reselect';
 import R from 'ramda';
 
-export const getQuestionListLoadingState = createSelector(
-  R.path(['question', 'isQuestionListLoading']),
+const getQuestionsIds = state => R.pathOr([], ['questions', 'questionsIds'], state);
+const getQuestionsEntities = state => R.pathOr({}, ['questions', 'questionsEntities'], state);
+
+export const getQuestionsListLoadingState = createSelector(
+  R.path(['questions', 'isQuestionsListLoading']),
   state => state,
 );
 
-export const getQuestionListErrorState = createSelector(
-  R.path(['question', 'isQuestionListLoadingError']),
+export const getQuestionsListErrorState = createSelector(
+  R.path(['questions', 'isQuestionsListLoadingError']),
   state => state,
 );
 
-export const getQuestionListLoadingMoreState = createSelector(
-  R.path(['question', 'isQuestionListLoadingMore']),
+export const getQuestionsListLoadingMoreState = createSelector(
+  R.path(['questions', 'isQuestionsListLoadingMore']),
   state => state,
 );
 
-export const getQuestionListLoadingMoreErrorState = createSelector(
-  R.path(['question', 'isQuestionListLoadingMoreError']),
+export const getQuestionsListLoadingMoreErrorState = createSelector(
+  R.path(['questions', 'isQuestionsListLoadingMoreError']),
   state => state,
 );
 
-export const getQuestionList = createSelector(
-  state => [
-    R.path(['question', 'isQuestionListLoading'], state),
-    R.path(['question', 'isQuestionListLoading'], state),
-  ],
+export const getQuestionsList = createSelector(
+  [getQuestionsIds, getQuestionsEntities],
   (ids, entities) => ids.map(item => entities[item]),
 );
 
-export const getQuestionListCount = createSelector(
-  R.path(['question', 'isQuestionListLoading']),
+export const getQuestionsListCount = createSelector(
+  R.path(['questions', 'isQuestionsListLoading']),
   ids => ids.length,
 );
 
-export const getQuestionListHasNoMoreState = createSelector(
-  R.path(['question', 'isQuestionListHasNoMore']),
+export const getQuestionsListHasNoMoreState = createSelector(
+  R.path(['questions', 'isQuestionsListHasNoMore']),
   state => state,
 );

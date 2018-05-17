@@ -19,7 +19,7 @@ export default handleActions({
   [types.SIGN_UP_SUCCESS]: mergeDeep({ isSigningUp: false, signedIn: true }),
   [types.SIGN_UP_ERROR]: mergeDeep(action => ({
     isSigningUp: false,
-    isSignUpError: action.payload.error,
+    isSignUpError: action.error,
   })),
 
 
@@ -27,7 +27,7 @@ export default handleActions({
   [types.SIGN_IN_SUCCESS]: mergeDeep({ isSigningIn: false, signedIn: true }),
   [types.SIGN_IN_ERROR]: mergeDeep(action => ({
     isSigningIn: false,
-    isSignInError: action.payload.error,
+    isSignInError: action.error,
   })),
 
 
@@ -35,6 +35,6 @@ export default handleActions({
   [types.SIGN_OUT_SUCCESS]: mergeDeep({ isSigningOut: false, signedIn: false }),
   [types.SIGN_OUT_ERROR]: mergeDeep(action => ({
     isSigningOut: false,
-    isSignOutError: action.payload.error,
+    isSignOutError: action.error,
   })),
 }, INITIAL_STATE);
