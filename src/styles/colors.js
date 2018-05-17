@@ -20,6 +20,7 @@ const colors = {
     icon: '#000',
     border: '#c6c6c6',
   },
+
   separator: {
     border: '#c6c6c6',
   },
@@ -30,9 +31,16 @@ const colors = {
     text: '#3b5998',
     textSignUp: '#fff',
   },
+
   restorePassword: {
     btnText: '#fff',
     aboutFormText: '#ccc',
+  },
+
+  userQuestions: {
+    textCreatedAt: '#c6c6c6',
+    tagsBackground: '#b6b6b6',
+    tagText: '#fff',
   },
 };
 

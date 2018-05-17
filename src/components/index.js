@@ -5,3 +5,4 @@ export { default as DrawerLogo } from './DrawerLogo';
 export { default as ListHeader } from './ListHeader';
 export { default as TextInput } from './TextInput';
 export { default as LoadingModal } from './LoadingModal';
+export { default as Separator } from './Separator';

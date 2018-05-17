@@ -6,12 +6,5 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  headerText: {
-    paddingHorizontal: 10,
-  },
-  headerContainer: {
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: '#ccc',
-  },
 
 });
