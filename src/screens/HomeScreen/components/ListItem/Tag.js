@@ -10,7 +10,7 @@ const Tag = ({
   tags.map((item, index) => (
     <View
       style={s.tagContainer}
-      key={index} // eslint-disable-line
+      key={`${index}-${item}`} // eslint-disable-line
     >
       <Text style={s.tagText}>{item}</Text>
     </View>
