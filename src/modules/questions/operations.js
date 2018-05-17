@@ -31,10 +31,10 @@ export const getQuestionsMore = () => async (dispatch, getState) => {
       return;
     }
     
-    const count = questionsSelectors.getQuestionsListCount;
     
     dispatch(actions.getQuestionsMoreStart());
-
+    
+    const count = questionsSelectors.getQuestionsListCount(getState());
     const res = await Api.getQuestions({ skip: count });
     
     const payload = normalize(res.data.questions);
