@@ -42,14 +42,14 @@ export default handleActions({
     questionsIds: state.questionsIds.concat(action.payload.ids),
     questionsEntities: action.payload.entities,
   })),
-  [types.GET_QUESTIONS_MORE_ERROR]: mergeDeep(action => ({
+  [types.GET_QUESTIONS_MORE_ERROR]: mergeDeep({
     isQuestionsListLoadingMore: false,
     isQuestionsListLoadingMoreError: true,
-  })),
+  }),
   
-  [types.QUESTIONS_LIST_HAS_NO_MORE]: mergeDeep(action => ({
+  [types.QUESTIONS_LIST_HAS_NO_MORE]: mergeDeep({
     isQuestionsListHasNoMore: true,
-  })),
+  }),
 
 
 }, INITIAL_STATE);
