@@ -38,3 +38,8 @@ export const getQuestionsListHasNoMoreState = createSelector(
   R.path(['questions', 'isQuestionsListHasNoMore']),
   state => state,
 );
+
+export const getQuestionById = createSelector(
+  (state, id) => R.pathOr({}, ['questions', 'questionsEntities', id])(state),
+  state => state,
+);

@@ -28,7 +28,7 @@ const mapDispatchToProps = {
 const enhancer = compose(
   connect(mapStateToProps, mapDispatchToProps),
   withHandlers({
-    navigateToQuestion: props => () => props.navigation.navigate(screens.QuestionScreen),
+    navigateToQuestion: props => id => props.navigation.navigate(screens.QuestionScreen, { id }),
   }),
   lifecycle({
     componentDidMount() {

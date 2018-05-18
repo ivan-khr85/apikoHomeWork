@@ -1,13 +1,18 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { globalStyles, headerStyle } from '../../styles';
+import T from 'prop-types';
+import { headerStyle } from '../../styles';
+import s from './style';
 import BackBtn from '../../components/BackBtn/BackBtn';
 
-const QuestionScreen = () => (
-  <View style={globalStyles.align}>
+const QuestionScreen = ({
+  question,
+}) => (
+  <View style={s.container}>
     <Text>Question Screen</Text>
   </View>
 );
+
 
 QuestionScreen.navigationOptions = ({ navigation }) => ({
   ...headerStyle,
@@ -16,5 +21,10 @@ QuestionScreen.navigationOptions = ({ navigation }) => ({
   ),
 });
 
+
+QuestionScreen.propsTypes = {
+  question: T.object,
+  
+};
 
 export default QuestionScreen;

@@ -4,7 +4,7 @@ const colors = {
   white: '#f7f7f7', // backgroundColor for all app
   blue: '#3399ff', // button
   LogoGray: '#333', // backgroundColor for tags
-  buttonColor: '#00a0ff',
+  buttonColor: '#00A0FF',
   headerColor: '#F8F8F8',
   activityIndicatorColor: '#FF9900',
 

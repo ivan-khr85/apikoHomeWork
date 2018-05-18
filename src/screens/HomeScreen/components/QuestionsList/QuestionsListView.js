@@ -16,6 +16,7 @@ const QuestionsList = ({
   refreshing,
   hasNoMore,
   isLoadingMore,
+  onPress,
 }) => (
   <FlatList
     onRefresh={onRefresh}
@@ -44,7 +45,8 @@ const QuestionsList = ({
         description={item.description}
         tags={item.tags}
         title={item.title}
-        id={item._id}
+        _id={item._id}
+        onPress={onPress}
       />
     )}
     ListEmptyComponent={() => (
@@ -61,7 +63,7 @@ QuestionsList.propTypes = {
   refreshing: T.bool,
   hasNoMore: T.bool,
   isLoadingMore: T.bool,
-
+  onPress: T.func,
 };
 
 

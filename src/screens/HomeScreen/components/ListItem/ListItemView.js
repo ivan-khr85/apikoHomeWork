@@ -8,15 +8,17 @@ import Tag from './Tag';
 
 const ListItem = ({
   createdAt,
-  description,
+  // description,
   tags,
   title,
-  id,
+  _id,
+  onPress,
 }) => {
   const dateCreated = moment(createdAt).format('MMM D ’H');
   return (
     <Touchable
       style={s.container}
+      onPress={() => onPress(_id)}
       useOpacity
     >
       <View>
@@ -33,7 +35,8 @@ ListItem.propTypes = {
   description: T.string,
   tags: T.array,
   title: T.string,
-  id: T.string,
+  _id: T.string,
+  onPress: T.func,
 
 };
 

@@ -17,6 +17,7 @@ const HomeScreen = ({
   hasNoMore,
   isLoadingMore,
   loadingError,
+  navigateToQuestion,
 }) =>
   (loadingError ? (
     <View style={s.container}>
@@ -37,6 +38,7 @@ const HomeScreen = ({
         onEndReached={getQuestionsMore}
         hasNoMore={hasNoMore}
         isLoadingMore={isLoadingMore}
+        onPress={navigateToQuestion}
       />
     </View>
   ));
@@ -59,6 +61,7 @@ HomeScreen.propTypes = {
   hasNoMore: T.bool,
   isLoadingMore: T.bool,
   loadingError: T.any,
+  navigateToQuestion: T.func,
   
 };
 
