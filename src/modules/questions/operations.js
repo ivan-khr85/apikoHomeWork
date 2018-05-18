@@ -3,6 +3,7 @@ import Api from '../../api';
 import { questionsSelectors } from './';
 import normalize from '../../utils/normalize';
 
+
 export const getQuestions = () => async (dispatch, getState) => {
   try {
     const isFetching = questionsSelectors.getQuestionsListLoadingState(getState());
@@ -11,7 +12,7 @@ export const getQuestions = () => async (dispatch, getState) => {
     }
     
     dispatch(actions.getQuestionsStart());
-    
+
     const res = await Api.getQuestions();
     const payload = normalize(res.data.questions);
     
@@ -36,7 +37,10 @@ export const getQuestionsMore = () => async (dispatch, getState) => {
     
     const count = questionsSelectors.getQuestionsListCount(getState());
     const res = await Api.getQuestions({ skip: count });
-    
+
+    if (res.data.count === count) {
+      dispatch(actions.questionListHesNoMore());
+    }
     const payload = normalize(res.data.questions);
     
     dispatch(actions.getQuestionsMoreSuccess(payload));

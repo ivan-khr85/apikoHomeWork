@@ -18,7 +18,8 @@ const INITIAL_STATE = {
 export default handleActions({
   [types.GET_QUESTIONS_START]: mergeDeep({
     isQuestionsListLoading: true,
-    isQuestionsListError: null,
+    isQuestionsListError: false,
+    isQuestionsListLoadingMoreError: false,
   }),
   [types.GET_QUESTIONS_SUCCESS]: mergeDeep(action => ({
     isQuestionsListLoading: false,
@@ -27,13 +28,14 @@ export default handleActions({
   })),
   [types.GET_QUESTIONS_ERROR]: mergeDeep(action => ({
     isQuestionsListLoadingMore: false,
-    isQuestionsListLoadingError: action.error,
+    isQuestionsListError: action.error,
   })),
 
 
   [types.GET_QUESTIONS_MORE_START]: mergeDeep({
     isQuestionsListLoadingMore: true,
-    isQuestionsListLoadingMoreError: null,
+    isQuestionsListError: false,
+    isQuestionsListLoadingMoreError: false,
   }),
   [types.GET_QUESTIONS_MORE_SUCCESS]: mergeDeep((action, state) => ({
     isQuestionsListLoadingMore: false,
@@ -42,9 +44,12 @@ export default handleActions({
   })),
   [types.GET_QUESTIONS_MORE_ERROR]: mergeDeep(action => ({
     isQuestionsListLoadingMore: false,
-    isQuestionsListLoadingError: action.error,
+    isQuestionsListLoadingMoreError: true,
   })),
-  [types.QUESTIONS_MORE_ERROR]: mergeDeep(action => ({
-    isQuestionsListHasNoMore: action.error,
+  
+  [types.QUESTIONS_LIST_HAS_NO_MORE]: mergeDeep(action => ({
+    isQuestionsListHasNoMore: true,
   })),
+
+
 }, INITIAL_STATE);

@@ -10,7 +10,7 @@ export const getQuestionsListLoadingState = createSelector(
 );
 
 export const getQuestionsListErrorState = createSelector(
-  R.path(['questions', 'isQuestionsListLoadingError']),
+  R.path(['questions', 'isQuestionsListError']),
   state => state,
 );
 

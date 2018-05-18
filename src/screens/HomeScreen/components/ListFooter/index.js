@@ -1,3 +1,3 @@
-import ListFooter from './ListFooterView';
+import ListFooter from './ListFooterContainer';
 
 export default ListFooter;
