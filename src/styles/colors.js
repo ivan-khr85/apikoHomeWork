@@ -4,7 +4,7 @@ const colors = {
   white: '#f7f7f7', // backgroundColor for all app
   blue: '#3399ff', // button
   LogoGray: '#333', // backgroundColor for tags
-  buttonColor: '#4597D3',
+  buttonColor: '#00a0ff',
   headerColor: '#F8F8F8',
   activityIndicatorColor: '#FF9900',
 
@@ -29,8 +29,14 @@ const colors = {
   signUp: {
     background: '#F8F8F8',
     inputBackground: '#fff',
-    text: '#3b5998',
+    text: '#4676B4',
     textSignUp: '#fff',
+  },
+  signIn: {
+    background: '#F8F8F8',
+    inputBackground: '#fff',
+    text: '#4676B4',
+    textSignIn: '#fff',
   },
 
   restorePassword: {

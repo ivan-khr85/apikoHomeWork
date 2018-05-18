@@ -4,7 +4,7 @@ import { colors } from '../../styles';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.signUp.background,
+    backgroundColor: colors.signIn.background,
     justifyContent: 'space-between',
   },
 
@@ -27,11 +27,11 @@ export default StyleSheet.create({
     borderRadius: 5,
   },
   signInText: {
-    color: colors.signUp.textSignUp,
+    color: colors.signIn.textSignIn,
   },
   textBtn: {
     textAlign: 'center',
-    color: colors.signUp.text,
+    color: colors.signIn.text,
   },
   forgotPassword: {
     flexBasis: 'auto',
