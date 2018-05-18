@@ -13,7 +13,7 @@ const ListItem = ({
   title,
   id,
 }) => {
-  const dateCreated = moment(createdAt).format('ddd, MMM D, YYYY');
+  const dateCreated = moment(createdAt).format('MMM D ’H');
   return (
     <Touchable
       style={s.container}
