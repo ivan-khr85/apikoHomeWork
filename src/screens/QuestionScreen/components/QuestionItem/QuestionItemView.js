@@ -39,7 +39,7 @@ const QuestionItem = ({
 QuestionItem.propTypes = {
   question: T.shape({
     _id: T.string,
-    createdAt: T.string,
+    createdAt: T.any,
     createdBy: T.string,
     description: T.string,
     tags: T.array,

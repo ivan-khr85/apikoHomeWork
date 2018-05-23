@@ -48,6 +48,8 @@ const enhancer = compose(
             description: props.description,
             questionId: props.id,
           });
+          props.onChange('description', '');
+          props.getAnswers(props.id);
         } catch (err) {
           AlertService.somethingError();
         }
