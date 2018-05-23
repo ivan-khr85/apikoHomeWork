@@ -18,7 +18,6 @@ const INITIAL_STATE = {
   },
   answersEntities: {},
 
-
   isAnswerPublishing: false,
   isAnswerPublishingError: false,
 };
@@ -74,7 +73,7 @@ export default handleActions({
   [types.PUBLISHING_ANSWER_SUCCESS]: mergeDeep({
     isAnswerPublishing: false,
   }),
-  [types.PUBLISHING_ANSWER_START]: mergeDeep({
+  [types.PUBLISHING_ANSWER_ERROR]: mergeDeep({
     isAnswerPublishing: false,
     isAnswerPublishingError: true,
   }),

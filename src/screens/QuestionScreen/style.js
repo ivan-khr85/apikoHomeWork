@@ -53,5 +53,8 @@ export default StyleSheet.create({
   signedOut: {
     marginTop: 10,
   },
+  indicator: {
+    marginBottom: 10,
+  },
 
 });

@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { colors } from '../../styles';
+import { View, Text, ActivityIndicator } from 'react-native';
 import T from 'prop-types';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { headerStyle } from '../../styles';
@@ -9,6 +10,7 @@ import { BackBtn, TextInput, Touchable } from '../../components';
 import QuestionItem from './components/QuestionItem';
 
 const QuestionScreen = ({
+  isPublishing,
   signedIn,
   isLoading,
   isLoadingMore,
@@ -51,6 +53,7 @@ const QuestionScreen = ({
       }
 
       <View style={[s.btnContainer, !signedIn && s.signedOut]}>
+        {!isPublishing &&
         <Touchable
           onPress={
             signedIn ?
@@ -62,6 +65,9 @@ const QuestionScreen = ({
           {signedIn && <Text style={s.btnText}>Submit Answer</Text>}
           {!signedIn && <Text style={s.btnText}>Sign Up to Submit Answer</Text>}
         </Touchable>
+        }
+
+        {isPublishing && <ActivityIndicator size="large" color={colors.mainColor} style={s.indicator} /> }
       </View>
     </View>
   </KeyboardAwareScrollView>
@@ -77,6 +83,7 @@ QuestionScreen.navigationOptions = ({ navigation }) => ({
 
 
 QuestionScreen.propTypes = {
+  isPublishing: T.bool,
   signedIn: T.bool,
   question: T.object,
   isLoading: T.bool,

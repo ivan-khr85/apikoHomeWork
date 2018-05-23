@@ -16,6 +16,7 @@ import { navigationOperations } from '../../modules/navigation';
 
 
 const mapStateToProps = (state, props) => ({
+  isPublishing: answersSelectors.getPublishAnswerState(state),
   signedIn: authSelectors.getSignedInState(state),
   
   question: questionsSelectors.getQuestionById(state, props.id),
@@ -69,7 +70,7 @@ const enhancer = compose(
     ['description'],
     (props) => {
       const isValid = (
-        props.description.trim().length > 30
+        props.description.trim().length > 4
       );
       props.onChange('isValid', isValid);
     },

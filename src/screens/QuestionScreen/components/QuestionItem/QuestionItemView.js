@@ -40,7 +40,7 @@ QuestionItem.propTypes = {
   question: T.shape({
     _id: T.string,
     createdAt: T.any,
-    createdBy: T.string,
+    createdBy: T.any,
     description: T.string,
     tags: T.array,
     title: T.string,
