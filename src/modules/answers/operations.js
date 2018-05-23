@@ -27,8 +27,9 @@ export const getAnswersByQuestionId = id => async (dispatch, getState) => {
 
 export const getAnswersByQuestionIdMore = id => async (dispatch, getState) => {
   try {
+    const isFetching = answersSelectors.getAnswersLoadingState(getState());    
     const isFetchingMore = answersSelectors.getAnswersLoadingMoreState(getState());
-    if (isFetchingMore) {
+    if (isFetchingMore || isFetching) {
       return;
     }
     
