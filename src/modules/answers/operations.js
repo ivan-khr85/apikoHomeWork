@@ -1,13 +1,13 @@
 import * as actions from './actions';
+import * as answersSelectors from './selectors';
 import Api from '../../api';
-import { answersSelectors } from './selectors';
 import normalize from '../../utils/normalize';
 
 
 export const getAnswersByQuestionId = id => async (dispatch) => {
   try {
     dispatch(actions.getAnswersByQuestionIdStart());
-    // dispatch(actions.setCountAnswers(0));
+    dispatch(actions.setCountAnswers(0));
     
     const res = await Api.getAnswersByQuestionId({ id });
     const payload = normalize(res.data.questions);
@@ -20,12 +20,11 @@ export const getAnswersByQuestionId = id => async (dispatch) => {
   }
 };
 
-export const getAnswersByQuestionIdMore = id => async (dispatch) => {
+export const getAnswersByQuestionIdMore = id => async (dispatch, getState) => {
   try {
     dispatch(actions.getAnswersByQuestionIdMoreStart());
-
-    const count = answersSelectors.getAnswersCountByQuestionId(id);
-    console.log(count);
+    
+    const count = answersSelectors.getAnswersByQuestionId(getState(), id).length;
     const res = await Api.getAnswersByQuestionId({ id, skip: count });
     
     if (res.data.count === count) {
@@ -33,7 +32,7 @@ export const getAnswersByQuestionIdMore = id => async (dispatch) => {
     }
     dispatch(actions.setCountAnswers(res.data.count));
     const payload = normalize(res.data.questions);
-
+    
     dispatch(actions.getAnswersByQuestionIdMoreSuccess({ ...payload, id }));
   } catch (err) {
     dispatch(actions.getAnswersByQuestionIdMoreError());

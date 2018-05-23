@@ -43,11 +43,18 @@ export default handleActions({
     isAnswersError: false,
     isAnswersLoadingMoreError: false,
   }),
+  
   [types.GET_ANSWERS_BY_QUESTION_ID_MORE_SUCCESS]: mergeDeep((action, state) => ({
     isAnswersLoadingMore: false,
-    answersIds: state.questionsIds.concat(action.payload.ids),
-    answersEntities: action.payload.entities,
+    answersIds: {
+      [action.payload.id]: state.answersIds[action.payload.id].concat(action.payload.ids),
+    },
+
+    // answersEntities: state.answersEntities.concat(action.payload.entities),
+    answersEntities: Object.assign(state.answersEntities, action.payload.entities),
+    
   })),
+
   [types.GET_ANSWERS_BY_QUESTION_ID_MORE_ERROR]: mergeDeep({
     isAnswersLoadingMore: false,
     isAnswersLoadingMoreError: true,
