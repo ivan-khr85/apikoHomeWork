@@ -41,7 +41,7 @@ const colors = {
 
   restorePassword: {
     btnText: '#fff',
-    aboutFormText: '#ccc',
+    aboutFormText: '#D8D8D8',
   },
 
   userQuestions: {
@@ -51,14 +51,23 @@ const colors = {
   },
   listHeader: {
     background: '#F8F8F8',
-    borderBottom: '#ccc',
+    borderBottom: '#D8D8D8',
   },
   emptyList: {
-    description: '#ccc',
+    description: '#D8D8D8',
     buttonText: '#fff',
   },
   tryAgain: {
     textColor: '#fff',
+  },
+  questionAndAnswer: {
+    border: '#D8D8D8',
+    backgroundQuestion: '#f7f7f7',
+    backgroundDescription: '#fff',
+    icon: '#fff',
+    bg: '#f7f7f7',
+    bgAnswer: '#fff',
+
   },
 };
 

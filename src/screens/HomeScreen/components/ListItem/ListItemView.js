@@ -3,8 +3,8 @@ import moment from 'moment';
 import { View, Text } from 'react-native';
 import T from 'prop-types';
 import s from './style';
-import { Touchable } from '../../../../components';
-import Tag from './Tag';
+import { Tags, Touchable } from '../../../../components';
+
 
 const ListItem = ({
   createdAt,
@@ -23,7 +23,7 @@ const ListItem = ({
     >
       <View>
         <Text style={s.title}>{title}</Text>
-        <View style={[tags.length && s.tags]}><Tag tags={tags} /></View>
+        <View style={[tags.length && s.tags]}><Tags tags={tags} /></View>
         <Text style={s.date}>asked {dateCreated}</Text>
       </View>
     </Touchable>
@@ -32,7 +32,7 @@ const ListItem = ({
 
 ListItem.propTypes = {
   createdAt: T.string,
-  description: T.string,
+  // description: T.string,
   tags: T.array,
   title: T.string,
   _id: T.string,

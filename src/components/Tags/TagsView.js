@@ -4,7 +4,7 @@ import T from 'prop-types';
 import s from './style';
 
 
-const Tag = ({
+const Tags = ({
   tags,
 }) => (
   tags.map((item, index) => (
@@ -17,9 +17,9 @@ const Tag = ({
   ))
 );
 
-Tag.propTypes = {
+Tags.propTypes = {
   tags: T.array,
 
 };
 
-export default Tag;
+export default Tags;

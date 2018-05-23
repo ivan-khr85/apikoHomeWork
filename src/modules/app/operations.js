@@ -12,13 +12,10 @@ export const initApi = token => () => {
 };
 
 export const initialization = () => async (dispatch) => {
-  NetInfo.isConnected.addEventListener('connectionChange', isConnected => (
-    console.log(`isConnected: ${isConnected}`)),
-  );
-
+  NetInfo.isConnected.addEventListener('connectionChange', (isConnected) => { });
+  
   try {
     const token = await AsyncStorage.getItem('token');
-
     if (token) {
       dispatch(initApi(token));
       dispatch(navigationOperations.navigateToAuthorized());

@@ -1,4 +1,8 @@
-import { compose, pure } from 'recompose';
+import {
+  compose,
+  pure,
+  // withProps,
+} from 'recompose';
 import { connect } from 'react-redux';
 import QuestionItem from './QuestionItemView';
 

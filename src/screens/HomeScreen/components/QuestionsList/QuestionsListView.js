@@ -9,23 +9,15 @@ import { Separator, ListHeader } from '../../../../components';
 import s from './style';
 
 const QuestionsList = ({
-  data,
-  onEndReachedThreshold,
-  onEndReached,
-  onRefresh,
-  refreshing,
   hasNoMore,
   isLoadingMore,
   onPress,
+  ...props
 }) => (
   <FlatList
-    onRefresh={onRefresh}
-    refreshing={refreshing}
-    data={data}
+    {...props}
     ItemSeparatorComponent={() => <Separator />}
     keyExtractor={(item, index) => (`${R.prop('_id')(item)}-${item.createdAt}-${index}`)}
-    onEndReachedThreshold={onEndReachedThreshold}
-    onEndReached={onEndReached}
     ListFooterComponent={() => (
       <ListFooter
         hasNoMore={hasNoMore}
@@ -41,11 +33,7 @@ const QuestionsList = ({
     )}
     renderItem={({ item }) => (
       <ListItem
-        createdAt={item.createdAt}
-        description={item.description}
-        tags={item.tags}
-        title={item.title}
-        _id={item._id}
+        {...item}
         onPress={onPress}
       />
     )}
@@ -56,11 +44,7 @@ const QuestionsList = ({
 );
 
 QuestionsList.propTypes = {
-  data: T.array,
-  onEndReachedThreshold: T.number,
-  onEndReached: T.func,
-  onRefresh: T.func,
-  refreshing: T.bool,
+  props: T.any,
   hasNoMore: T.bool,
   isLoadingMore: T.bool,
   onPress: T.func,

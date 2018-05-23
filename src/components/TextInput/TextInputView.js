@@ -6,31 +6,21 @@ import s from './style';
 
 
 const TextInputView = ({
-  value,
-  onChangeText,
-  secureTextEntry,
-  placeholder,
-  blurOnSubmit,
+  style,
+  ...props
 }) => (
   <TextInput
-    value={value}
-    onChangeText={onChangeText}
-    style={s.input}
-    secureTextEntry={secureTextEntry}
+    style={style || s.input}
     underlineColorAndroid="transparent"
     selectionColor={colors.mainColor}
-    placeholder={placeholder}
-    blurOnSubmit={blurOnSubmit}
+    {...props}
   />
 );
 
 
 TextInputView.propTypes = {
-  value: T.string,
-  onChangeText: T.func,
-  secureTextEntry: T.bool,
-  placeholder: T.string,
-  blurOnSubmit: T.bool,
+  style: T.any,
+  props: T.any,
 };
 
 export default TextInputView;

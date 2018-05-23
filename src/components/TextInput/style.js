@@ -6,10 +6,12 @@ export default StyleSheet.create({
     backgroundColor: colors.signUp.inputBackground,
     borderColor: colors.mainColor,
     borderWidth: StyleSheet.hairlineWidth,
+    // borderWidth: 1,
     paddingHorizontal: 6,
+    paddingVertical: 4,
     marginBottom: 15,
     borderRadius: 5,
-    height: 34,
+    minHeight: 30,
   },
 
 });

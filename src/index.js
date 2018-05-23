@@ -78,7 +78,6 @@ const enhance = compose(
   lifecycle({
     componentDidMount() {
       BackHandler.addEventListener('hardwareBackPress', this.props.navigateBack);
-      
     },
   }),
 );

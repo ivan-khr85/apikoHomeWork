@@ -22,15 +22,5 @@ export default StyleSheet.create({
     paddingTop: 8,
     flexDirection: 'row',
   },
-  tagContainer: {
-    paddingRight: 8,
-  },
-  tagText: {
-    backgroundColor: colors.userQuestions.tagsBackground,
-    color: colors.userQuestions.tagText,
-    paddingHorizontal: 4,
-    fontSize: 13,
-  },
-
 
 });

@@ -39,6 +39,13 @@ class Api {
       `${this._baseUrl}/questions?limit=${limit}&skip=${skip}`,
     );
   }
+
+
+  getAnswersByQuestionId({ id, limit = 2, skip = 0 } = {}) {
+    return axios.get(
+      `${this._baseUrl}/questions/${id}/answers?limit=${limit}&skip=${skip}`,
+    );
+  }
 }
 
 
