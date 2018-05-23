@@ -17,6 +17,10 @@ const INITIAL_STATE = {
     // [questionId]: [],
   },
   answersEntities: {},
+
+
+  isAnswerPublishing: false,
+  isAnswerPublishingError: false,
 };
 
 export default handleActions({
@@ -43,23 +47,17 @@ export default handleActions({
     isAnswersError: false,
     isAnswersLoadingMoreError: false,
   }),
-  
   [types.GET_ANSWERS_BY_QUESTION_ID_MORE_SUCCESS]: mergeDeep((action, state) => ({
     isAnswersLoadingMore: false,
     answersIds: {
       [action.payload.id]: state.answersIds[action.payload.id].concat(action.payload.ids),
     },
-
-    // answersEntities: state.answersEntities.concat(action.payload.entities),
     answersEntities: Object.assign(state.answersEntities, action.payload.entities),
-    
   })),
-
   [types.GET_ANSWERS_BY_QUESTION_ID_MORE_ERROR]: mergeDeep({
     isAnswersLoadingMore: false,
     isAnswersLoadingMoreError: true,
   }),
-  
   [types.ANSWERS_BY_QUESTION_ID_HAS_NO_MORE]: mergeDeep({
     isAnswersHasNoMore: true,
   }),
@@ -68,4 +66,16 @@ export default handleActions({
     countAnswers: action.payload,
   })),
 
+
+  [types.PUBLISHING_ANSWER_START]: mergeDeep({
+    isAnswerPublishing: true,
+    isAnswerPublishingError: false,
+  }),
+  [types.PUBLISHING_ANSWER_SUCCESS]: mergeDeep({
+    isAnswerPublishing: false,
+  }),
+  [types.PUBLISHING_ANSWER_START]: mergeDeep({
+    isAnswerPublishing: false,
+    isAnswerPublishingError: true,
+  }),
 }, INITIAL_STATE);

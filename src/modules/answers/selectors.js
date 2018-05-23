@@ -50,3 +50,13 @@ export const getAnswersCount = createSelector(
   R.path(['answers', 'countAnswers']),
   state => state,
 );
+
+export const getPublishAnswerState = createSelector(
+  R.path(['answers', 'isAnswerPublishing']),
+  state => state,
+);
+
+export const getPublishAnswerErrorState = createSelector(
+  R.path(['answers', 'isAnswerPublishingError']),
+  state => state,
+);

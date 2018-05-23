@@ -71,4 +71,21 @@ export const questionLoadingErr = onPress => showAlert(
     { text: i18n.t('questionLoadingErr.ok'), onPress },
     { text: i18n.t('questionLoadingErr.cancel'), style: 'cancel' },
   ],
+  
+);
+
+export const notValidSendData = () => showAlert(
+  i18n.t('notValidSendData.title'),
+  i18n.t('notValidSendData.messages'),
+  [
+    { text: i18n.t('notValidSendData.ok') },
+  ],
+);
+
+export const somethingError = () => showAlert(
+  i18n.t('somethingError.title'),
+  i18n.t('somethingError.messages'),
+  [
+    { text: i18n.t('somethingError.ok') },
+  ],
 );

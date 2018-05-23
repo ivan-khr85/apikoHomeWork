@@ -1,12 +1,17 @@
 import {
   compose,
   hoistStatics,
+  withStateHandlers,
+  withHandlers,
+  withPropsOnChange,
 } from 'recompose';
 import { connect } from 'react-redux';
 import QuestionScreen from './QuestionScreenView';
 import { questionsSelectors } from '../../modules/questions';
 import { answersSelectors, answersOperations } from '../../modules/answers';
 import { paramsToProps } from '../../utils/enhancers';
+import { AlertService } from '../../services';
+
 
 const mapStateToProps = (state, props) => ({
   question: questionsSelectors.getQuestionById(state, props.id),
@@ -23,11 +28,43 @@ const mapDispatchToProps = {
   getAnswers: answersOperations.getAnswersByQuestionId,
   getAnswersMore: answersOperations.getAnswersByQuestionIdMore,
 
+  publishAnswer: answersOperations.publishAnswer,
 };
 
 const enhancer = compose(
   paramsToProps('id'),
   connect(mapStateToProps, mapDispatchToProps),
+  withStateHandlers({
+    description: '',
+    isValid: false,
+  }, {
+    onChange: () => (field, value) => ({ [field]: value }),
+  }),
+  withHandlers({
+    publishAnswer: props => async () => {
+      if (props.isValid) {
+        try {
+          await props.publishAnswer({
+            description: props.description,
+            questionId: props.id,
+          });
+        } catch (err) {
+          AlertService.somethingError();
+        }
+      } else {
+        AlertService.notValidSendData();
+      }
+    },
+  }),
+  withPropsOnChange(
+    ['description'],
+    (props) => {
+      const isValid = (
+        props.description.trim().length > 30
+      );
+      props.onChange('isValid', isValid);
+    },
+  ),
 );
 
 

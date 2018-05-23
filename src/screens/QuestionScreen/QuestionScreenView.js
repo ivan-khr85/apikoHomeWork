@@ -17,6 +17,9 @@ const QuestionScreen = ({
   getAnswers,
   getAnswersMore,
   hasNoMore,
+  publishAnswer,
+  onChange,
+  description,
 }) => (
   <KeyboardAwareScrollView contentContainerStyle={s.container}>
     <View style={s.top}>
@@ -38,11 +41,13 @@ const QuestionScreen = ({
           multiline
           style={s.input}
           placeholder=" Type your answer here..."
+          value={description}
+          onChangeText={text => onChange('description', text)}
         />
       </View>
       <View style={s.btnContainer}>
         <Touchable
-          onPress={() => { }}
+          onPress={publishAnswer}
           style={s.btn}
         >
           <Text style={s.btnText}>Submit Answer</Text>
@@ -70,7 +75,9 @@ QuestionScreen.propTypes = {
   isLoadingMore: T.bool,
   getAnswersMore: T.func,
   hasNoMore: T.bool,
-  
+  publishAnswer: T.func,
+  description: T.string,
+  onChange: T.func,
 };
 
 export default QuestionScreen;

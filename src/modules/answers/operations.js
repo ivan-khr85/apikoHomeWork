@@ -4,11 +4,16 @@ import Api from '../../api';
 import normalize from '../../utils/normalize';
 
 
-export const getAnswersByQuestionId = id => async (dispatch) => {
+export const getAnswersByQuestionId = id => async (dispatch, getState) => {
   try {
+    const isFetching = answersSelectors.getAnswersLoadingState(getState());
+    if (isFetching) {
+      return;
+    }
+
     dispatch(actions.getAnswersByQuestionIdStart());
     dispatch(actions.setCountAnswers(0));
-    
+
     const res = await Api.getAnswersByQuestionId({ id });
     const payload = normalize(res.data.questions);
     
@@ -22,8 +27,14 @@ export const getAnswersByQuestionId = id => async (dispatch) => {
 
 export const getAnswersByQuestionIdMore = id => async (dispatch, getState) => {
   try {
+    const isFetchingMore = answersSelectors.getAnswersLoadingMoreState(getState());
+    if (isFetchingMore) {
+      return;
+    }
+    
     dispatch(actions.getAnswersByQuestionIdMoreStart());
     
+
     const count = answersSelectors.getAnswersByQuestionId(getState(), id).length;
     const res = await Api.getAnswersByQuestionId({ id, skip: count });
     
@@ -36,5 +47,20 @@ export const getAnswersByQuestionIdMore = id => async (dispatch, getState) => {
     dispatch(actions.getAnswersByQuestionIdMoreSuccess({ ...payload, id }));
   } catch (err) {
     dispatch(actions.getAnswersByQuestionIdMoreError());
+  }
+};
+
+
+export const publishAnswer = ({ description, questionId }) => async (dispatch) => {
+  try {
+    dispatch(actions.publishingAnswerStart());
+    
+    const res = await Api.publishAnswer({ description, questionId });
+
+    console.log(res.data);
+    
+    dispatch(actions.publishingAnswerSuccess());
+  } catch (err) {
+    dispatch(actions.publishingAnswerError());
   }
 };

@@ -49,4 +49,15 @@
     "title": "Loading question error"
   },
 
+  "notValidSendData": {
+    "title": "Data is not valid",
+    "messages": "Data entered incorrectly. The number of characters entered should be greater.",
+    "ok": "OK"
+  },
+  "somethingError": {
+    "title": "Something Error",
+    "messages": "Please, repeat later",
+    "ok": "OK"
+  },
+
 }

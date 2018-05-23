@@ -46,6 +46,22 @@ class Api {
       `${this._baseUrl}/questions/${id}/answers?limit=${limit}&skip=${skip}`,
     );
   }
+
+  publishAnswer({ description, questionId }) {
+    this;
+    const title = 'default title for API require from mobile client';
+    return axios.post('https://seniv-ask-apiko.herokuapp.com/api/v1/answers/', {
+      title,
+      description,
+      questionId,
+    }, {
+      headers: {
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZmE5N2RmODAzNDI3MDAxNGNlOTg5OSIsImlhdCI6MTUyNzAwMTcwNSwiZXhwIjoxNTI5NTkzNzA1fQ.2FQuKo4UPyovqLQmx_Z99Tw2dvKPzGNDQuo355ObzaY',
+      },
+    });
+  }
+
+
 }
 
 
