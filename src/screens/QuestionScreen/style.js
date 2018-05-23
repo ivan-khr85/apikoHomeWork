@@ -50,5 +50,8 @@ export default StyleSheet.create({
     color: colors.questionAndAnswer.btnText,
   },
 
+  signedOut: {
+    marginTop: 10,
+  },
 
 });

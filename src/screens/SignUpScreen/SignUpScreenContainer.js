@@ -43,7 +43,6 @@ const enhancer = compose(
           });
           props.navigation.navigate(screens.AuthorizedApplicationNavigator);
         } catch (err) {
-          console.log(`err: ${err}`);
           AlertService.SignUpErr();
         }
       } else {

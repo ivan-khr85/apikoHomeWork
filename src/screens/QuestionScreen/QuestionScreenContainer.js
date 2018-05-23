@@ -11,9 +11,13 @@ import { questionsSelectors } from '../../modules/questions';
 import { answersSelectors, answersOperations } from '../../modules/answers';
 import { paramsToProps } from '../../utils/enhancers';
 import { AlertService } from '../../services';
+import { authSelectors } from '../../modules/auth';
+import { navigationOperations } from '../../modules/navigation';
 
 
 const mapStateToProps = (state, props) => ({
+  signedIn: authSelectors.getSignedInState(state),
+  
   question: questionsSelectors.getQuestionById(state, props.id),
   answers: answersSelectors.getAnswersByQuestionId(state, props.id),
 
@@ -27,7 +31,7 @@ const mapStateToProps = (state, props) => ({
 const mapDispatchToProps = {
   getAnswers: answersOperations.getAnswersByQuestionId,
   getAnswersMore: answersOperations.getAnswersByQuestionIdMore,
-
+  
   publishAnswer: answersOperations.publishAnswer,
 };
 
@@ -57,6 +61,9 @@ const enhancer = compose(
         AlertService.notValidSendData();
       }
     },
+    navigateSignUp: props => () => (
+      props.navigation.dispatch(navigationOperations.navigateToSignUp())
+    ),
   }),
   withPropsOnChange(
     ['description'],

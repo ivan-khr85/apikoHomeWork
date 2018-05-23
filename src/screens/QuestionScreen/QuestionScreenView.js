@@ -9,6 +9,7 @@ import { BackBtn, TextInput, Touchable } from '../../components';
 import QuestionItem from './components/QuestionItem';
 
 const QuestionScreen = ({
+  signedIn,
   isLoading,
   isLoadingMore,
   question,
@@ -20,6 +21,7 @@ const QuestionScreen = ({
   publishAnswer,
   onChange,
   description,
+  navigateSignUp,
 }) => (
   <KeyboardAwareScrollView contentContainerStyle={s.container}>
     <View style={s.top}>
@@ -36,21 +38,29 @@ const QuestionScreen = ({
       />
     </View>
     <View style={s.bottom}>
-      <View style={s.inputContainer}>
-        <TextInput
-          multiline
-          style={s.input}
-          placeholder=" Type your answer here..."
-          value={description}
-          onChangeText={text => onChange('description', text)}
-        />
-      </View>
-      <View style={s.btnContainer}>
+      {signedIn &&
+        <View style={s.inputContainer}>
+          <TextInput
+            multiline
+            style={s.input}
+            placeholder=" Type your answer here..."
+            value={description}
+            onChangeText={text => onChange('description', text)}
+          />
+        </View>
+      }
+
+      <View style={[s.btnContainer, !signedIn && s.signedOut]}>
         <Touchable
-          onPress={publishAnswer}
+          onPress={
+            signedIn ?
+            publishAnswer :
+            navigateSignUp
+          }
           style={s.btn}
         >
-          <Text style={s.btnText}>Submit Answer</Text>
+          {signedIn && <Text style={s.btnText}>Submit Answer</Text>}
+          {!signedIn && <Text style={s.btnText}>Sign Up to Submit Answer</Text>}
         </Touchable>
       </View>
     </View>
@@ -67,6 +77,7 @@ QuestionScreen.navigationOptions = ({ navigation }) => ({
 
 
 QuestionScreen.propTypes = {
+  signedIn: T.bool,
   question: T.object,
   isLoading: T.bool,
   getAnswers: T.func,
@@ -78,6 +89,7 @@ QuestionScreen.propTypes = {
   publishAnswer: T.func,
   description: T.string,
   onChange: T.func,
+  navigateSignUp: T.func,
 };
 
 export default QuestionScreen;
