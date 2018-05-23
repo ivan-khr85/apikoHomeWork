@@ -16,7 +16,6 @@ export default StyleSheet.create({
   bottom: {
     flex: 1,
     justifyContent: 'flex-end',
-    alignItems: 'center',
   },
 
   buttonSignUp: {

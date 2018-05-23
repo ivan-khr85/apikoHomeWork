@@ -67,6 +67,7 @@ const colors = {
     icon: '#fff',
     bg: '#f7f7f7',
     bgAnswer: '#fff',
+    btnText: '#fff',
 
   },
 };
