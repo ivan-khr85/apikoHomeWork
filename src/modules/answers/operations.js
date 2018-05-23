@@ -56,10 +56,8 @@ export const publishAnswer = ({ description, questionId }) => async (dispatch) =
   try {
     dispatch(actions.publishingAnswerStart());
     
-    const res = await Api.publishAnswer({ description, questionId });
+    const res = await Api.publishAnswer({ description, questionId }); // eslint-disable-line
 
-    console.log(res.data);
-    
     dispatch(actions.publishingAnswerSuccess());
   } catch (err) {
     dispatch(actions.publishingAnswerError());
