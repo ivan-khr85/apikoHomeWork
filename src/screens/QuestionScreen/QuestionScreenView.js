@@ -1,13 +1,13 @@
 import React from 'react';
-import { colors } from '../../styles';
 import { View, Text, ActivityIndicator } from 'react-native';
 import T from 'prop-types';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { headerStyle } from '../../styles';
+import { headerStyle, colors } from '../../styles';
 import s from './style';
 import AnswersList from './components/AnswersList';
 import { BackBtn, TextInput, Touchable } from '../../components';
 import QuestionItem from './components/QuestionItem';
+
 
 const QuestionScreen = ({
   isPublishing,

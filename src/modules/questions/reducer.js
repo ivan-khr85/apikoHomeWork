@@ -51,5 +51,4 @@ export default handleActions({
     isQuestionsListHasNoMore: true,
   }),
 
-
 }, INITIAL_STATE);

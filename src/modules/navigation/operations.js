@@ -16,3 +16,6 @@ export const navigateToCreateQuestion = () =>
 
 export const navigateToSignUp = () =>
   NavigationActions.navigate({ routeName: screens.SignUpScreen });
+
+export const navigateToSearch = () =>
+  NavigationActions.navigate({ routeName: screens.SearchScreen });

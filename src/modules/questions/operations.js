@@ -4,7 +4,7 @@ import { questionsSelectors } from './';
 import normalize from '../../utils/normalize';
 
 
-export const getQuestions = () => async (dispatch, getState) => {
+export const getQuestions = search => async (dispatch, getState) => {
   try {
     const isFetching = questionsSelectors.getQuestionsListLoadingState(getState());
     if (isFetching) {
@@ -13,7 +13,7 @@ export const getQuestions = () => async (dispatch, getState) => {
     
     dispatch(actions.getQuestionsStart());
 
-    const res = await Api.getQuestions();
+    const res = await Api.getQuestions({ search });
     const payload = normalize(res.data.questions);
     
     dispatch(actions.getQuestionsSuccess(payload));
@@ -23,7 +23,7 @@ export const getQuestions = () => async (dispatch, getState) => {
 };
 
 
-export const getQuestionsMore = () => async (dispatch, getState) => {
+export const getQuestionsMore = search => async (dispatch, getState) => {
   try {
     const isFetchingMore = questionsSelectors.getQuestionsListLoadingMoreState(getState());
     const isFetching = questionsSelectors.getQuestionsListLoadingState(getState());
@@ -36,7 +36,7 @@ export const getQuestionsMore = () => async (dispatch, getState) => {
     dispatch(actions.getQuestionsMoreStart());
     
     const count = questionsSelectors.getQuestionsListCount(getState());
-    const res = await Api.getQuestions({ skip: count });
+    const res = await Api.getQuestions({ skip: count, search });
 
     if (res.data.count === count) {
       dispatch(actions.questionListHesNoMore());
@@ -48,4 +48,3 @@ export const getQuestionsMore = () => async (dispatch, getState) => {
     dispatch(actions.getQuestionsMoreError());
   }
 };
-

@@ -7,12 +7,13 @@ import { Touchable } from '../';
 
 
 const BackBtn = ({
+  goTo,
   navigation,
   title,
 }) => (
   <View style={s.container}>
     <Touchable
-      onPress={() => navigation.goBack()}
+      onPress={goTo || (() => navigation.goBack())}
       style={s.button}
       borderless
     >
@@ -28,6 +29,7 @@ const BackBtn = ({
 
 BackBtn.propTypes = {
   navigation: T.object,
+  goTo: T.func,
   title: T.string,
 };
 
