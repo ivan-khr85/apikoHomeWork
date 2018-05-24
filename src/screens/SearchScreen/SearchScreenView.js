@@ -1,11 +1,19 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import Search from '../../libs/react-native-search-box';
 import { DrawerButton } from '../../components';
-import { globalStyles, headerStyle } from '../../styles';
+import { headerStyle } from '../../styles';
+import s from './style';
+
 
 const SearchScreen = () => (
-  <View style={globalStyles.align}>
-    <Text>Search Screen</Text>
+  <View style={s.container}>
+    <View style={s.searchContainer}>
+      <Search
+        style={s.searchInput}
+        inputHight={36}
+      />
+    </View>
   </View>
 );
 

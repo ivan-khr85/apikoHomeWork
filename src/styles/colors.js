@@ -68,7 +68,10 @@ const colors = {
     bg: '#f7f7f7',
     bgAnswer: '#fff',
     btnText: '#fff',
+  },
 
+  searchScreen: {
+    bg: '#Fff',
   },
 };
 

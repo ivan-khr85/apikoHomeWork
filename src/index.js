@@ -1,7 +1,7 @@
 import React from 'react';
 import T from 'prop-types';
 import { AppLoading } from 'expo';
-import { BackHandler, View, Platform, Text } from 'react-native';
+import { BackHandler, View, Platform, UIManager } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import { Provider } from 'react-redux';
 import {
@@ -16,7 +16,6 @@ import { appOperations } from './modules/app';
 import RootNavigatorContainer from './navigation';
 import { AlertService } from './services';
 
-
 const isAndroid = Platform.OS === 'android';
 
 SafeAreaView.setStatusBarHeight(
@@ -25,7 +24,11 @@ SafeAreaView.setStatusBarHeight(
     : selectStyle({ iphoneX: 44, default: 20 }),
 );
 
-
+if (isAndroid) {
+  if (UIManager.setLayoutAnimationEnabledExperimental) {
+    UIManager.setLayoutAnimationEnabledExperimental(true);
+  }
+}
 const App = ({
   showLoading,
   onFinish,
@@ -40,7 +43,7 @@ const App = ({
       />
     );
   }
-
+  
   return (
     <Provider store={store}>
       <View style={globalStyles.fillAll}>

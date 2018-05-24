@@ -43,12 +43,12 @@ class Api {
 
   getAnswersByQuestionId({ id, limit = 2, skip = 0 } = {}) {
     return axios.get(
-      `${this._baseUrl}/questions/${id}/answers?limit=${limit}&skip=${skip}`,
+      `${this._baseUrl}/questions/${id}/answers?limit=${limit}&skip=${skip}&sort=-1`,
     );
   }
 
   publishAnswer({ description, questionId }) {
-    this;
+    this; // eslint-disable-line
     const title = 'default title for API require from mobile client';
     return axios.post('https://seniv-ask-apiko.herokuapp.com/api/v1/answers/', {
       title,
@@ -56,12 +56,10 @@ class Api {
       questionId,
     }, {
       headers: {
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZmE5N2RmODAzNDI3MDAxNGNlOTg5OSIsImlhdCI6MTUyNzAwMTcwNSwiZXhwIjoxNTI5NTkzNzA1fQ.2FQuKo4UPyovqLQmx_Z99Tw2dvKPzGNDQuo355ObzaY',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZmE5N2RmODAzNDI3MDAxNGNlOTg5OSIsImlhdCI6MTUyNzAwMTcwNSwiZXhwIjoxNTI5NTkzNzA1fQ.2FQuKo4UPyovqLQmx_Z99Tw2dvKPzGNDQuo355ObzaY', // eslint-disable-line
       },
     });
   }
-
-
 }
 
 

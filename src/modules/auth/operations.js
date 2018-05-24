@@ -18,7 +18,6 @@ export const signUp = ({ username, password, email }) => async (dispatch) => {
     Api.setToken(res.data.token);
     dispatch(actions.signUpSuccess());
   } catch (err) {
-    console.log(err);
     dispatch(actions.signUpError());
     throw new Error('Sign up error');
   }
