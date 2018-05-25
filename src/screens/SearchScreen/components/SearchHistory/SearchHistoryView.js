@@ -9,32 +9,37 @@ import { Touchable } from '../../../../components';
 
 
 const SearchHistory = ({
-  searchedValue = 'title',
-  createdAt,
+  removeItemFromHistory,
   onChange,
-}) => {
-  const rightButtons = [
-    <Touchable style={s.container} onPress={() => {}}><Ionicons name="ios-close-circle" size={26} style={s.icon} /></Touchable>,
-  ];
-  const dateCreated = moment(createdAt).format('MMM D ’H');
-  return (
-    <Swipeable rightButtons={rightButtons}>
-      <Touchable
-        style={[s.container, s.title]}
-        onPress={() => onChange('inputValue', searchedValue)}
-        useOpacity
+  searchHistory,
+}) => (
+  searchHistory
+    .map(({ id, createdAt, searchedValue }) => (
+      <Swipeable
+        key={id}
+        rightButtons={[
+          <Touchable style={s.container} onPress={() => removeItemFromHistory(id)}>
+            <Ionicons name="ios-close-circle" size={26} style={s.icon} />
+          </Touchable>,
+        ]}
       >
-        <Text style={s.text}>{searchedValue}</Text>
-        <Text style={s.date}>searched{'\n'}{dateCreated}</Text>
-      </Touchable>
-    </Swipeable>
-  );
-};
+        <Touchable
+          style={[s.container, s.title]}
+          onPress={() => onChange('inputValue', searchedValue)}
+          useOpacity
+        >
+          <Text style={s.text}>{searchedValue}</Text>
+          <Text style={s.date}>searched{'\n'}{moment(createdAt).format('MMM D ’H')}</Text>
+        </Touchable>
+      </Swipeable>
+    ))
+);
+
 
 SearchHistory.propTypes = {
+  removeItemFromHistory: T.func,
   onChange: T.func,
-  searchedValue: T.string,
-  createdAt: T.string,
+  searchHistory: T.array,
 };
 
 

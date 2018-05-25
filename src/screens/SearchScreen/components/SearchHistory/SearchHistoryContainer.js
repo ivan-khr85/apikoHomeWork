@@ -9,7 +9,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  setItemToHistory: searchOperations.setItemToHistory,
   removeItemFromHistory: searchOperations.removeItemFromHistory,
 };
 

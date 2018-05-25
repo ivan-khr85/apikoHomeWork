@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 import { screens } from '../../navigation';
 import { questionsOperations, questionsSelectors } from '../../modules/questions';
 import { answersOperations } from '../../modules/answers';
-import { searchOperations } from '../../modules/search';
+import { searchOperations, searchSelectors } from '../../modules/search';
 import SearchScreen from './SearchScreenView';
 import { AlertService } from '../../services';
 
@@ -23,13 +23,15 @@ const mapStateToProps = state => ({
   hasNoMore: questionsSelectors.getQuestionsListHasNoMoreState(state),
 
   loadingError: questionsSelectors.getQuestionsListErrorState(state),
-  
+
+  searchHistory: searchSelectors.getSearchHistory(state),  
 });
 
 const mapDispatchToProps = {
   getQuestions: questionsOperations.getQuestions,
   getQuestionsMore: questionsOperations.getQuestionsMore,
   getAnswersByQuestionId: answersOperations.getAnswersByQuestionId,
+
   setItemToHistory: searchOperations.setItemToHistory,
 };
 

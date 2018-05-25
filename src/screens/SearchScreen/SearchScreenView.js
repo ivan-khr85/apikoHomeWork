@@ -25,6 +25,7 @@ const SearchScreen = ({
   onChange,
   onPressCancel,
   setItemToHistory,
+  searchHistory,
 }) =>
   (loadingError ? (
     <View style={s.container}>
@@ -59,7 +60,7 @@ const SearchScreen = ({
           hasNoMore={hasNoMore}
           isLoadingMore={isLoadingMore}
           navigateToQuestion={navigateToQuestion}
-          ListEmptyComponent={<SearchHistory onChange={onChange} />}
+          ListEmptyComponent={<SearchHistory onChange={onChange} searchHistory={searchHistory} />}
         />
       </View>}
     </View>
@@ -88,6 +89,7 @@ SearchScreen.propTypes = {
   onPressCancel: T.func,
   isLoading: T.bool,
   setItemToHistory: T.func,
+  searchHistory: T.array,
 };
 
 
