@@ -3,4 +3,3 @@ import * as types from './types';
 
 export const addItemToSearchHistory = createAction(types.ADD_ITEM_TO_SEARCH_HISTORY);
 export const removeItemToSearchHistory = createAction(types.REMOVE_ITEM_FROM_SEARCH_HISTORY);
-export const setArrayToSearchedHistory = createAction(types.SET_ARRAY_TO_SEARCHED_HISTORY);

@@ -5,7 +5,7 @@ import * as R from 'ramda';
 import ListItem from '../ListItem';
 import ListFooter from '../ListFooter';
 import { Separator } from '../../../../components';
-import s from './style';
+// import s from './style';
 
 const QuestionsList = ({
   hasNoMore,

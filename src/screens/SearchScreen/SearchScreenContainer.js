@@ -6,7 +6,6 @@ import {
   withStateHandlers,
   withPropsOnChange,
   lifecycle,
-  withProps,
 } from 'recompose';
 import { connect } from 'react-redux';
 import { screens } from '../../navigation';
@@ -24,7 +23,7 @@ const mapStateToProps = state => ({
 
   loadingError: questionsSelectors.getQuestionsListErrorState(state),
 
-  searchHistory: searchSelectors.getSearchHistory(state),  
+  searchHistory: searchSelectors.getSearchHistory(state),
 });
 
 const mapDispatchToProps = {
@@ -85,5 +84,3 @@ const enhancer = compose(
 );
 
 export default hoistStatics(enhancer)(SearchScreen);
-
-// goTo = {() => navigation.navigate(screens.SearchScreen)}

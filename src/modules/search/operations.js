@@ -1,6 +1,4 @@
-import { AsyncStorage } from 'react-native';
 import * as actions from './actions';
-import { searchSelectors } from './';
 
 
 export const setItemToHistory = searchedValue => async (dispatch) => {

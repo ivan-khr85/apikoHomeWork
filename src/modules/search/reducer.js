@@ -31,7 +31,4 @@ export default handleActions({
     searchHistory: state.searchHistory.filter(item => item.id !== action.payload.id),
   })),
 
-  [types.SET_ARRAY_TO_SEARCHED_HISTORY]: mergeDeep(action => ({
-    searchHistory: action.payload.previousHistory,
-  })),
 }, INITIAL_STATE);

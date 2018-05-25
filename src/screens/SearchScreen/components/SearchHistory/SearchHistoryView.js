@@ -14,6 +14,7 @@ const SearchHistory = ({
   searchHistory,
 }) => (
   searchHistory
+    .reverse()
     .map(({ id, createdAt, searchedValue }) => (
       <Swipeable
         key={id}

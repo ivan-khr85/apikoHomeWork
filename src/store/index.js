@@ -1,4 +1,6 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
 import {
   createReactNavigationReduxMiddleware,
@@ -7,6 +9,12 @@ import {
 import reducers from '../modules';
 
 let store = null; // eslint-disable-line
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['search'],
+};
 
 const navigationMiddleware = createReactNavigationReduxMiddleware(
   'root',
@@ -17,7 +25,7 @@ export const addNavigationListener = createReduxBoundAddListener('root');
 if (__DEV__) { // eslint-disable-line
   const devToolsEnhancer = require('remote-redux-devtools'); // eslint-disable-line
   store = createStore(
-    combineReducers(reducers),
+    persistReducer(persistConfig, combineReducers(reducers)),
     {},
     compose(
       applyMiddleware(navigationMiddleware, thunk),
@@ -31,10 +39,12 @@ if (__DEV__) { // eslint-disable-line
   );
 } else {
   store = createStore(
-    combineReducers(reducers),
+    persistReducer(persistConfig, combineReducers(reducers)),
     {},
     applyMiddleware(navigationMiddleware, thunk),
   );
 }
+
+persistStore(store);
 
 export default store;
