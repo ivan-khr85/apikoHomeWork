@@ -24,6 +24,7 @@ const SearchScreen = ({
   inputValue,
   onChange,
   onPressCancel,
+
   setItemToHistory,
   searchHistory,
 }) =>
@@ -60,7 +61,12 @@ const SearchScreen = ({
           hasNoMore={hasNoMore}
           isLoadingMore={isLoadingMore}
           navigateToQuestion={navigateToQuestion}
-          ListEmptyComponent={<SearchHistory onChange={onChange} searchHistory={searchHistory} />}
+          ListEmptyComponent={(searchHistory.length < 1) ? (<EmptyList />)
+            : (<SearchHistory
+              onChange={onChange}
+              searchHistory={searchHistory}
+            />)
+        }
         />
       </View>}
     </View>
