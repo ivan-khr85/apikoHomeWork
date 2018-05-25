@@ -68,7 +68,7 @@ const enhancer = compose(
             } catch (err) {
               AlertService.somethingError();
             }
-          }, 300),
+          }, 550),
         );
       } else {
         props.onChange('hideData', true);

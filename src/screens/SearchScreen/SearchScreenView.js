@@ -5,6 +5,7 @@ import Search from '../../libs/react-native-search-box';
 import QuestionsList from './components/QuestionsList';
 import { DrawerButton } from '../../components';
 import LoadingError from './components/LoadingError';
+import ResultNoFound from './components/ResultNoFound';
 import { headerStyle } from '../../styles';
 import Loading from './components/Loading';
 import EmptyList from './components/EmptyList';
@@ -61,11 +62,12 @@ const SearchScreen = ({
           hasNoMore={hasNoMore}
           isLoadingMore={isLoadingMore}
           navigateToQuestion={navigateToQuestion}
-          ListEmptyComponent={(searchHistory.length < 1) ? (<EmptyList />)
+          ListEmptyComponent={(inputValue && <ResultNoFound />) || (
+            (searchHistory.length < 1) ? (<EmptyList />)
             : (<SearchHistory
               onChange={onChange}
               searchHistory={searchHistory}
-            />)
+            />))
         }
         />
       </View>}

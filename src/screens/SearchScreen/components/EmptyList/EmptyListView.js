@@ -8,7 +8,7 @@ const ListItem = () => (
   <View style={s.container}>
     <Text style={s.title}>No searches yet</Text>
     <Text style={s.description}>The search query will appear here.</Text>
-    <Text style={s.description}>You can use they to search again.</Text>    
+    <Text style={s.description}>You can use they to search again.</Text>
   </View>
 );
 
