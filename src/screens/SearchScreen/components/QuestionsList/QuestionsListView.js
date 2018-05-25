@@ -10,22 +10,24 @@ import s from './style';
 const QuestionsList = ({
   hasNoMore,
   isLoadingMore,
-  onPress,
+  navigateToQuestion,
+  hideData,
   ...props
 }) => (
   <FlatList
     {...props}
     ItemSeparatorComponent={() => <Separator />}
     keyExtractor={(item, index) => (`${R.prop('_id')(item)}-${item.createdAt}-${index}`)}
-    ListFooterComponent={
-      <ListFooter
+    ListFooterComponent={() => (hideData ? null
+      : (<ListFooter
         hasNoMore={hasNoMore}
         isLoadingMore={isLoadingMore}
-      />}
+      />)
+    )}
     renderItem={({ item }) => (
       <ListItem
         {...item}
-        onPress={onPress}
+        navigateToQuestion={navigateToQuestion}
       />
     )}
 
@@ -36,7 +38,8 @@ QuestionsList.propTypes = {
   props: T.any,
   hasNoMore: T.bool,
   isLoadingMore: T.bool,
-  onPress: T.func,
+  navigateToQuestion: T.func,
+  hideData: T.bool,
 };
 
 

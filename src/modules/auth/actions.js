@@ -13,5 +13,4 @@ export const signInError = createAction(types.SIGN_IN_ERROR);
 
 export const signOutStart = createAction(types.SIGN_OUT_START);
 export const signOutSuccess = createAction(types.SIGN_OUT_SUCCESS);
-export const signOutError = createAction(types.SIGN_OUT_ERROR);
 

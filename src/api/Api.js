@@ -16,17 +16,17 @@ class Api {
 
   signUp({ username, password, email }) {
     return axios.post(`${this._baseUrl}/auth/sign-up`, {
-      profile: { fullName: username },
-      username: email,
+      profile: { fullName: username.toLowerCase() },
+      username: email.toLowerCase(),
       password,
-      email,
+      email: email.toLowerCase(),
     });
   }
 
   signIn({ password, email }) {
     return axios.post(`${this._baseUrl}/auth/sign-in`, {
-      username: email,
-      password,
+      username: email.toLowerCase(),
+      password: password.toLowerCase(),
     });
   }
 

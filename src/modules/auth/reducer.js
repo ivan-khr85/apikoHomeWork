@@ -11,7 +11,6 @@ const INITIAL_STATE = {
   isSignInError: null,
 
   isSigningOut: false,
-  isSignOutError: null,
 };
 
 export default handleActions({
@@ -33,9 +32,5 @@ export default handleActions({
 
   [types.SIGN_OUT_START]: mergeDeep({ isSigningOut: true }),
   [types.SIGN_OUT_SUCCESS]: mergeDeep({ isSigningOut: false, signedIn: false }),
-  [types.SIGN_OUT_ERROR]: mergeDeep(action => ({
-    isSigningOut: false,
-    isSignOutError: action.error,
-  })),
 
 }, INITIAL_STATE);

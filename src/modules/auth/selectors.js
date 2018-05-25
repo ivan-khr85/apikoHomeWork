@@ -29,7 +29,3 @@ export const getSigningOutState = createSelector(
   R.pathOr(0, ['auth', 'isSigningOut']),
   state => state,
 );
-export const getSignOutErrorState = createSelector(
-  R.pathOr(0, ['auth', 'isSignOutError']),
-  state => state,
-);

@@ -8,22 +8,21 @@ import { Tags, Touchable } from '../../../../components';
 
 const ListItem = ({
   createdAt,
-  // description,
-  tags,
+  tags = null,
   title,
   _id,
-  onPress,
+  navigateToQuestion,
 }) => {
   const dateCreated = moment(createdAt).format('MMM D ’H');
   return (
     <Touchable
       style={s.container}
-      onPress={() => onPress(_id)}
+      onPress={() => navigateToQuestion(_id)}
       useOpacity
     >
       <View>
         <Text style={s.title}>{title}</Text>
-        <View style={[tags.length && s.tags]}><Tags tags={tags} /></View>
+        <View style={[tags && s.tags]}><Tags tags={tags} /></View>
         <Text style={s.date}>asked {dateCreated}</Text>
       </View>
     </Touchable>
@@ -32,11 +31,10 @@ const ListItem = ({
 
 ListItem.propTypes = {
   createdAt: T.string,
-  // description: T.string,
   tags: T.array,
   title: T.string,
   _id: T.string,
-  onPress: T.func,
+  navigateToQuestion: T.func,
 
 };
 

@@ -1,14 +1,12 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '../../../../styles';
+import { colors, dimensions } from '../../../../styles';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-
-    height: 450,
-    paddingTop: 50,
+    justifyContent: 'flex-end',
+    height: dimensions.height / 2.5,
   },
 
   title: {

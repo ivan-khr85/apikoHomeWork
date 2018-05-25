@@ -2,7 +2,7 @@ import { AsyncStorage } from 'react-native';
 import axios from 'axios';
 import * as actions from './actions';
 import Api from '../../api';
-
+import { navigationOperations } from '../navigation';
 
 export const signUp = ({ username, password, email }) => async (dispatch) => {
   try {
@@ -53,7 +53,7 @@ export const signOut = () => async (dispatch) => {
     axios.defaults.headers.common.Authorization = `Bearer ${null}`;
     dispatch(actions.signOutSuccess());
   } catch (err) {
-    dispatch(actions.signOutError());
-    throw new Error('Sign out error');
+    await AsyncStorage.clear();
+    dispatch(navigationOperations.navigateToUnauthorized());
   }
 };

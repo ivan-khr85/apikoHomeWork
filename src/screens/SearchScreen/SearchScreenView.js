@@ -16,7 +16,6 @@ const SearchScreen = ({
   hideData,
   questionsList,
   getQuestionsMore,
-  getQuestions,
   hasNoMore,
   isLoadingMore,
   loadingError,
@@ -41,23 +40,25 @@ const SearchScreen = ({
           useClearButton={false}
         />
       </View>
-      {!isLoading &&
-        <View style={s.questionContainer}>
-          <QuestionsList
-            data={hideData ? [] : questionsList}
-            // onEndReachedThreshold={0.7}
-            // onEndReached={
-            //     inputValue ?
-            //     getQuestionsMore(inputValue) :
-            //     () => { }
-            // }
-            hasNoMore={hasNoMore}
-            isLoadingMore={isLoadingMore}
-            onPress={navigateToQuestion}
-            ListEmptyComponent={<EmptyList />}
-          />
-        </View>}
+      
       {isLoading && <Loading />}
+
+      {!isLoading &&
+      <View style={s.questionContainer}>
+        <QuestionsList
+          data={hideData ? [] : questionsList}
+          onEndReachedThreshold={0.7}
+          hideData={hideData}
+          onEndReached={
+            inputValue ?
+            () => getQuestionsMore(inputValue) :
+            null}
+          hasNoMore={hasNoMore}
+          isLoadingMore={isLoadingMore}
+          navigateToQuestion={navigateToQuestion}
+          ListEmptyComponent={<EmptyList />}
+        />
+      </View>}
     </View>
   ));
 
@@ -74,7 +75,6 @@ SearchScreen.navigationOptions = ({ navigation }) => ({
 SearchScreen.propTypes = {
   questionsList: T.array,
   getQuestionsMore: T.func,
-  getQuestions: T.func,
   hasNoMore: T.bool,
   isLoadingMore: T.bool,
   loadingError: T.any,
@@ -82,7 +82,8 @@ SearchScreen.propTypes = {
   onChange: T.func,
   inputValue: T.string,
   hideData: T.bool,
-
+  onPressCancel: T.func,
+  isLoading: T.bool,
 };
 
 

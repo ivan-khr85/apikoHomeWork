@@ -16,7 +16,7 @@ const QuestionsList = ({
 }) => (
   <FlatList
     {...props}
-    ItemSeparatorComponent={<Separator />}
+    ItemSeparatorComponent={() => <Separator />}
     keyExtractor={(item, index) => (`${R.prop('_id')(item)}-${item.createdAt}-${index}`)}
     ListFooterComponent={
       <ListFooter

@@ -9,26 +9,26 @@ import {
 } from 'recompose';
 import { connect } from 'react-redux';
 import { screens } from '../../navigation';
-import { searchOperations, searchSelectors } from '../../modules/search';
+import { questionsOperations, questionsSelectors } from '../../modules/questions';
 import { answersOperations } from '../../modules/answers';
 import SearchScreen from './SearchScreenView';
+import { AlertService } from '../../services';
 
 const mapStateToProps = state => ({
-  isLoading: searchSelectors.getQuestionsListLoadingState(state),
-  isLoadingMore: searchSelectors.getQuestionsListLoadingMoreState(state),
-  questionsList: searchSelectors.getQuestionsList(state),
-  hasNoMore: searchSelectors.getQuestionsListHasNoMoreState(state),
+  isLoading: questionsSelectors.getQuestionsListLoadingState(state),
+  isLoadingMore: questionsSelectors.getQuestionsListLoadingMoreState(state),
+  questionsList: questionsSelectors.getQuestionsList(state),
+  hasNoMore: questionsSelectors.getQuestionsListHasNoMoreState(state),
 
-  loadingError: searchSelectors.getQuestionsListErrorState(state),
+  loadingError: questionsSelectors.getQuestionsListErrorState(state),
 
 });
 
 const mapDispatchToProps = {
-  getQuestions: searchOperations.getQuestions,
-  getQuestionsMore: searchOperations.getQuestionsMore,
+  getQuestions: questionsOperations.getQuestions,
+  getQuestionsMore: questionsOperations.getQuestionsMore,
   getAnswersByQuestionId: answersOperations.getAnswersByQuestionId,
 
-  setInitialState: searchOperations.clearState,
 };
 
 const enhancer = compose(
@@ -45,15 +45,7 @@ const enhancer = compose(
       props.navigation.navigate(screens.QuestionScreen, { id });
       props.getAnswersByQuestionId(id);
     },
-    searchValue: props => async () => {
-      try {
-        await props.getQuestions(props.inputValue);
-      } catch (err) {
-        // AlertService.SignUpErr();
-      }
-    },
     onPressCancel: props => () => {
-      props.setInitialState();
       props.onChange('inputValue', '');
       props.onChange('hideData', true);
     },
@@ -61,26 +53,25 @@ const enhancer = compose(
   withPropsOnChange(
     ['inputValue'],
     (props) => {
+      props.onChange('hideData', true);
       clearTimeout(props.timerId);
-      if (props.inputValue) {
-        props.onChange('hideData', false);
+      if (props.inputValue.trim()) {
         props.onChange('timerId',
           setTimeout(async () => {
             try {
               await props.getQuestions(props.inputValue);
+              props.onChange('hideData', false);
             } catch (err) {
-              // AlertService.SignUpErr();
+              AlertService.somethingError();
             }
           }, 300),
         );
-      } else {
-        props.setInitialState();
       }
     },
   ),
   lifecycle({
     componentDidMount() {
-      this.props.setInitialState();
+      this.props.onChange('hideData', true);
     },
 
   }),
