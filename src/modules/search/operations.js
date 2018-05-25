@@ -1,13 +1,12 @@
+import { AsyncStorage } from 'react-native';
 import * as actions from './actions';
-import Api from '../../api';
 import { searchSelectors } from './';
 import normalize from '../../utils/normalize';
 
 
-export const getQuestions = search => async (dispatch, getState) => {
+export const setItemToHistory = search => async (dispatch, getState) => {
   try {
 
-    
     dispatch(actions.getQuestionsStart());
 
 
@@ -17,3 +16,14 @@ export const getQuestions = search => async (dispatch, getState) => {
   }
 };
 
+export const removeItemFromHistory = search => async (dispatch, getState) => {
+  try {
+
+    dispatch(actions.getQuestionsStart());
+
+
+    dispatch(actions.getQuestionsSuccess());
+  } catch (err) {
+    dispatch(actions.getQuestionsError());
+  }
+};

@@ -8,7 +8,7 @@ import { Tags, Touchable } from '../../../../components';
 
 const ListItem = ({
   createdAt,
-  tags = null,
+  tags = {},
   title,
   _id,
   navigateToQuestion,

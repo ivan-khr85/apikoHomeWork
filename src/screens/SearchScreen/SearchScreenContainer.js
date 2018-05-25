@@ -6,6 +6,7 @@ import {
   withStateHandlers,
   withPropsOnChange,
   lifecycle,
+  withProps,
 } from 'recompose';
 import { connect } from 'react-redux';
 import { screens } from '../../navigation';
@@ -21,7 +22,7 @@ const mapStateToProps = state => ({
   hasNoMore: questionsSelectors.getQuestionsListHasNoMoreState(state),
 
   loadingError: questionsSelectors.getQuestionsListErrorState(state),
-
+  
 });
 
 const mapDispatchToProps = {
@@ -66,6 +67,8 @@ const enhancer = compose(
             }
           }, 300),
         );
+      } else {
+        props.onChange('hideData', true);
       }
     },
   ),

@@ -13,7 +13,7 @@ export default StyleSheet.create({
   },
 
   date: {
-    color: colors.userQuestions.textCreatedAt,
+    color: colors.searchScreen.textCreatedAt,
     paddingTop: 8,
     fontSize: 13,
   },

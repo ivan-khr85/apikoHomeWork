@@ -8,6 +8,7 @@ import LoadingError from './components/LoadingError';
 import { headerStyle } from '../../styles';
 import Loading from './components/Loading';
 import EmptyList from './components/EmptyList';
+import SearchHistory from './components/SearchHistory';
 import s from './style';
 
 
@@ -34,7 +35,7 @@ const SearchScreen = ({
         <Search
           style={s.searchInput}
           inputHight={36}
-          value={inputValue}
+          InputValue={inputValue}
           onChangeText={text => onChange('inputValue', text)}
           onCancel={onPressCancel}
           useClearButton={false}
@@ -56,7 +57,7 @@ const SearchScreen = ({
           hasNoMore={hasNoMore}
           isLoadingMore={isLoadingMore}
           navigateToQuestion={navigateToQuestion}
-          ListEmptyComponent={<EmptyList />}
+          ListEmptyComponent={<SearchHistory onChange={onChange} />}
         />
       </View>}
     </View>

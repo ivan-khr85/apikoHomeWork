@@ -72,6 +72,11 @@ const colors = {
 
   searchScreen: {
     bg: '#Fff',
+    border: '#c6c6c6',
+    date: '#c6c6c6',
+    textCreatedAt: '#c6c6c6',
+    btn: '#c8c8c8',    
+    
   },
 };
 

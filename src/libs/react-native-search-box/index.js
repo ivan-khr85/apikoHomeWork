@@ -72,12 +72,22 @@ class Search extends PureComponent {
     this.shadowHeight = this.props.shadowOffsetHeightCollapsed;
   }
 
+  
   componentDidMount() {
     if (this.autoFocus) {
       this.setState({ expanded: true });
       this.refs.input_keyword._component.focus();
     }
   }
+
+  componentWillReceiveProps(nextProps) {
+    // console.log(nextProps.InputValue.length > 1)
+    // console.log(nextProps.InputValue !== this.state.keyword)
+    if ((nextProps.InputValue !== this.state.keyword) && !(this.state.keyword.trim()) && (nextProps.InputValue.length > 1)) {
+      this.setState({ keyword: nextProps.InputValue });
+    }
+  }
+
 
   onLayout = (event) => {
     const contentWidth = event.nativeEvent.layout.width;
@@ -174,6 +184,7 @@ class Search extends PureComponent {
     this.props.afterCancel && (await this.props.afterCancel());
   };
 
+
   expandAnimation = () => new Promise((resolve, reject) => {
     Animated.parallel([
       Animated.timing(this.inputFocusWidthAnimated, {
@@ -244,6 +255,7 @@ class Search extends PureComponent {
   render() {
     const isRtl = this.props.direction === 'rtl';
     const styles = getStyles(this.props.inputHeight, isRtl);
+
     return (
       <Animated.View
         ref="searchContainer"
@@ -282,7 +294,7 @@ class Search extends PureComponent {
             },
           ]}
           editable={this.props.editable}
-          value={this.state.keyword}
+          value={this.state.keyword} // this.state.keyword ||
           onChangeText={this.onChangeText}
           placeholder={this.placeholder}
           placeholderTextColor={
@@ -526,7 +538,7 @@ Search.propTypes = {
   blurOnSubmit: PropTypes.bool,
   keyboardShouldPersist: PropTypes.bool,
   useClearButton: PropTypes.bool,
-
+  InputValue: PropTypes.string,
   /**
    * Positioning
    */
