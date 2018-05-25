@@ -4,26 +4,11 @@ import { searchSelectors } from './';
 import normalize from '../../utils/normalize';
 
 
-export const setItemToHistory = search => async (dispatch, getState) => {
-  try {
-
-    dispatch(actions.getQuestionsStart());
-
-
-    dispatch(actions.getQuestionsSuccess());
-  } catch (err) {
-    dispatch(actions.getQuestionsError());
-  }
+export const setItemToHistory = searchedValue => async (dispatch) => {
+  dispatch(actions.addItemToSearchHistory({ searchedValue }));
 };
 
-export const removeItemFromHistory = search => async (dispatch, getState) => {
-  try {
 
-    dispatch(actions.getQuestionsStart());
-
-
-    dispatch(actions.getQuestionsSuccess());
-  } catch (err) {
-    dispatch(actions.getQuestionsError());
-  }
+export const removeItemFromHistory = searchedValue => async (dispatch) => {
+  dispatch(actions.removeItemToSearchHistory());
 };

@@ -18,20 +18,20 @@ const INITIAL_STATE = {
 };
 
 export default handleActions({
-  [types.ADD_ITEM_TO_SEARCH_HISTORY]: mergeDeep((state, action) => ({
-    searchHistory: state.searchHistory.push({
+  [types.ADD_ITEM_TO_SEARCH_HISTORY]: mergeDeep((action, state) => ({
+    searchHistory: state.searchHistory.concat([{
       id: `${state.searchHistory.length}_${Date.now()}`,
       createdAt: Date.now(),
       searchedValue: action.payload.searchedValue,
-    }),
+    }]),
   })),
   
   
-  [types.REMOVE_ITEM_FROM_SEARCH_HISTORY]: mergeDeep((state, action) => ({
+  [types.REMOVE_ITEM_FROM_SEARCH_HISTORY]: mergeDeep((action, state) => ({
     searchHistory: state.searchHistory.filter(item => item.id !== action.payload.id),
   })),
 
-  [types.SET_ARRAY_TO_SEARCHED_HISTORY]: mergeDeep((state, action) => ({
+  [types.SET_ARRAY_TO_SEARCHED_HISTORY]: mergeDeep(action => ({
     searchHistory: action.payload.previousHistory,
   })),
 }, INITIAL_STATE);

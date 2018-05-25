@@ -24,6 +24,7 @@ const SearchScreen = ({
   inputValue,
   onChange,
   onPressCancel,
+  setItemToHistory,
 }) =>
   (loadingError ? (
     <View style={s.container}>
@@ -39,6 +40,7 @@ const SearchScreen = ({
           onChangeText={text => onChange('inputValue', text)}
           onCancel={onPressCancel}
           useClearButton={false}
+          beforeSearch={() => setItemToHistory(inputValue)}
         />
       </View>
       
@@ -85,6 +87,7 @@ SearchScreen.propTypes = {
   hideData: T.bool,
   onPressCancel: T.func,
   isLoading: T.bool,
+  setItemToHistory: T.func,
 };
 
 

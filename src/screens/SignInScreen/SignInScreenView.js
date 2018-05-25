@@ -17,7 +17,7 @@ const SignInScreen = ({
   onChange,
   
 }) => (
-  <ScrollView contentContainerStyle={s.container} scrollEnabled={false}>
+  <ScrollView contentContainerStyle={s.container} scrollEnabled={false} keyboardShouldPersistTaps="handled">
 
     <View style={s.top}>
 

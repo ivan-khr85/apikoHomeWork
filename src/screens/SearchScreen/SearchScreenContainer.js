@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import { screens } from '../../navigation';
 import { questionsOperations, questionsSelectors } from '../../modules/questions';
 import { answersOperations } from '../../modules/answers';
+import { searchOperations } from '../../modules/search';
 import SearchScreen from './SearchScreenView';
 import { AlertService } from '../../services';
 
@@ -29,7 +30,7 @@ const mapDispatchToProps = {
   getQuestions: questionsOperations.getQuestions,
   getQuestionsMore: questionsOperations.getQuestionsMore,
   getAnswersByQuestionId: answersOperations.getAnswersByQuestionId,
-
+  setItemToHistory: searchOperations.setItemToHistory,
 };
 
 const enhancer = compose(
