@@ -13,13 +13,15 @@ const QuestionsList = ({
   navigateToQuestion,
   hideData,
   inputValue,
+  data,
   ...props
 }) => (
   <FlatList
     {...props}
     ItemSeparatorComponent={() => <Separator />}
     keyExtractor={(item, index) => (`${R.prop('_id')(item)}-${item.createdAt}-${index}`)}
-    ListFooterComponent={() => (hideData ? null
+    data={data}
+    ListFooterComponent={() => ((hideData && data.length === 0) ? null
       : (<ListFooter
         hasNoMore={hasNoMore}
         isLoadingMore={isLoadingMore}
@@ -43,6 +45,7 @@ QuestionsList.propTypes = {
   navigateToQuestion: T.func,
   hideData: T.bool,
   inputValue: T.string,
+  data: T.array,
 };
 
 
