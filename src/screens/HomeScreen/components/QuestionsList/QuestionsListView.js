@@ -3,15 +3,16 @@ import { FlatList } from 'react-native';
 import T from 'prop-types';
 import * as R from 'ramda';
 import ListItem from '../ListItem';
-import ListFooter from '../ListFooter';
 import EmptyList from '../EmptyList';
-import { Separator, ListHeader } from '../../../../components';
+import { Separator, ListHeader, ListFooter } from '../../../../components';
 import s from './style';
 
 const QuestionsList = ({
   hasNoMore,
   isLoadingMore,
   onPress,
+  loadingMoreError,
+  getQuestionsMore,
   ...props
 }) => (
   <FlatList
@@ -22,6 +23,9 @@ const QuestionsList = ({
       <ListFooter
         hasNoMore={hasNoMore}
         isLoadingMore={isLoadingMore}
+        loadingMoreError={loadingMoreError}
+        onError={getQuestionsMore}
+        textFooter="No more questions"
       />}
     ListHeaderComponent={
       <ListHeader
@@ -44,6 +48,8 @@ QuestionsList.propTypes = {
   hasNoMore: T.bool,
   isLoadingMore: T.bool,
   onPress: T.func,
+  loadingMoreError: T.bool,
+  getQuestionsMore: T.func,
 };
 
 

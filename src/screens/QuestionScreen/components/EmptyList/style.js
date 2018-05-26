@@ -7,7 +7,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
 
-    height: 450,
+    height: 130,
     paddingTop: 50,
   },
 
@@ -20,17 +20,5 @@ export default StyleSheet.create({
     color: colors.emptyList.description,
   },
 
-  button: {
-    backgroundColor: colors.buttonColor,
-    marginTop: 15,
-    paddingHorizontal: 30,
-    paddingVertical: 7,
-    borderRadius: 5,
-     
-  },
-  buttonText: {
-    color: colors.emptyList.buttonText,
-
-  },
 
 });

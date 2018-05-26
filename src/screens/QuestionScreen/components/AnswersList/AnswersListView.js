@@ -4,16 +4,18 @@ import T from 'prop-types';
 import * as R from 'ramda';
 import AnswerListItem from '../AnswerListItem';
 import AnswersHeader from '../AnswersHeader';
-// import ListFooter from '../ListFooter';
-// import EmptyList from '../EmptyList';
-import { Separator } from '../../../../components';
-import s from './style';
+import { Separator, ListFooter } from '../../../../components';
+import EmptyList from '../EmptyList';
+// import s from './style';
 
 const QuestionsList = ({
   hasNoMore,
   isLoadingMore,
   data,
   count,
+  getAnswersMore,
+  loadingMoreError,
+  id,
   ...props
 }) => (
   <FlatList
@@ -21,20 +23,23 @@ const QuestionsList = ({
     data={data}
     ItemSeparatorComponent={() => <Separator />}
     keyExtractor={(item, index) => (`${R.prop('_id')(item)}-${item.createdAt}-${index}`)}
-    // ListFooterComponent={() => (
-    //   <ListFooter
-    //     hasNoMore={hasNoMore}
-    //     isLoadingMore={isLoadingMore}
-    //   />
-    // )}
+    ListFooterComponent={() => (
+      data.length ? <ListFooter
+        hasNoMore={hasNoMore}
+        isLoadingMore={isLoadingMore}
+        loadingMoreError={loadingMoreError}
+        onError={() => getAnswersMore(id)}
+        textFooter="No more answers"
+      /> : null
+    )}
     renderItem={({ item }) => (
       <AnswerListItem
         {...item}
       />
     )}
-    // ListEmptyComponent={() => (
-    //   <EmptyList />
-    // )}
+    ListEmptyComponent={() => (
+      <EmptyList />
+    )}
     ListHeaderComponent={() => (
       <AnswersHeader
         countAnswer={count}
@@ -50,6 +55,9 @@ QuestionsList.propTypes = {
   onPress: T.func,
   data: T.array,
   count: T.number,
+  getAnswersMore: T.func,
+  loadingMoreError: T.bool,
+  id: T.string,
 };
 
 

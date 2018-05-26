@@ -45,6 +45,7 @@ export default handleActions({
     isAnswersLoadingMore: true,
     isAnswersError: false,
     isAnswersLoadingMoreError: false,
+    isAnswersHasNoMore: false,
   }),
   [types.GET_ANSWERS_BY_QUESTION_ID_MORE_SUCCESS]: mergeDeep((action, state) => ({
     isAnswersLoadingMore: false,
@@ -65,6 +66,9 @@ export default handleActions({
     countAnswers: action.payload,
   })),
 
+  [types.ANSWERS_HAS_NO_MORE]: mergeDeep({
+    isAnswersHasNoMore: true,
+  }),
 
   [types.PUBLISHING_ANSWER_START]: mergeDeep({
     isAnswerPublishing: true,

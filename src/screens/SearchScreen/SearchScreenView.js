@@ -48,7 +48,6 @@ const SearchScreen = ({
       </View>
       
       {isLoading && <Loading />}
-
       {!isLoading &&
       <View style={s.questionContainer}>
         <QuestionsList

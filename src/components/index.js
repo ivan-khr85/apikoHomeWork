@@ -8,3 +8,5 @@ export { default as LoadingModal } from './LoadingModal';
 export { default as Separator } from './Separator';
 export { default as Tags } from './Tags';
 export { default as BackBtn } from './BackBtn';
+export { default as ListFooter } from './ListFooter';
+

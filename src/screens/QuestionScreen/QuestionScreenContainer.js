@@ -27,6 +27,7 @@ const mapStateToProps = (state, props) => ({
   hasNoMore: answersSelectors.getAnswersHasNoMoreState(state),
 
   loadingError: answersSelectors.getAnswersErrorState(state),
+  loadingMoreError: answersSelectors.getAnswersLoadingMoreErrorState(state),
 });
 
 const mapDispatchToProps = {

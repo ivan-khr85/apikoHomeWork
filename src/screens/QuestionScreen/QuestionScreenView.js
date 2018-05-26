@@ -14,12 +14,14 @@ const QuestionScreen = ({
   signedIn,
   isLoading,
   isLoadingMore,
+  loadingError,
+  loadingMoreError,
+  hasNoMore,
   question,
   answers,
   id,
   getAnswers,
   getAnswersMore,
-  hasNoMore,
   publishAnswer,
   onChange,
   description,
@@ -37,6 +39,10 @@ const QuestionScreen = ({
         onEndReached={() => getAnswersMore(id)}
         hasNoMore={hasNoMore}
         isLoadingMore={isLoadingMore}
+        id={id}
+        getAnswersMore={getAnswersMore}
+        loadingMoreError={loadingMoreError}
+        loadingError={loadingError}
       />
     </View>
     <View style={s.bottom}>
@@ -89,6 +95,7 @@ QuestionScreen.propTypes = {
   isLoading: T.bool,
   getAnswers: T.func,
   id: T.string,
+  loadingMoreError: T.bool,
   answers: T.array,
   isLoadingMore: T.bool,
   getAnswersMore: T.func,
@@ -97,6 +104,7 @@ QuestionScreen.propTypes = {
   description: T.string,
   onChange: T.func,
   navigateSignUp: T.func,
+  loadingError: T.bool,
 };
 
 export default QuestionScreen;

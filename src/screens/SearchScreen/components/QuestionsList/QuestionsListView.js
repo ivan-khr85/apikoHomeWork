@@ -3,9 +3,8 @@ import { FlatList } from 'react-native';
 import T from 'prop-types';
 import * as R from 'ramda';
 import ListItem from '../ListItem';
-import ListFooter from '../ListFooter';
-import { Separator } from '../../../../components';
-// import s from './style';
+import { Separator, ListFooter } from '../../../../components';
+import s from './style';
 
 const QuestionsList = ({
   hasNoMore,
@@ -14,6 +13,8 @@ const QuestionsList = ({
   hideData,
   inputValue,
   data,
+  loadingMoreError,
+  getQuestionsMore,
   ...props
 }) => (
   <FlatList
@@ -21,10 +22,15 @@ const QuestionsList = ({
     ItemSeparatorComponent={() => <Separator />}
     keyExtractor={(item, index) => (`${R.prop('_id')(item)}-${item.createdAt}-${index}`)}
     data={data}
-    ListFooterComponent={() => ((hideData && data.length === 0) ? null
+    ListFooterComponent={() => (
+      (hideData && data.length === 0) ? null
       : (<ListFooter
         hasNoMore={hasNoMore}
         isLoadingMore={isLoadingMore}
+        onError={getQuestionsMore}
+        loadingMoreError={loadingMoreError}
+        textFooter="No more questions"
+        styleContainer={s.footerContainer}
       />)
     )}
     renderItem={({ item }) => (
@@ -46,6 +52,8 @@ QuestionsList.propTypes = {
   hideData: T.bool,
   inputValue: T.string,
   data: T.array,
+  loadingMoreError: T.bool,
+  getQuestionsMore: T.func,
 };
 
 
