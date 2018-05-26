@@ -4,12 +4,24 @@ import {
   hoistStatics,
   withStateHandlers,
   withPropsOnChange,
+  lifecycle,
 } from 'recompose';
+import { Keyboard } from 'react-native';
 import { connect } from 'react-redux';
+import { NavigationActions, StackActions } from 'react-navigation';
 import { screens } from '../../navigation';
 import SignInScreen from './SignInScreenView';
 import { authOperations, authSelectors } from '../../modules/auth';
 import { AlertService } from '../../services';
+
+const resetNavigator = (props) => {
+  const resetAction = StackActions.reset({
+    key: screens.AuthorizedApplicationNavigator,
+    index: 0,
+    actions: [NavigationActions.navigate({ routeName: screens.AuthorizedApplicationNavigator })],
+  });
+  props.navigation.dispatch(resetAction);
+};
 
 
 const mapStateToProps = state => ({
@@ -27,7 +39,9 @@ const enhancer = compose(
   withStateHandlers({
     email: '',
     password: '',
-    isValid: false,
+    keyboardShow: false,
+    isValidPassword: false,
+    isValidEmail: false,
   }, {
     onChange: () => (field, value) => ({ [field]: value }),
   }),
@@ -36,31 +50,56 @@ const enhancer = compose(
       props.navigation.navigate(screens.RestorePasswordScreen)
     ),
     signIn: props => async () => {
-      if (props.isValid) {
-        try {
-          await props.signIn({
-            email: props.email,
-            password: props.password,
-          });
-          props.navigation.navigate(screens.AuthorizedApplicationNavigator);
-        } catch (err) {
-          AlertService.SignInErr();
+      if (props.isValidEmail) {
+        if (props.isValidPassword) {
+          try {
+            await props.signIn({
+              email: props.email,
+              password: props.password,
+            });
+            props.navigation.navigate(screens.AuthorizedApplicationNavigator);
+            resetNavigator(props);
+          } catch (err) {
+            AlertService.SignInErr();
+          }
+        } else {
+          AlertService.noValidPassword();
         }
       } else {
-        AlertService.noValidInputData();
+        AlertService.noValidEmail();
       }
     },
   }),
   withPropsOnChange(
     ['email', 'password'],
     (props) => {
-      const isValid = (
-        props.email.trim().includes('@') &&
+      const isValidEmail = (
+        props.email.trim().includes('@')
+      );
+      const isValidPassword = (
         props.password.trim().length >= 8
       );
-      props.onChange('isValid', isValid);
+
+      props.onChange('isValidEmail', isValidEmail);
+      props.onChange('isValidPassword', isValidPassword);
     },
   ),
+  lifecycle({
+    componentDidMount() {
+      Keyboard.addListener(
+        'keyboardDidShow',
+        () => this.props.onChange('keyboardShow', true),
+      );
+      Keyboard.addListener(
+        'keyboardDidHide',
+        () => this.props.onChange('keyboardShow', false),
+      );
+    },
+    componentWillUnmount() {
+      Keyboard.removeAllListeners('keyboardDidShow');
+      Keyboard.removeAllListeners('keyboardDidHide');
+    },
+  }),
 );
 
 

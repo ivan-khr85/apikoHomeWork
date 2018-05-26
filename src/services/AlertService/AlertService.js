@@ -50,6 +50,30 @@ export const noValidInputData = () => showAlert(
   ],
 );
 
+export const noValidPassword = () => showAlert(
+  i18n.t('noValidPassword.title'),
+  i18n.t('noValidPassword.messages'),
+  [
+    { text: i18n.t('noValidPassword.ok') },
+  ],
+);
+
+export const noValidEmail = () => showAlert(
+  i18n.t('noValidEmail.title'),
+  i18n.t('noValidEmail.messages'),
+  [
+    { text: i18n.t('noValidEmail.ok') },
+  ],
+);
+
+export const noValidUsername = () => showAlert(
+  i18n.t('noValidUsername.title'),
+  i18n.t('noValidUsername.messages'),
+  [
+    { text: i18n.t('noValidUsername.ok') },
+  ],
+);
+
 
 export const SendEmailRestorePasswordAlert = onPress => showAlert(
   i18n.t('SendEmailRestorePasswordAlert.title'),

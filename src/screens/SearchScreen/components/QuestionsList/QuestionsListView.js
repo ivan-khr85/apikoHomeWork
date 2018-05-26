@@ -12,6 +12,7 @@ const QuestionsList = ({
   isLoadingMore,
   navigateToQuestion,
   hideData,
+  inputValue,
   ...props
 }) => (
   <FlatList
@@ -27,6 +28,7 @@ const QuestionsList = ({
     renderItem={({ item }) => (
       <ListItem
         {...item}
+        inputValue={inputValue}
         navigateToQuestion={navigateToQuestion}
       />
     )}
@@ -40,6 +42,7 @@ QuestionsList.propTypes = {
   isLoadingMore: T.bool,
   navigateToQuestion: T.func,
   hideData: T.bool,
+  inputValue: T.string,
 };
 
 

@@ -55,6 +55,7 @@ const SearchScreen = ({
           data={hideData ? [] : questionsList}
           onEndReachedThreshold={0.7}
           hideData={hideData}
+          inputValue={inputValue}
           onEndReached={
             inputValue ?
             () => getQuestionsMore(inputValue) :

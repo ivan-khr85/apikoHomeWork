@@ -12,12 +12,17 @@ const ListItem = ({
   title,
   _id,
   navigateToQuestion,
+  inputValue,
+  setItemToHistory,
 }) => {
   const dateCreated = moment(createdAt).format('MMM D ’H');
   return (
     <Touchable
       style={s.container}
-      onPress={() => navigateToQuestion(_id)}
+      onPress={() => {
+        setItemToHistory(inputValue);
+        return navigateToQuestion(_id);
+      }}
       useOpacity
     >
       <View>
@@ -35,7 +40,8 @@ ListItem.propTypes = {
   title: T.string,
   _id: T.string,
   navigateToQuestion: T.func,
-
+  setItemToHistory: T.func,
+  inputValue: T.string,
 };
 
 

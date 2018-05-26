@@ -34,6 +34,24 @@
     "ok": "OK"
   },
 
+  "noValidEmail": {
+    "title": "Data is not valid",
+    "messages": "Please verify your email",
+    "ok": "OK"
+  },
+
+  "noValidPassword": {
+    "title": "Data is not valid",
+    "messages": "Password should be longer than 8 characters",
+    "ok": "OK"
+  },
+
+  "noValidUsername": {
+    "title": "Data is not valid",
+    "messages": "Username should be longer than 4 characters",
+    "ok": "OK"
+  },
+
 
   "SendEmailRestorePasswordAlert": {
     "title": "Restore password",

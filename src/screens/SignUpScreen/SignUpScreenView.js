@@ -16,6 +16,7 @@ const SignUpScreen = ({
   email,
   password,
   signUp,
+  keyboardShow,
 }) => (
 
   <ScrollView contentContainerStyle={s.container} scrollEnabled={false} keyboardShouldPersistTaps="handled">
@@ -44,11 +45,11 @@ const SignUpScreen = ({
         
         secureTextEntry
       />
-      <Touchable
+      {!keyboardShow && <Touchable
         style={s.navigateToSignIn}
       >
         <Text style={s.textBtn} onPress={navigateToSignIn}>Already has an{'\n'}account?</Text>
-      </Touchable>
+      </Touchable>}
 
     </View>
     <KeyboardAvoidingView style={s.bottom} behavior="position" enabled={!isAndroid}>
@@ -79,6 +80,7 @@ SignUpScreen.propTypes = {
   email: T.string,
   password: T.string,
   signUp: T.func,
+  keyboardShow: T.bool,
 
 };
 

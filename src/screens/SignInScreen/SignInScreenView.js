@@ -15,7 +15,7 @@ const SignInScreen = ({
   email,
   password,
   onChange,
-  
+  keyboardShow,
 }) => (
   <ScrollView contentContainerStyle={s.container} scrollEnabled={false} keyboardShouldPersistTaps="handled">
 
@@ -38,11 +38,11 @@ const SignInScreen = ({
 
         secureTextEntry
       />
-      <Touchable
+      {!keyboardShow && <Touchable
         style={s.forgotPassword}
       >
         <Text style={s.textBtn} onPress={navigateToRestorePassword}>Forgot password?</Text>
-      </Touchable>
+      </Touchable>}
     </View>
 
     <KeyboardAvoidingView style={s.bottom} behavior="position" enabled={!isAndroid}>
@@ -69,6 +69,7 @@ SignInScreen.propTypes = {
   email: T.string,
   password: T.string,
   signIn: T.func,
+  keyboardShow: T.bool,
 
 };
 

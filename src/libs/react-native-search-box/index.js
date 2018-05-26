@@ -81,8 +81,6 @@ class Search extends PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-    // console.log(nextProps.InputValue.length > 1)
-    // console.log(nextProps.InputValue !== this.state.keyword)
     if ((nextProps.InputValue !== this.state.keyword) && !(this.state.keyword.trim()) && (nextProps.InputValue.length > 1)) {
       this.setState({ keyword: nextProps.InputValue });
     }
@@ -224,7 +222,7 @@ class Search extends PureComponent {
         duration: 200,
       }).start(),
       Animated.timing(this.btnCancelAnimated, {
-        toValue: this.contentWidth,
+        toValue: this.contentWidth + 5,
         duration: 200,
       }).start(),
       this.props.keyboardShouldPersist === false
@@ -399,9 +397,8 @@ const getStyles = (inputHeight, isRtl) => {
       flexDirection: isRtl ? 'row-reverse' : 'row',
       justifyContent: 'flex-start',
       alignItems: 'center',
-      padding: 5,
+      padding: 6,
       
-
       paddingBottom: 15,
     },
     input: {
@@ -414,6 +411,7 @@ const getStyles = (inputHeight, isRtl) => {
       backgroundColor: '#ededed',
       borderRadius: 8,
       fontSize: 17,
+      // marginRight: 2,
     },
     placeholderColor: 'grey',
     iconSearch: {
@@ -437,14 +435,16 @@ const getStyles = (inputHeight, isRtl) => {
       tintColor: 'grey',
     },
     cancelButton: {
+      paddingRight: 8,
       justifyContent: 'center',
       alignItems: isRtl ? 'flex-end' : 'flex-start',
       backgroundColor: 'transparent',
-      width: 60,
+      width: 65,
       height: 50,
     },
     cancelButtonText: {
       fontSize: 17,
+      paddingRight: 4,
       color: '#3695FE',
     },
   };
@@ -580,6 +580,7 @@ Search.defaultProps = {
   shadowVisible: false,
   useClearButton: true,
   direction: 'ltr',
+
 };
 
 export default Search;

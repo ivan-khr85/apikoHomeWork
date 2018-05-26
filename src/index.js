@@ -2,7 +2,7 @@ import React from 'react';
 import T from 'prop-types';
 import { AppLoading } from 'expo';
 import { BackHandler, View, Platform, UIManager } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
+import { SafeAreaView, NavigationActions } from 'react-navigation';
 import { Provider } from 'react-redux';
 import {
   compose,

@@ -19,12 +19,24 @@ const DrawerItem = ({
 
   const closeDrawer = () => navigation.dispatch(DrawerActions.closeDrawer());
 
+  const push = (routeName, params) => (
+    NavigationActions.navigate({
+      routeName,
+      params,
+    })
+  );
+
   const navigateToScreen = (route) => {
     const navigateAction = NavigationActions.navigate({
       routeName: route,
+      // params: {},
+      // action: NavigationActions.navigate({ routeName: route }),
     });
+    navigation.dispatch(push(route));
     navigation.dispatch(navigateAction);
   };
+
+  // const navigateToScreen = route => navigation.navigate(route);
 
   const onItemPress = () => {
     if (typeof onPress === 'function') {

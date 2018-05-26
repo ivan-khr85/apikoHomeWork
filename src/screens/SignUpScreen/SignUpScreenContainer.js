@@ -4,12 +4,24 @@ import {
   hoistStatics,
   withStateHandlers,
   withPropsOnChange,
+  lifecycle,
 } from 'recompose';
 import { connect } from 'react-redux';
+import { Keyboard } from 'react-native';
+import { NavigationActions, StackActions } from 'react-navigation';
 import { authOperations, authSelectors } from '../../modules/auth';
 import { screens } from '../../navigation';
 import SignUpScreen from './SignUpScreenView';
 import { AlertService } from '../../services';
+
+const resetNavigator = (props) => {
+  const resetAction = StackActions.reset({
+    key: screens.AuthorizedApplicationNavigator,
+    index: 0,
+    actions: [NavigationActions.navigate({ routeName: screens.AuthorizedApplicationNavigator })],
+  });
+  props.navigation.dispatch(resetAction);
+};
 
 
 const mapStateToProps = state => ({
@@ -27,40 +39,76 @@ const enhancer = compose(
     username: '',
     email: '',
     password: '',
+    keyboardShow: false,
     isValid: false,
+    isValidPassword: false,
+    isValidEmail: false,
+    isValidUsername: false,
   }, {
     onChange: () => (field, value) => ({ [field]: value }),
   }),
   withHandlers({
     navigateToSignIn: props => () => props.navigation.navigate(screens.SignInScreen),
     signUp: props => async () => {
-      if (props.isValid) {
-        try {
-          await props.signUp({
-            username: props.username,
-            email: props.email,
-            password: props.password,
-          });
-          props.navigation.navigate(screens.AuthorizedApplicationNavigator);
-        } catch (err) {
-          AlertService.SignUpErr();
+      if (props.isValidUsername) {
+        if (props.isValidEmail) {
+          if (props.isValidPassword) {
+            try {
+              await props.signUp({
+                username: props.username,
+                email: props.email,
+                password: props.password,
+              });
+              props.navigation.navigate(screens.AuthorizedApplicationNavigator);
+              resetNavigator(props);
+            } catch (err) {
+              AlertService.SignUpErr();
+            }
+          } else {
+            AlertService.noValidPassword();
+          }
+        } else {
+          AlertService.noValidEmail();
         }
       } else {
-        AlertService.noValidInputData();
+        AlertService.noValidUsername();
       }
     },
   }),
   withPropsOnChange(
     ['username', 'email', 'password'],
     (props) => {
-      const isValid = (
-        props.username.trim().length > 3 &&
-        props.email.trim().includes('@') &&
+      const isValidUsername = (
+        props.username.trim().length > 3
+      );
+      const isValidEmail = (
+        props.email.trim().includes('@')
+      );
+      const isValidPassword = (
         props.password.trim().length >= 8
       );
-      props.onChange('isValid', isValid);
+
+      props.onChange('isValidEmail', isValidEmail);
+      props.onChange('isValidPassword', isValidPassword);
+      props.onChange('isValidUsername', isValidUsername);
     },
   ),
+  lifecycle({
+    componentDidMount() {
+      Keyboard.addListener(
+        'keyboardDidShow',
+        () => this.props.onChange('keyboardShow', true),
+      );
+      Keyboard.addListener(
+        'keyboardDidHide',
+        () => this.props.onChange('keyboardShow', false),
+      );
+    },
+    componentWillUnmount() {
+      Keyboard.removeAllListeners('keyboardDidShow');
+      Keyboard.removeAllListeners('keyboardDidHide');
+    },
+  }),
 );
 
 
