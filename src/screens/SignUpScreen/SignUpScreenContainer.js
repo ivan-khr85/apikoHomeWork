@@ -40,7 +40,6 @@ const enhancer = compose(
     email: '',
     password: '',
     keyboardShow: false,
-    isValid: false,
     isValidPassword: false,
     isValidEmail: false,
     isValidUsername: false,

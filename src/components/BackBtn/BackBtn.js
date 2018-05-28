@@ -27,7 +27,7 @@ const BackBtn = ({
 );
 
 BackBtn.propTypes = {
-  navigation: T.object,
+  navigation: T.any,
   title: T.string,
 };
 

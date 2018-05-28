@@ -1,23 +1,55 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { globalStyles, headerStyle } from '../../styles';
-import { DrawerButton } from '../../components';
+import T from 'prop-types';
+import { ListHeader, TextInput } from '../../components';
+import s from './style';
 
+const CreateQuestionScreen = ({
+  title,
+  description,
+  tags,
+  onChange,
+  isCreatingQuestion,
+  isCreatingQuestionError,
+}) => (
+  <View style={s.container}>
+    <ListHeader
+      headerText="Create question"
+      styleContainer={s.headerContainer}
+    />
+    <View style={s.inputContainer}>
+      <TextInput
+        style={[s.input, s.inputTitle]}
+        placeholder=" Question title..."
+        value={title}
+        onChangeText={text => onChange('title', text)}
+      />
 
-const CreateQuestionScreen = () => (
-  <View style={globalStyles.align}>
-    <Text>Create Question Screen</Text>
+      <TextInput
+        multiline
+        style={s.input}
+        placeholder=" Type your question here..."
+        value={description}
+        onChangeText={text => onChange('description', text)}
+      />
+
+      <TextInput
+        style={s.input}
+        placeholder=" Tags separated by whitespace..."
+        value={tags}
+        onChangeText={text => onChange('tags', text)}
+      />
+    </View>
   </View>
 );
 
-CreateQuestionScreen.navigationOptions = ({ navigation }) => ({
-  headerLeft: (
-    <DrawerButton
-      onPress={() => navigation.toggleDrawer()}
-      onLongPress={() => navigation.toggleDrawer()}
-    />
-  ),
-  ...headerStyle,
-});
+CreateQuestionScreen.propTypes = {
+  title: T.string,
+  description: T.string,
+  tags: T.string,
+  onChange: T.func,
+  isCreatingQuestion: T.bool,
+  isCreatingQuestionError: T.bool,
+};
 
 export default CreateQuestionScreen;

@@ -1,0 +1,3 @@
+export const CREATE_QUESTION_START = 'createQuestion/CREATE_QUESTION_START';
+export const CREATE_QUESTION_SUCCESS = 'createQuestion/CREATE_QUESTION_SUCCESS';
+export const CREATE_QUESTION_ERROR = 'createQuestion/CREATE_QUESTION_ERROR';

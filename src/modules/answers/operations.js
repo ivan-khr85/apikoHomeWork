@@ -61,5 +61,6 @@ export const publishAnswer = ({ description, questionId }) => async (dispatch) =
     dispatch(actions.publishingAnswerSuccess());
   } catch (err) {
     dispatch(actions.publishingAnswerError());
+    throw new Error('publish Error');
   }
 };

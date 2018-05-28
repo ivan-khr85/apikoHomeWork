@@ -69,15 +69,20 @@ const colors = {
     bgAnswer: '#fff',
     btnText: '#fff',
   },
-
   searchScreen: {
     bg: '#Fff',
     border: '#c6c6c6',
     date: '#c6c6c6',
     textCreatedAt: '#c6c6c6',
-    btn: '#c8c8c8',    
-    
+    btn: '#c8c8c8',
   },
+  createQuestion: {
+    bg: '#Fff',
+    bgHeaderContainer: '#f7f7f7',
+    border: '#c6c6c6',
+    btnActive: '#FF9900',
+  },
+
 };
 
 export default colors;

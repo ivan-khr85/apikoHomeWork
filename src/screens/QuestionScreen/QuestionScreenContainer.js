@@ -1,12 +1,16 @@
+import React from 'react';
 import {
   compose,
   hoistStatics,
   withStateHandlers,
   withHandlers,
   withPropsOnChange,
+  setStatic,
 } from 'recompose';
 import { connect } from 'react-redux';
 import QuestionScreen from './QuestionScreenView';
+import { headerStyle } from '../../styles';
+import { BackBtn } from '../../components';
 import { questionsSelectors } from '../../modules/questions';
 import { answersSelectors, answersOperations } from '../../modules/answers';
 import { paramsToProps } from '../../utils/enhancers';
@@ -75,6 +79,15 @@ const enhancer = compose(
       );
       props.onChange('isValid', isValid);
     },
+  ),
+  setStatic(
+    'navigationOptions',
+    ({ navigation }) => ({
+      ...headerStyle,
+      headerLeft: (
+        <BackBtn navigation={navigation} title="Back" />
+      ),
+    }),
   ),
 );
 

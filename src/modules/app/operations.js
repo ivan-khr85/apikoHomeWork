@@ -6,7 +6,7 @@ import Api, { SocketApi } from '../../api';
 export const initApi = token => () => {
   Api.setToken(token);
   SocketApi.initialize(token);
-
+  
   // initialize socket handlers
   SocketApi.setOnMessageHandler(data => console.log(data));
 };
