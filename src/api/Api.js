@@ -62,9 +62,7 @@ class Api {
   }
  
  
-  createQuestion({ title, description, tags = '' }) {
-    console.log(title);
-    console.log(description);
+  createQuestion({ title, description, tags }) {
     return axios.post(`${this._baseUrl}/questions/`, {
       title,
       description,

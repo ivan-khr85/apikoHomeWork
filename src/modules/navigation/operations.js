@@ -19,3 +19,6 @@ export const navigateToSignUp = () =>
 
 export const navigateToSearch = () =>
   NavigationActions.navigate({ routeName: screens.SearchScreen });
+
+export const navigateToHome = () =>
+  NavigationActions.navigate({ routeName: screens.HomeScreen });

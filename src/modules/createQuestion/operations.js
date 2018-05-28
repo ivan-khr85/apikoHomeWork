@@ -5,8 +5,7 @@ export const createQuestion = (title, description, tags) => async (dispatch) => 
   try {
     dispatch(actions.createQuestionStart());
 
-    const res = await Api.createQuestion(title, description, tags);
-    console.log(res.data);
+    await Api.createQuestion(title, description, tags);
     dispatch(actions.createQuestionSuccess());
   } catch (err) {
     dispatch(actions.createQuestionError());

@@ -15,6 +15,7 @@ import { headerStyle, colors } from '../../styles';
 import { screens } from '../../navigation';
 import { DrawerButton, Touchable } from '../../components';
 import { createQuestionOperations, createQuestionSelectors } from '../../modules/createQuestion';
+import { navigationOperations } from '../../modules/navigation';
 import s from './style';
 import { AlertService } from '../../services';
 
@@ -54,8 +55,9 @@ const enhancer = compose(
           await props.createQuestion({
             title: props.title,
             description: props.description,
-            tags: props.tags,
+            tags: (() => ((props.tags.trim().length > 1) ? props.tags : null)),
           });
+          props.navigation.dispatch(navigationOperations.navigateToHome());
         } catch (err) {
           AlertService.somethingError();
         }
