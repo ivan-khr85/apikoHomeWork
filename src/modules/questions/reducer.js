@@ -19,6 +19,7 @@ export default handleActions({
   [types.GET_QUESTIONS_START]: mergeDeep({
     isQuestionsListLoading: true,
     isQuestionsListError: false,
+    isQuestionsListHasNoMore: false,
     isQuestionsListLoadingMoreError: false,
   }),
   [types.GET_QUESTIONS_SUCCESS]: mergeDeep(action => ({

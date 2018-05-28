@@ -83,6 +83,7 @@ class Search extends PureComponent {
   componentWillReceiveProps(nextProps) {
     if ((nextProps.InputValue !== this.state.keyword) && !(this.state.keyword.trim()) && (nextProps.InputValue.length > 1)) {
       this.setState({ keyword: nextProps.InputValue });
+      this.expandAnimation();
     }
   }
 
