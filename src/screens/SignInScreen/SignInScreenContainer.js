@@ -6,7 +6,7 @@ import {
   withPropsOnChange,
   lifecycle,
 } from 'recompose';
-import { Keyboard } from 'react-native';
+import { Keyboard, LayoutAnimation } from 'react-native';
 import { connect } from 'react-redux';
 import { NavigationActions, StackActions } from 'react-navigation';
 import { screens } from '../../navigation';
@@ -84,6 +84,11 @@ const enhancer = compose(
       props.onChange('isValidPassword', isValidPassword);
     },
   ),
+  withPropsOnChange(
+    ['keyboardShow'],
+    () => {
+      LayoutAnimation.easeInEaseOut();
+    }),
   lifecycle({
     componentDidMount() {
       Keyboard.addListener(

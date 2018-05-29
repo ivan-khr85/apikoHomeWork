@@ -3,6 +3,7 @@
     "name": "Ask apiko",
     "sdkVersion": "26.0.0",
     "orientation": "portrait",
+    "version": "0.1.0",
     "icon": "./assets/images/ico.png",
     "androidStatusBar": {
       "barStyle": "dark-content",
@@ -10,6 +11,9 @@
     },
     "splash": {
       "image": "./assets/images/logo.png",
+    },
+    "android": {
+      "package": "com.apiko.askApiko"
     }
   }
 }

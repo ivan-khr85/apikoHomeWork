@@ -18,8 +18,8 @@ export default handleActions({
   }),
   [types.CREATE_QUESTION_ERROR]: mergeDeep(action => ({
     isCreatingQuestion: false,
-    // isCreateQuestionError: action.payload.error,
-    isCreateQuestionError: true,
+    isCreateQuestionError: action.payload.error,
+    // isCreateQuestionError: true,
   })),
 
 

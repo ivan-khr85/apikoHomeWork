@@ -16,7 +16,7 @@ export default createDrawerNavigator({
   [screens.ProfileScreen]: { screen: ProfileNavigator },
   [screens.AboutUsScreen]: { screen: AboutUsNavigator },
 }, {
-  initialRouteName: screens.CreateQuestionScreen, // change for dev
+  initialRouteName: screens.ProfileScreen, // change for dev
   drawerWidth: dimensions.width - 56,
   drawerPosition: 'left',
   contentComponent: AuthorizedDrawer,

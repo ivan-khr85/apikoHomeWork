@@ -5,6 +5,7 @@ import { headerStyle } from '../../styles';
 import s from './style';
 import Touchable from '../../components/Touchable';
 import { DrawerButton, TextInput, ListHeader } from '../../components';
+import dimensions from '../../styles/dimensions';
 
 const isAndroid = Platform.OS === 'android';
 
@@ -19,10 +20,13 @@ const SignUpScreen = ({
   keyboardShow,
 }) => (
 
-  <ScrollView contentContainerStyle={s.container} scrollEnabled={false} keyboardShouldPersistTaps="handled">
+  <ScrollView
+    contentContainerStyle={s.container}
+    scrollEnabled={false}
+    keyboardShouldPersistTaps="handled"
+  >
 
     <View style={s.top}>
-
       <ListHeader headerText="Sign up" />
 
       <TextInput
@@ -45,7 +49,8 @@ const SignUpScreen = ({
         
         secureTextEntry
       />
-      {!keyboardShow && <Touchable
+      {!keyboardShow &&
+      <Touchable
         style={s.navigateToSignIn}
       >
         <Text style={s.textBtn} onPress={navigateToSignIn}>Already has an{'\n'}account?</Text>
@@ -53,12 +58,14 @@ const SignUpScreen = ({
 
     </View>
     <KeyboardAvoidingView style={s.bottom} behavior="position" enabled={!isAndroid}>
-      <Touchable
-        onPress={signUp}
-        style={s.buttonSignUp}
-      >
-        <Text style={s.signUpText}>Sign up</Text>
-      </Touchable>
+      {!(keyboardShow && dimensions.height < 595) &&
+        <Touchable
+          onPress={signUp}
+          style={s.buttonSignUp}
+        >
+          <Text style={s.signUpText}>Sign up</Text>
+        </Touchable>
+      }
     </KeyboardAvoidingView>
   </ScrollView>
 );

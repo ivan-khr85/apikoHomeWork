@@ -55,7 +55,7 @@ const enhancer = compose(
           await props.createQuestion({
             title: props.title,
             description: props.description,
-            tags: (() => ((props.tags.trim().length > 1) ? props.tags : null)),
+            tags: props.tags,
           });
           props.navigation.dispatch(navigationOperations.navigateToHome());
         } catch (err) {

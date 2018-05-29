@@ -82,6 +82,11 @@ const colors = {
     border: '#c6c6c6',
     btnActive: '#FF9900',
   },
+  profile: {
+    border: '#c6c6c6',
+    bg: '#fff',
+    bgTitle: '#f7f7f7',
+  },
 
 };
 

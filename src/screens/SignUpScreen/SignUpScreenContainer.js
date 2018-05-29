@@ -7,7 +7,7 @@ import {
   lifecycle,
 } from 'recompose';
 import { connect } from 'react-redux';
-import { Keyboard } from 'react-native';
+import { Keyboard, LayoutAnimation } from 'react-native';
 import { NavigationActions, StackActions } from 'react-navigation';
 import { authOperations, authSelectors } from '../../modules/auth';
 import { screens } from '../../navigation';
@@ -92,6 +92,11 @@ const enhancer = compose(
       props.onChange('isValidUsername', isValidUsername);
     },
   ),
+  withPropsOnChange(
+    ['keyboardShow'],
+    () => {
+      LayoutAnimation.easeInEaseOut();
+    }),
   lifecycle({
     componentDidMount() {
       Keyboard.addListener(

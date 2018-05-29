@@ -4,6 +4,7 @@ import questions from './questions';
 import answers from './answers';
 import search from './search';
 import createQuestion from './createQuestion';
+import user from './user';
 
 
 export default ({
@@ -13,4 +14,5 @@ export default ({
   createQuestion,
   answers,
   search,
+  user,
 });

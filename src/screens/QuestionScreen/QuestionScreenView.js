@@ -27,7 +27,10 @@ const QuestionScreen = ({
   description,
   navigateSignUp,
 }) => (
-  <KeyboardAwareScrollView contentContainerStyle={s.container}>
+  <KeyboardAwareScrollView
+    contentContainerStyle={s.container}
+    keyboardShouldPersistTaps="handled"
+  >
     <View style={s.top}>
       <QuestionItem question={question} />
 

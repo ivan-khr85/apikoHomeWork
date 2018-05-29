@@ -1,0 +1,3 @@
+export const GET_USER_INFO_START = 'user/GET_USER_INFO_START';
+export const GET_USER_INFO_SUCCESS = 'user/GET_USER_INFO_SUCCESS';
+export const GET_USER_INFO_ERROR = 'user/GET_USER_INFO_ERROR';
