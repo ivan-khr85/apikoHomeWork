@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import T from 'prop-types';
-import * as R from 'ramda';
 import s from './style';
 
 const QuestionsList = ({

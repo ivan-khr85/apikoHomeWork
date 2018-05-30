@@ -1,5 +1,6 @@
 import * as actions from './actions';
 import Api from '../../api';
+import { AlertService } from '../../services';
 
 export const getUserInfo = () => async (dispatch) => {
   try {
@@ -8,7 +9,7 @@ export const getUserInfo = () => async (dispatch) => {
     const res = await Api.getUserInfo();
     dispatch(actions.getUserInfoSuccess({ user: res.data }));
   } catch (err) {
+    AlertService.somethingError();
     dispatch(actions.getUserInfoError());
-    throw new Error('Oops..., getting info error');
   }
 };

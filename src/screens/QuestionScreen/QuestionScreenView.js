@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ActivityIndicator } from 'react-native';
 import T from 'prop-types';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import s from './style';
 import AnswersList from './components/AnswersList';
-import { TextInput, Touchable, LoadingIndicator } from '../../components';
+import { TextInput, Touchable } from '../../components';
 import QuestionItem from './components/QuestionItem';
 
 
@@ -20,7 +20,7 @@ const QuestionScreen = ({
   onChange,
   description,
   navigateSignUp,
-
+  getAnswers,
   createdAt,
   tags,
   title,
@@ -39,6 +39,7 @@ const QuestionScreen = ({
       />
   
       <AnswersList
+        getAnswers={getAnswers}
         answers={answers}
         id={id}
         loadingMoreError={loadingMoreError}
@@ -75,7 +76,7 @@ const QuestionScreen = ({
         }
 
         {isPublishing &&
-        <LoadingIndicator style={s.indicator} />
+          <ActivityIndicator size="large" style={s.indicator} />
         }
       </View>
     </View>
@@ -95,6 +96,7 @@ QuestionScreen.propTypes = {
   onChange: T.func,
   navigateSignUp: T.func,
   loadingError: T.bool,
+  getAnswers: T.func,
 
   createdAt: T.string,
   tags: T.array,

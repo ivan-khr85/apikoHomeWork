@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import EmptyList from './EmptyListView';
 import { authSelectors } from '../../../../modules/auth';
 import { navigationOperations } from '../../../../modules/navigation';
-
+import { userSelectors } from '../../../../modules/user';
 
 const mapStateToProps = state => ({
   signedIn: authSelectors.getSignedInState(state),
+  isLoading: userSelectors.getGettingInfoState(state),
 });
 
 const enhancer = compose(

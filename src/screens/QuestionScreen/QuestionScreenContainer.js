@@ -36,6 +36,7 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = {
   publishAnswer: answersOperations.publishAnswer,
+  getAnswers: answersOperations.getAnswersByQuestionId,
 };
 
 const enhancer = compose(

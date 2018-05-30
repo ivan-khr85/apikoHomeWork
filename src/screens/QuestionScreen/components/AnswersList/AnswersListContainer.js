@@ -12,7 +12,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  getAnswers: answersOperations.getAnswersByQuestionId,
   getAnswersMore: answersOperations.getAnswersByQuestionIdMore,
 };
 

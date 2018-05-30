@@ -2,18 +2,20 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import T from 'prop-types';
 import s from './style';
-import { Touchable, EmptyList } from '../../../../components';
+import { Touchable, EmptyList, LoadingIndicator } from '../../../../components';
 
 
 const ListItem = ({
   signedIn,
   navigateToCreateQuestion,
   navigateSignUp,
+  isLoading,
 }) => (
   <EmptyList
     title="No questions yet"
     description="No one has asked any question yet."
   >
+    {isLoading && <LoadingIndicator />}
     <Touchable
       onPress={
         signedIn ?
@@ -33,6 +35,7 @@ ListItem.propTypes = {
   signedIn: T.bool,
   navigateToCreateQuestion: T.func,
   navigateSignUp: T.func,
+  isLoading: T.bool,
 };
 
 

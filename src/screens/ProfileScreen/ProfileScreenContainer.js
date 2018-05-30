@@ -14,7 +14,6 @@ import ProfileScreen from './ProfileScreenView';
 
 
 const mapStateToProps = state => ({
-  isGettingInfo: userSelectors.getGettingInfoState(state),
   isGettingInfoError: userSelectors.getGettingInfoErrorState(state),
   userEmail: userSelectors.getUserEmailState(state),
   username: userSelectors.getUsernameState(state),
