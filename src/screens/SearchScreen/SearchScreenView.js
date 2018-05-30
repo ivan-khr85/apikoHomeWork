@@ -3,15 +3,13 @@ import * as T from 'prop-types';
 import { View } from 'react-native';
 import Search from '../../libs/react-native-search-box';
 import QuestionsList from './components/QuestionsList';
-import { DrawerButton } from '../../components';
+import { DrawerButton, LoadingIndicator, ResultNoFound, EmptyList } from '../../components';
 import LoadingError from './components/LoadingError';
-import ResultNoFound from './components/ResultNoFound';
 import { headerStyle } from '../../styles';
-import Loading from './components/Loading';
-import EmptyList from './components/EmptyList';
 import SearchHistory from './components/SearchHistory';
 import s from './style';
 
+const description = 'The search query will appear here.\nYou can use they to search again.';
 
 const SearchScreen = ({
   isLoading,
@@ -47,7 +45,7 @@ const SearchScreen = ({
         />
       </View>
       
-      {isLoading && <Loading />}
+      {isLoading && <LoadingIndicator />}
       {!isLoading &&
       <View style={s.questionContainer}>
         <QuestionsList
@@ -62,8 +60,9 @@ const SearchScreen = ({
           hasNoMore={hasNoMore}
           isLoadingMore={isLoadingMore}
           navigateToQuestion={navigateToQuestion}
-          ListEmptyComponent={(inputValue && <ResultNoFound />) || (
-            (searchHistory.length < 1) ? (<EmptyList />)
+          ListEmptyComponent={
+            (inputValue && <ResultNoFound />) || (
+            (searchHistory.length < 1) ? (<EmptyList title="No searches yet" description={description} />)
             : (<SearchHistory
               onChange={onChange}
               searchHistory={searchHistory}

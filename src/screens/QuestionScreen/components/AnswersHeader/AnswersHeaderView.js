@@ -6,7 +6,6 @@ import s from './style';
 
 const QuestionsList = ({
   countAnswer,
-  orderBy,
 }) => (
   <View style={s.container}>
     <View style={s.left}>
@@ -15,14 +14,13 @@ const QuestionsList = ({
     </View>
 
     <View style={s.right}>
-      <Text style={s.orderText}>order by ...</Text>
+      <Text style={s.orderText}>order by date</Text>
     </View>
   </View>
 );
 
 QuestionsList.propTypes = {
   countAnswer: T.number,
-  orderBy: T.string,
 };
 
 
