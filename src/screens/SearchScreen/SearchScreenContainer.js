@@ -13,6 +13,7 @@ import { questionsOperations, questionsSelectors } from '../../modules/questions
 import { answersOperations } from '../../modules/answers';
 import { searchOperations, searchSelectors } from '../../modules/search';
 import SearchScreen from './SearchScreenView';
+import { navigationOperations } from '../../modules/navigation';
 import { AlertService } from '../../services';
 
 const mapStateToProps = state => ({
@@ -45,7 +46,10 @@ const enhancer = compose(
   }),
   withHandlers({
     navigateToQuestion: props => (id) => {
-      props.navigation.navigate(screens.QuestionScreen, { id });
+      props.navigation.navigate(screens.QuestionScreen, {
+        id,
+        onPress: props.navigation.dispatch(navigationOperations.navigateToSearch()),
+      });
       props.getAnswersByQuestionId(id);
     },
     onPressCancel: props => () => {

@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import gravatar from 'gravatar-api';
 import { screens } from '../../navigation';
 import { userOperations, userSelectors } from '../../modules/user';
+import { navigationOperations } from '../../modules/navigation';
 import { answersOperations } from '../../modules/answers';
 import ProfileScreen from './ProfileScreenView';
 
@@ -42,6 +43,7 @@ const enhancer = compose(
         createdAt,
         tags,
         title,
+        onPress: props.navigation.dispatch(navigationOperations.navigateToProfile()),
       });
       props.getAnswersByQuestionId(id);
     },

@@ -7,6 +7,7 @@ import {
   withPropsOnChange,
   setStatic,
 } from 'recompose';
+import R from 'ramda';
 import { connect } from 'react-redux';
 import QuestionScreen from './QuestionScreenView';
 import { headerStyle } from '../../styles';
@@ -18,6 +19,10 @@ import { AlertService } from '../../services';
 import { authSelectors } from '../../modules/auth';
 import { navigationOperations } from '../../modules/navigation';
 
+const getParam = (props, paramName) => R.path(
+  ['navigation', 'state', 'params', paramName],
+  props,
+);
 
 const mapStateToProps = (state, props) => ({
   isPublishing: answersSelectors.getPublishAnswerState(state),
@@ -34,7 +39,7 @@ const mapDispatchToProps = {
 };
 
 const enhancer = compose(
-  paramsToProps('id', 'createdAt', 'tags', 'title'),
+  paramsToProps('id', 'createdAt', 'tags', 'title', 'onPress'),
   connect(mapStateToProps, mapDispatchToProps),
   withStateHandlers({
     description: '',
@@ -74,12 +79,24 @@ const enhancer = compose(
   ),
   setStatic(
     'navigationOptions',
-    ({ navigation }) => ({
-      ...headerStyle,
-      headerLeft: (
-        <BackBtn navigation={navigation} title="Back" />
-      ),
-    }),
+    (props) => {
+      const onPress = getParam(props, 'onPress');
+      const { navigation } = props;
+      if (onPress) {
+        return ({
+          ...headerStyle,
+          headerLeft: (
+            <BackBtn onPress={() => navigation.dispatch(onPress)} title="Back" />
+          ),
+        });
+      }
+      return ({
+        ...headerStyle,
+        headerLeft: (
+          <BackBtn navigation={navigation} title="Back" />
+        ),
+      });
+    },
   ),
 );
 

@@ -17,8 +17,15 @@ export const navigateToCreateQuestion = () =>
 export const navigateToSignUp = () =>
   NavigationActions.navigate({ routeName: screens.SignUpScreen });
 
-export const navigateToSearch = () =>
-  NavigationActions.navigate({ routeName: screens.SearchScreen });
-
+  
 export const navigateToHome = () =>
   NavigationActions.navigate({ routeName: screens.HomeScreen });
+
+export const navigateToSearch = () =>
+  NavigationActions.navigate({ routeName: screens.SearchScreen });
+  
+export const navigateToProfile = () =>
+  NavigationActions.navigate({ routeName: screens.ProfileScreen });
+
+
+// { onPress: props.navigation.dispatch(navigationOperations.navigateToSearch()) }
