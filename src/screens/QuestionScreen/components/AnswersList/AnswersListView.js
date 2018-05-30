@@ -17,15 +17,19 @@ const QuestionsList = ({
   getAnswers,
   id,
   isLoading,
+  ...props
 }) => (
   <FlatList
+    {...props}
     data={answers}
     onEndReachedThreshold={0.7}
-    onEndReached={() => getAnswersMore(id)}
     refreshing={isLoading}
     onRefresh={() => getAnswers(id)}
+    onEndReached={() => getAnswersMore(id)}
     ItemSeparatorComponent={() => <Separator />}
-    keyExtractor={(item, index) => (`${R.prop('_id')(item)}-${item.createdAt}-${index}`)}
+    keyExtractor={(item, index) => (
+      `${R.prop('_id', item)}-${R.prop('questionId', item)}-${index}`
+    )}
     ListFooterComponent={() => (
       answers.length ? <ListFooter
         hasNoMore={hasNoMore}

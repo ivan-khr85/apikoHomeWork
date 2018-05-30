@@ -21,12 +21,13 @@ const QuestionsList = ({
     {...props}
     refreshing={isLoading}
     onEndReachedThreshold={0.7}
-    hasNoMore={hasNoMore}
     onEndReached={getQuestionsMore}
     isLoadingMore={isLoadingMore}
     data={questionsList}
     ItemSeparatorComponent={() => <Separator />}
-    keyExtractor={(item, index) => (`${R.prop('_id')(item)}-${item.createdAt}-${index}`)}
+    keyExtractor={(item, index) => (
+      `${R.prop('_id', item)}-${R.prop('questionId', item)}-${index}`
+    )}
     ListFooterComponent={
       <ListFooter
         hasNoMore={hasNoMore}

@@ -1,6 +1,6 @@
 import { pure, compose } from 'recompose';
 import { connect } from 'react-redux';
-import { searchSelectors, searchOperations } from '../../../../modules/search'
+import { searchSelectors, searchOperations } from '../../../../modules/search';
 import SearchHistory from './SearchHistoryView';
 
 

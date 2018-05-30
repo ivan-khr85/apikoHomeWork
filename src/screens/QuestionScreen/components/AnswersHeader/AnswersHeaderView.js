@@ -8,7 +8,7 @@ const QuestionsList = ({
 }) => (
   <View style={s.container}>
     <View style={s.left}>
-      {countAnswer <= 1  && <Text style={s.countText}>{countAnswer} Answer</Text>}
+      {countAnswer <= 1 && <Text style={s.countText}>{countAnswer} Answer</Text>}
       {countAnswer > 1 && <Text style={s.countText}>{countAnswer} Answers</Text>}
     </View>
 
