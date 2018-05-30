@@ -13,10 +13,18 @@ const QuestionsList = ({
   onPress,
   loadingMoreError,
   getQuestionsMore,
+  questionsList,
+  isLoading,
   ...props
 }) => (
   <FlatList
     {...props}
+    refreshing={isLoading}
+    onEndReachedThreshold={0.7}
+    hasNoMore={hasNoMore}
+    onEndReached={getQuestionsMore}
+    isLoadingMore={isLoadingMore}
+    data={questionsList}
     ItemSeparatorComponent={() => <Separator />}
     keyExtractor={(item, index) => (`${R.prop('_id')(item)}-${item.createdAt}-${index}`)}
     ListFooterComponent={
@@ -45,11 +53,14 @@ const QuestionsList = ({
 
 QuestionsList.propTypes = {
   props: T.any,
+  isLoading: T.bool,
   hasNoMore: T.bool,
   isLoadingMore: T.bool,
   onPress: T.func,
   loadingMoreError: T.bool,
   getQuestionsMore: T.func,
+  questionsList: T.array,
+  
 };
 
 

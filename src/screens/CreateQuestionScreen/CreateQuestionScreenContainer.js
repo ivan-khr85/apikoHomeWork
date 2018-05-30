@@ -9,7 +9,7 @@ import {
   setStatic,
 } from 'recompose';
 import { connect } from 'react-redux';
-import { Text, ActivityIndicator } from 'react-native';
+import { View, Text, ActivityIndicator } from 'react-native';
 import CreateQuestionScreen from './CreateQuestionScreenView';
 import { headerStyle, colors } from '../../styles';
 import { screens } from '../../navigation';
@@ -20,11 +20,14 @@ import s from './style';
 import { AlertService } from '../../services';
 
 const headerRight = (createQuestion, isValid, isPublishing) => (
-  <Touchable style={s.btnContainer} onPress={createQuestion} borderless>
-    {isPublishing ?
-      <ActivityIndicator size="large" color={colors.mainColor} style={s.indicator} />
-      : <Text style={[s.textBtn, isValid && s.textBtnActive]}>Send</Text>}
-  </Touchable>
+  <View>
+    {isPublishing &&
+      <ActivityIndicator size="large" color={colors.mainColor} style={s.indicator} />}
+    {!isPublishing &&
+      <Touchable style={s.btnContainer} onPress={createQuestion} borderless>
+        <Text style={[s.textBtn, isValid && s.textBtnActive]}>Send</Text>
+      </Touchable>}
+  </View>
 );
 
 const mapStateToProps = state => ({

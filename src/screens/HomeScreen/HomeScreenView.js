@@ -10,12 +10,7 @@ import LoadingError from './components/LoadingError';
 
 
 const HomeScreen = ({
-  questionsList,
-  getQuestionsMore,
   getQuestions,
-  isLoading,
-  hasNoMore,
-  isLoadingMore,
   loadingError,
   navigateToQuestion,
 }) =>
@@ -32,12 +27,6 @@ const HomeScreen = ({
     <View style={s.container}>
       <QuestionsList
         onRefresh={getQuestions}
-        refreshing={isLoading}
-        data={questionsList}
-        onEndReachedThreshold={0.7}
-        onEndReached={getQuestionsMore}
-        hasNoMore={hasNoMore}
-        isLoadingMore={isLoadingMore}
         onPress={navigateToQuestion}
       />
     </View>
@@ -54,12 +43,7 @@ HomeScreen.navigationOptions = ({ navigation }) => ({
 });
 
 HomeScreen.propTypes = {
-  questionsList: T.array,
-  getQuestionsMore: T.func,
-  isLoading: T.bool,
   getQuestions: T.func,
-  hasNoMore: T.bool,
-  isLoadingMore: T.bool,
   loadingError: T.any,
   navigateToQuestion: T.func,
   

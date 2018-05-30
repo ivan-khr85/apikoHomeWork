@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import T from 'prop-types';
 import { ListHeader, TextInput } from '../../components';
 import s from './style';
@@ -9,8 +9,6 @@ const CreateQuestionScreen = ({
   description,
   tags,
   onChange,
-  isCreatingQuestion,
-  isCreatingQuestionError,
 }) => (
   <View style={s.container}>
     <ListHeader
@@ -48,8 +46,6 @@ CreateQuestionScreen.propTypes = {
   description: T.string,
   tags: T.string,
   onChange: T.func,
-  isCreatingQuestion: T.bool,
-  isCreatingQuestionError: T.bool,
 };
 
 export default CreateQuestionScreen;

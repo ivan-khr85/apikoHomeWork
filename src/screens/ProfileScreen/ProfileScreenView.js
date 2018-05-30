@@ -3,6 +3,7 @@ import T from 'prop-types';
 import { View, Text, Image } from 'react-native';
 import { headerStyle } from '../../styles';
 import { DrawerButton, ListHeader } from '../../components';
+import QuestionsList from './components/QuestionsList';
 import userDefault from '../../../assets/images/userDefault.png';
 import s from './style';
 
@@ -10,6 +11,8 @@ const ProfileScreen = ({
   getUserAvatarUrl,
   userEmail,
   username,
+  userQuestions,
+  navigateToQuestion,
 }) => (
   <View style={s.container}>
     <ListHeader
@@ -31,8 +34,12 @@ const ProfileScreen = ({
       </View>
     </View>
     <View style={s.questionsTitle}>
-      <Text style={s.questionsTitleText}>Posted questions</Text>
+      <Text style={s.questionsTitleText}>Last posted questions</Text>
     </View>
+    <QuestionsList
+      data={userQuestions}
+      onPress={navigateToQuestion}
+    />
   </View>
 );
 
@@ -50,6 +57,8 @@ ProfileScreen.propTypes = {
   getUserAvatarUrl: T.func,
   userEmail: T.string,
   username: T.string,
+  userQuestions: T.array,
+  navigateToQuestion: T.func,
 };
 
 export default ProfileScreen;

@@ -6,7 +6,9 @@ import {
 } from 'recompose';
 import { connect } from 'react-redux';
 import gravatar from 'gravatar-api';
+import { screens } from '../../navigation';
 import { userOperations, userSelectors } from '../../modules/user';
+import { answersOperations } from '../../modules/answers';
 import ProfileScreen from './ProfileScreenView';
 
 
@@ -15,10 +17,12 @@ const mapStateToProps = state => ({
   isGettingInfoError: userSelectors.getGettingInfoErrorState(state),
   userEmail: userSelectors.getUserEmailState(state),
   username: userSelectors.getUsernameState(state),
+  userQuestions: userSelectors.getUserQuestionsState(state),
 });
 
 const mapDispatchToProps = {
   getUserInfo: userOperations.getUserInfo,
+  getAnswersByQuestionId: answersOperations.getAnswersByQuestionId,
 };
 
 const enhancer = compose(
@@ -31,6 +35,15 @@ const enhancer = compose(
         secure: true,
       };
       return gravatar.imageUrl(options);
+    },
+    navigateToQuestion: props => (id, createdAt, tags, title) => {
+      props.navigation.navigate(screens.QuestionScreen, {
+        id,
+        createdAt,
+        tags,
+        title,
+      });
+      props.getAnswersByQuestionId(id);
     },
   }),
   lifecycle({

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, dimensions } from '../../styles';
+import { colors } from '../../../../styles';
 
 export default StyleSheet.create({
   container: {
@@ -7,7 +7,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
 
-    height: dimensions.height / 2.5,
+    height: 450,
     paddingTop: 50,
   },
 
@@ -20,5 +20,17 @@ export default StyleSheet.create({
     color: colors.emptyList.description,
   },
 
+  button: {
+    backgroundColor: colors.buttonColor,
+    marginTop: 15,
+    paddingHorizontal: 30,
+    paddingVertical: 7,
+    borderRadius: 5,
+     
+  },
+  buttonText: {
+    color: colors.emptyList.buttonText,
+
+  },
 
 });

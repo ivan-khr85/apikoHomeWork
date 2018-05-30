@@ -4,7 +4,7 @@ import fullLogo from '../../../assets/images/fullLogo.png';
 import s from './style';
 
 
-const TitleLogo = () => (
+const HeaderLogo = () => (
   <View style={s.container}>
     <Image
       source={fullLogo}
@@ -14,4 +14,4 @@ const TitleLogo = () => (
 );
 
 
-export default TitleLogo;
+export default HeaderLogo;

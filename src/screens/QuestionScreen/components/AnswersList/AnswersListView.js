@@ -6,25 +6,28 @@ import AnswerListItem from '../AnswerListItem';
 import AnswersHeader from '../AnswersHeader';
 import { Separator, ListFooter } from '../../../../components';
 import EmptyList from '../EmptyList';
-// import s from './style';
 
 const QuestionsList = ({
   hasNoMore,
   isLoadingMore,
-  data,
+  answers,
   count,
   getAnswersMore,
   loadingMoreError,
+  getAnswers,
   id,
-  ...props
+  isLoading,
 }) => (
   <FlatList
-    {...props}
-    data={data}
+    data={answers}
+    onEndReachedThreshold={0.7}
+    onEndReached={() => getAnswersMore(id)}
+    refreshing={isLoading}
+    onRefresh={() => getAnswers(id)}
     ItemSeparatorComponent={() => <Separator />}
     keyExtractor={(item, index) => (`${R.prop('_id')(item)}-${item.createdAt}-${index}`)}
     ListFooterComponent={() => (
-      data.length ? <ListFooter
+      answers.length ? <ListFooter
         hasNoMore={hasNoMore}
         isLoadingMore={isLoadingMore}
         loadingMoreError={loadingMoreError}
@@ -53,11 +56,14 @@ QuestionsList.propTypes = {
   hasNoMore: T.bool,
   isLoadingMore: T.bool,
   onPress: T.func,
-  data: T.array,
+  answers: T.array,
   count: T.number,
   getAnswersMore: T.func,
   loadingMoreError: T.bool,
   id: T.string,
+  getAnswers: T.func,
+  isLoading: T.bool,
+  
 };
 
 

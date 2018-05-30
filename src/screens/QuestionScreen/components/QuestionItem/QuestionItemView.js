@@ -9,12 +9,17 @@ import userDefault from '../../../../../assets/images/userDefault.png';
 
 const QuestionItem = ({
   question,
+  createdAt,
+  tags,
+  title,
 }) => (
   <View style={s.container}>
   
     <View style={s.question}>
-      <Text style={s.title}>{question.title}</Text>
-      <View style={[question.tags.length && s.tags]}><Tags tags={question.tags} /></View>
+      <Text style={s.title}>{title || question.title}</Text>
+      <View style={[(tags || question.tags.length) && s.tags]}>
+        <Tags tags={tags || question.tags} />
+      </View>
     </View>
     <View style={s.descriptionContainer}>
       <Text style={s.descriptionText}>{question.description}</Text>
@@ -29,7 +34,9 @@ const QuestionItem = ({
       </View>
       <View style={s.time}>
         <Text style={s.timeTitle}>asked</Text>
-        <Text style={s.timeValue}>{moment(question.createdAt).startOf('hour').fromNow()}</Text>
+        <Text style={s.timeValue}>
+          {moment(createdAt || question.createdAt).startOf('minute').fromNow()}
+        </Text>
       </View>
     </View>
 
@@ -45,6 +52,10 @@ QuestionItem.propTypes = {
     tags: T.array,
     title: T.string,
   }),
+
+  createdAt: T.string,
+  tags: T.array,
+  title: T.string,
 
 };
 

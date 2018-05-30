@@ -11,38 +11,36 @@ import QuestionItem from './components/QuestionItem';
 const QuestionScreen = ({
   isPublishing,
   signedIn,
-  isLoading,
-  isLoadingMore,
   loadingError,
   loadingMoreError,
-  hasNoMore,
   question,
   answers,
   id,
-  getAnswers,
-  getAnswersMore,
   publishAnswer,
   onChange,
   description,
   navigateSignUp,
+
+  createdAt,
+  tags,
+  title,
 }) => (
   <KeyboardAwareScrollView
     contentContainerStyle={s.container}
     keyboardShouldPersistTaps="handled"
   >
     <View style={s.top}>
-      <QuestionItem question={question} />
-
-      <AnswersList
-        onRefresh={() => getAnswers(id)}
-        refreshing={isLoading}
-        data={answers}
-        onEndReachedThreshold={0.7}
-        onEndReached={() => getAnswersMore(id)}
-        hasNoMore={hasNoMore}
-        isLoadingMore={isLoadingMore}
+      <QuestionItem
+        question={question}
         id={id}
-        getAnswersMore={getAnswersMore}
+        createdAt={createdAt}
+        tags={tags}
+        title={title}
+      />
+  
+      <AnswersList
+        answers={answers}
+        id={id}
         loadingMoreError={loadingMoreError}
         loadingError={loadingError}
       />
@@ -89,19 +87,18 @@ QuestionScreen.propTypes = {
   isPublishing: T.bool,
   signedIn: T.bool,
   question: T.object,
-  isLoading: T.bool,
-  getAnswers: T.func,
   id: T.string,
   loadingMoreError: T.bool,
   answers: T.array,
-  isLoadingMore: T.bool,
-  getAnswersMore: T.func,
-  hasNoMore: T.bool,
   publishAnswer: T.func,
   description: T.string,
   onChange: T.func,
   navigateSignUp: T.func,
   loadingError: T.bool,
+
+  createdAt: T.string,
+  tags: T.array,
+  title: T.string,
 };
 
 export default QuestionScreen;

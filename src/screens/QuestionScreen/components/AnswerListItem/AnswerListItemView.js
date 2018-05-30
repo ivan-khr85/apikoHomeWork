@@ -8,10 +8,10 @@ import userDefault from '../../../../../assets/images/userDefault.png';
 
 const ListItem = ({
   createdAt,
-  _id,
-  questionId,
   description,
-  createdById,
+  // _id,
+  // questionId,
+  // createdById,
 }) => (
   <View style={s.container}>
     <View style={s.descriptionContainer}>
@@ -26,7 +26,7 @@ const ListItem = ({
       </View>
       <View style={s.time}>
         <Text style={s.timeTitle}>answered</Text>
-        <Text style={s.timeValue}>{moment(createdAt).startOf('hour').fromNow()}</Text>
+        <Text style={s.timeValue}>{moment(createdAt).startOf('minute').fromNow()}</Text>
       </View>
     </View>
   </View>
@@ -34,10 +34,10 @@ const ListItem = ({
 
 ListItem.propTypes = {
   createdAt: T.string,
-  _id: T.string,
-  questionId: T.string,
   description: T.string,
-  createdById: T.string,
+  // _id: T.string,
+  // questionId: T.string,
+  // createdById: T.string,
 };
 
 

@@ -19,3 +19,8 @@ export const getUsernameState = createSelector(
   R.pathOr('username', ['user', 'userInfo', 'profile', 'fullName']),
   state => state,
 );
+
+export const getUserQuestionsState = createSelector(
+  R.pathOr([], ['user', 'userQuestions']),
+  state => state,
+);

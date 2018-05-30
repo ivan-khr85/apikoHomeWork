@@ -1,21 +1,17 @@
 import { StyleSheet } from 'react-native';
-// import { colors } from '../../styles';
+import { dimensions } from '../../styles';
 
 export default StyleSheet.create({
   container: {
     position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    marginLeft: (dimensions.width / 2) - (105 / 2) - 51,
     justifyContent: 'center',
     alignItems: 'center',
+
   },
   
   logo: {
     resizeMode: 'contain',
     width: 105,
-
-
   },
 });

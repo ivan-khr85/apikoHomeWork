@@ -5,11 +5,18 @@ import QuestionsList from './QuestionsListView';
 
 
 const mapStateToProps = state => ({
+  isLoading: questionsSelectors.getQuestionsListLoadingState(state),
   loadingMoreError: questionsSelectors.getQuestionsListLoadingMoreErrorState(state),
+  questionsList: questionsSelectors.getQuestionsList(state),
+  isLoadingMore: questionsSelectors.getQuestionsListLoadingMoreState(state),
+  hasNoMore: questionsSelectors.getQuestionsListHasNoMoreState(state),
+
+  
 });
 
 const mapDispatchToProps = {
   getQuestionsMore: questionsOperations.getQuestionsMore,
+  getQuestions: questionsOperations.getQuestions,
 };
 
 const enhancer = compose(

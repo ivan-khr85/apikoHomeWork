@@ -16,7 +16,7 @@ export default createDrawerNavigator({
   [screens.ProfileScreen]: { screen: ProfileNavigator },
   [screens.AboutUsScreen]: { screen: AboutUsNavigator },
 }, {
-  initialRouteName: screens.ProfileScreen, // change for dev
+  initialRouteName: screens.HomeScreen, // change for dev
   drawerWidth: dimensions.width - 56,
   drawerPosition: 'left',
   contentComponent: AuthorizedDrawer,

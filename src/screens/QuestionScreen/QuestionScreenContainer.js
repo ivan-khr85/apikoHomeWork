@@ -26,23 +26,15 @@ const mapStateToProps = (state, props) => ({
   question: questionsSelectors.getQuestionById(state, props.id),
   answers: answersSelectors.getAnswersByQuestionId(state, props.id),
 
-  isLoading: answersSelectors.getAnswersLoadingState(state),
-  isLoadingMore: answersSelectors.getAnswersLoadingMoreState(state),
-  hasNoMore: answersSelectors.getAnswersHasNoMoreState(state),
-
   loadingError: answersSelectors.getAnswersErrorState(state),
-  loadingMoreError: answersSelectors.getAnswersLoadingMoreErrorState(state),
 });
 
 const mapDispatchToProps = {
-  getAnswers: answersOperations.getAnswersByQuestionId,
-  getAnswersMore: answersOperations.getAnswersByQuestionIdMore,
-  
   publishAnswer: answersOperations.publishAnswer,
 };
 
 const enhancer = compose(
-  paramsToProps('id'),
+  paramsToProps('id', 'createdAt', 'tags', 'title'),
   connect(mapStateToProps, mapDispatchToProps),
   withStateHandlers({
     description: '',

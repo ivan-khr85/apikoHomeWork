@@ -13,18 +13,11 @@ import { answersOperations } from '../../modules/answers';
 
 
 const mapStateToProps = state => ({
-  isLoading: questionsSelectors.getQuestionsListLoadingState(state),
-  isLoadingMore: questionsSelectors.getQuestionsListLoadingMoreState(state),
-  questionsList: questionsSelectors.getQuestionsList(state),
-  hasNoMore: questionsSelectors.getQuestionsListHasNoMoreState(state),
-
   loadingError: questionsSelectors.getQuestionsListErrorState(state),
-
 });
 
 const mapDispatchToProps = {
   getQuestions: questionsOperations.getQuestions,
-  getQuestionsMore: questionsOperations.getQuestionsMore,
   getAnswersByQuestionId: answersOperations.getAnswersByQuestionId,
 
 };
