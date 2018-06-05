@@ -40,7 +40,6 @@ const UnauthorizedDrawer = props => (
         borderTop
       />
 
-  
     </SafeAreaView>
   </ScrollView>
 );

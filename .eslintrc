@@ -15,7 +15,14 @@
   },
   "rules": {
     "jsx-a11y/href-no-hash": "off",
-    "max-len": [2, 100, 2],
+    "max-len": [
+      2,
+      {
+      "code": 100,
+      "ignoreComments": true
+    },
+    2
+  ],
     "import/no-extraneous-dependencies": [
       "error",
       {

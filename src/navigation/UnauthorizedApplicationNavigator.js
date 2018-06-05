@@ -17,3 +17,4 @@ export default createDrawerNavigator({
   drawerPosition: 'left',
   contentComponent: UnauthorizedDrawer,
 });
+

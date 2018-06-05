@@ -1,6 +1,12 @@
 import React from 'react';
 import * as T from 'prop-types';
-import { View, Text, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 import { headerStyle } from '../../styles';
 import s from './style';
 import Touchable from '../../components/Touchable';
@@ -53,11 +59,20 @@ const SignUpScreen = ({
       <Touchable
         style={s.navigateToSignIn}
       >
-        <Text style={s.textBtn} onPress={navigateToSignIn}>Already has an{'\n'}account?</Text>
+        <Text
+          style={s.textBtn}
+          onPress={navigateToSignIn}
+        >
+            Already has an{'\n'}account?
+        </Text>
       </Touchable>}
 
     </View>
-    <KeyboardAvoidingView style={s.bottom} behavior="position" enabled={!isAndroid}>
+    <KeyboardAvoidingView
+      style={s.bottom}
+      behavior="position"
+      enabled={!isAndroid}
+    >
       {!(keyboardShow && dimensions.height < 595) &&
         <Touchable
           onPress={signUp}

@@ -18,7 +18,11 @@ const resetNavigator = (props) => {
   const resetAction = StackActions.reset({
     key: screens.AuthorizedApplicationNavigator,
     index: 0,
-    actions: [NavigationActions.navigate({ routeName: screens.AuthorizedApplicationNavigator })],
+    actions: [
+      NavigationActions.navigate({
+        routeName: screens.AuthorizedApplicationNavigator,
+      }),
+    ],
   });
   props.navigation.dispatch(resetAction);
 };
@@ -47,7 +51,9 @@ const enhancer = compose(
     onChange: () => (field, value) => ({ [field]: value }),
   }),
   withHandlers({
-    navigateToSignIn: props => () => props.navigation.navigate(screens.SignInScreen),
+    navigateToSignIn:
+      props => () => props.navigation.navigate(screens.SignInScreen),
+
     signUp: props => async () => {
       if (props.isValidUsername) {
         if (props.isValidEmail) {
@@ -78,7 +84,7 @@ const enhancer = compose(
     ['username', 'email', 'password'],
     (props) => {
       const isValidUsername = (
-        props.username.trim().length > 3
+        props.username.trim().length > 4
       );
       const isValidEmail = (
         props.email.trim().includes('@')

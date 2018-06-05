@@ -7,10 +7,10 @@
     "icon": "./assets/images/ico.png",
     "androidStatusBar": {
       "barStyle": "dark-content",
-      "backgroundColor": "#FF9900",
+      "backgroundColor": "#FF9900"
     },
     "splash": {
-      "image": "./assets/images/logo.png",
+      "image": "./assets/images/logo.png"
     },
     "android": {
       "package": "com.apiko.askApiko"

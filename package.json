@@ -17,6 +17,7 @@
     "@expo/vector-icons": "^6.3.1",
     "axios": "^0.16.2",
     "dayjs": "^1.6.4",
+    "deepmerge": "^2.1.1",
     "ex-react-native-i18n": "0.0.4",
     "expo": "^26.0.0",
     "gravatar-api": "^1.5.0",

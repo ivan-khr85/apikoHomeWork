@@ -27,6 +27,7 @@ const BackBtn = ({
   </View>
 );
 
+
 BackBtn.propTypes = {
   navigation: T.any,
   onPress: T.func,

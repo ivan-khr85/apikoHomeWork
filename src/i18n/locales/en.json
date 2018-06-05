@@ -1,7 +1,7 @@
-{
 
+{
   "error": {
-    "somethingWrong": "Oops! Somthing when wrong",
+    "somethingWrong": "Oops! Something when wrong",
     "openLinkError": "Cannot open the link"
   },
   "signOut": {
@@ -76,6 +76,6 @@
     "title": "Something Error",
     "messages": "Please, try again later",
     "ok": "OK"
-  },
+  }
 
 }
